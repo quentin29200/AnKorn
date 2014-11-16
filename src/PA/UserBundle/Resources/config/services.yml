@@ -1,0 +1,7 @@
+parameters:
+#    pa_user.example.class: PA\UserBundle\Example
+
+services:
+#    pa_user.example:
+#        class: %pa_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

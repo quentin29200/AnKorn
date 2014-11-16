@@ -1,0 +1,9 @@
+# ROUTING ANNONCE
+# REGROUPE L'ENSEMBLE DES ADRESSES ASSOCIE AU BUNDLE ANNONCE
+pa_annonce_homepage:
+    path:     /chose/{name}
+    defaults: { _controller: PAAnnonceBundle:Annonce:index }
+
+pa_annonce_ajouter:
+    path:     /creer
+    defaults: { _controller: PAAnnonceBundle:Annonce:creerAnnonce }

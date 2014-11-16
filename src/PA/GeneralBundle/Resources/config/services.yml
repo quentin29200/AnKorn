@@ -1,0 +1,7 @@
+parameters:
+#    pa_general.example.class: PA\GeneralBundle\Example
+
+services:
+#    pa_general.example:
+#        class: %pa_general.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

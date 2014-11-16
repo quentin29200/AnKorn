@@ -1,0 +1,12 @@
+pa_general_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PAGeneralBundle:Default:afficherIndex }
+
+pa_general_test:
+    path:     /test/
+    defaults: { _controller: PAGeneralBundle:Default:afficherTest }
+
+
+pa_general_mentions:
+    path:     /mentions-legales/
+    defaults: { _controller: PAGeneralBundle:Default:afficherMentions }

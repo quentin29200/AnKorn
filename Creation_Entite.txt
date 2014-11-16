@@ -1,0 +1,21 @@
+php app/console doctrine:generate:entity
+
+On donne le nom
+On utilise les annotations
+
+on créé le repository
+
+-> Ok 
+
+Disponible dans le src/PA/lebundle/Entity
+
+On met a jour la BDD :
+
+
+php app/console doctrine:schema:update --dump-sql
+php app/console doctrine:schema:update --force
+
+On créé le formulaire correspondant :
+php app/console generate:doctrine:form NomDuBundle:Entité
+
+yoloo

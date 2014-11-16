@@ -1,0 +1,424 @@
+<?php
+
+namespace PA\AnnonceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Annonce
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="PA\AnnonceBundle\Entity\AnnonceRepository")
+ */
+class Annonce
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $an_id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="an_titre", type="string", length=80)
+     */
+    private $an_titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="an_description", type="text")
+     */
+    private $an_description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="an_date_publication", type="datetime")
+     */
+    private $an_datePublication;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="an_date_supression", type="datetime")
+     */
+    private $an_dateSupression;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="an_date_acquisition", type="datetime")
+     */
+    private $an_dateAcquisition;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="an_publie", type="boolean")
+     */
+    private $an_publie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="an_image", type="string", length=255)
+     */
+    private $an_image;
+
+    /**
+     * @var \stdClass
+     *
+     * @ORM\Column(name="an_categorie", type="object")
+     */
+    private $an_categorie;
+
+    /**
+     * @var \stdClass
+     *
+     * @ORM\Column(name="an_user", type="object")
+     */
+    private $an_user;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="an_prix", type="integer")
+     */
+    private $an_prix;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="an_type", type="boolean")
+     */
+    private $an_type;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="an_departement", type="array")
+     */
+    private $an_departement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="an_cp", type="string", length=5)
+     */
+    private $an_cp;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return Annonce
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Annonce
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set datePublication
+     *
+     * @param \DateTime $datePublication
+     * @return Annonce
+     */
+    public function setDatePublication($datePublication)
+    {
+        $this->datePublication = $datePublication;
+
+        return $this;
+    }
+
+    /**
+     * Get datePublication
+     *
+     * @return \DateTime 
+     */
+    public function getDatePublication()
+    {
+        return $this->datePublication;
+    }
+
+    /**
+     * Set dateSupression
+     *
+     * @param \DateTime $dateSupression
+     * @return Annonce
+     */
+    public function setDateSupression($dateSupression)
+    {
+        $this->dateSupression = $dateSupression;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSupression
+     *
+     * @return \DateTime 
+     */
+    public function getDateSupression()
+    {
+        return $this->dateSupression;
+    }
+
+    /**
+     * Set dateAcquisition
+     *
+     * @param \DateTime $dateAcquisition
+     * @return Annonce
+     */
+    public function setDateAcquisition($dateAcquisition)
+    {
+        $this->dateAcquisition = $dateAcquisition;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAcquisition
+     *
+     * @return \DateTime 
+     */
+    public function getDateAcquisition()
+    {
+        return $this->dateAcquisition;
+    }
+
+    /**
+     * Set publie
+     *
+     * @param boolean $publie
+     * @return Annonce
+     */
+    public function setpublie($publie)
+    {
+        $this->publie = $publie;
+
+        return $this;
+    }
+
+    /**
+     * Get publie
+     *
+     * @return boolean 
+     */
+    public function getpublie()
+    {
+        return $this->publie;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Annonce
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \stdClass $categorie
+     * @return Annonce
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \stdClass 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \stdClass $user
+     * @return Annonce
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \stdClass 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param integer $prix
+     * @return Annonce
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer 
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set type
+     *
+     * @param boolean $type
+     * @return Annonce
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return boolean 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set departement
+     *
+     * @param array $departement
+     * @return Annonce
+     */
+    public function setDepartement($departement)
+    {
+        $this->departement = $departement;
+
+        return $this;
+    }
+
+    /**
+     * Get departement
+     *
+     * @return array 
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
+    }
+
+    /**
+     * Set cp
+     *
+     * @param string $cp
+     * @return Annonce
+     */
+    public function setcp($cp)
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * Get cp
+     *
+     * @return string 
+     */
+    public function getcp()
+    {
+        return $this->cp;
+    }
+}

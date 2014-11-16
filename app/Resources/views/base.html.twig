@@ -32,19 +32,19 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="about.html">{{'Accueil_title'|trans}}</a>
+                            <a href="{{ path('pa_general_accueil') }}">{{'Accueil_title'|trans}}</a>
                         </li>
                         <li>
-                            <a href="{{path('pa_general_test')}}">{{'Offres_title'|trans}}</a>
+                            <a href="{{path('pa_general_offres')}}">{{'Offres_title'|trans}}</a>
                         </li>
                         <li>
-                            <a href="{{path('pa_general_test')}}">{{'Demandes_title'|trans}}</a>
+                            <a href="{{path('pa_general_demandes')}}">{{'Demandes_title'|trans}}</a>
                         </li>
                         <li>
-                            <a href="{{ path('pa_general_test') }}">{{'Mes_annonces_title'|trans}}</a>
+                            <a href="{{ path('pa_general_mes_annonces') }}">{{'Mes_annonces_title'|trans}}</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_title'|trans}} <b class="caret"></b></a>
+                            <a href="{{ path('pa_general_mon_compte') }}" class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_title'|trans}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="full-width.html">Full Width Page</a>
@@ -77,18 +77,13 @@
                 <div align=center>
                     <p>{{ 'footer_text_1' | trans }}</p>
                     <p>{{ 'footer_text_2' | trans }}</p>
-                    <p><a href="{{ path('pa_general_mentions') }}">{{ 'mentions_footer_title' | trans }}</a></p>
+                    <p><a href="{{ path('pa_general_mentions') }}">{{ 'mentions_footer_title' | trans }}</a> - <a href="{{ path('pa_general_contact') }}">{{ 'contact_footer_title' | trans }}</a></p>
                 </div>
             </footer>
         </div>
         {% block javascripts %}
         {% javascripts 'js/*' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
-        <script>
-            $('.carousel').carousel({
-                interval: 5000 //changes the speed
-            })
-        </script>
         {% endjavascripts %}
         {% endblock %}
     </body>

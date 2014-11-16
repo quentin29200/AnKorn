@@ -1,12 +1,38 @@
-pa_general_homepage:
-    path:     /hello/{name}
+pa_general_accueil:
+    path:     /
     defaults: { _controller: PAGeneralBundle:Default:afficherIndex }
 
-pa_general_test:
-    path:     /test/
-    defaults: { _controller: PAGeneralBundle:Default:afficherTest }
+
+pa_general_offres:
+    path:     /offres/
+    defaults: { _controller: PAGeneralBundle:Default:afficherOffres }
+
+
+pa_general_demandes:
+    path:     /demandes/
+    defaults: { _controller: PAGeneralBundle:Default:afficherDemandes }
+
+
+pa_general_mes_annonces:
+    path:     /mes-annonces/
+    defaults: { _controller: PAGeneralBundle:Default:afficherMesAnnonces }
+
+
+pa_general_mon_compte:
+    path:     /mon-compte/
+    defaults: { _controller: PAGeneralBundle:Default:afficherMonCompte }
+
+
+pa_general_contact:
+    path:     /contact/
+    defaults: { _controller: PAGeneralBundle:Default:afficherContact }
 
 
 pa_general_mentions:
     path:     /mentions-legales/
     defaults: { _controller: PAGeneralBundle:Default:afficherMentions }
+
+
+pa_general_vide:
+    path:     /vide/
+    defaults: { _controller: PAGeneralBundle:Default:afficherVIDE }

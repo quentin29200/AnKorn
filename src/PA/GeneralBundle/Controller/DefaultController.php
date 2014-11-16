@@ -6,18 +6,53 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function afficherIndexAction($name)
+
+    /* -- Page d index, d accueil --- */
+    public function afficherIndexAction()
     {
-        return $this->render('PAGeneralBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('PAGeneralBundle:Default:index.html.twig');
     }
 
-    public function afficherTestAction()
+    /* -- Page des offres --- */
+    public function afficherOffresAction()
     {
-        return $this->render('PAGeneralBundle:Default:test.html.twig');
+        return $this->render('PAGeneralBundle:Default:offres.html.twig');
     }
 
+    /* -- Page des demandes --- */
+    public function afficherDemandesAction()
+    {
+        return $this->render('PAGeneralBundle:Default:demandes.html.twig');
+    }
+
+    /* -- Page des mes annonces --- */
+    public function afficherMesAnnoncesAction()
+    {
+        return $this->render('PAGeneralBundle:Default:mesAnnonces.html.twig');
+    }
+
+    /* -- Page de mon compte --- */
+    public function afficherMonCompteAction()
+    {
+        return $this->render('PAGeneralBundle:Default:monCompte.html.twig');
+    }
+
+    /* -- Page de contact --- */
+    public function afficherContactAction()
+    {
+        return $this->render('PAGeneralBundle:Default:contact.html.twig');
+    }
+
+    /* --- Page des mentions legales --- */
     public function afficherMentionsAction()
     {
         return $this->render('PAGeneralBundle:Default:mentions.html.twig');
     }
+
+    /* --- PAGE VIDE A REMPLACER --- */
+    public function afficherVIDEAction()
+    {
+        return $this->render('PAGeneralBundle:Default:vide.html.twig');
+    }
+
 }

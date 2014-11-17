@@ -15,19 +15,14 @@ class AnnonceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('an_titre')
-            ->add('an_description')
-            ->add('an_datePublication')
-            ->add('an_dateSupression')
-            ->add('an_dateAcquisition')
-            ->add('an_publie')
-            ->add('an_image')
-            ->add('an_categorie')
-            ->add('an_user')
-            ->add('an_prix')
-            ->add('an_type')
-            ->add('an_departement')
-            ->add('an_cp')
+            ->add('an_titre', 'text', array('label'=>'Titre* : '))
+            ->add('an_description', 'textarea', array('label'=>'Description* : '))
+            ->add('an_image', 'text', array('label'=>'URL de l\'image : '))
+            ->add('an_categorie', 'text', array('label'=>'Catégorie* : '))
+            ->add('an_prix', 'integer', array('label'=>'Prix (€): '))
+            ->add('an_departement', 'choice', array('label'=>'Département* : ', 'choices'=>array('armor' => 'Côtes d\'armor','finistere' => 'Finistère', 'ile' => 'Ile et Vilaine', 'morbihan' => 'Morbihan')))
+            ->add('an_cp', 'choice', array('label'=>'Secteur* : ', 'choices'=>array('choix' => '--Veuillez choisir un département--')))
+            ->add('an_publie', 'checkbox', array('label'=>'Visible : ', 'required'  => false))
         ;
     }
     

@@ -1,1 +1,36 @@
-{{ form(form) }}
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+	<!-- Marketing Icons Section -->
+	<div class="clear"></div>
+	<!-- /.row -->
+
+	<!-- ================ -->
+	<!-- Mentions Section -->
+	<!-- ================ -->
+
+	<!-- First section -->
+	<div class="row">
+		<h2>Créer une nouvelle annonce</h2>
+		{{ form_start(form, {'attr': {'id': 'form_creer_annonce'}}) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+
+	<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+<script>
+	$().ready(function() {
+		$("#form_creer_annonce").addClass("form-horizontal");
+		$("#form_creer_annonce").children().addClass( "form-group" );
+		$("label").addClass( "col-sm-2 control-label");
+		$("input").wrap('<div class="col-sm-10"></div>');
+		$("select").wrap('<div class="col-md-3"></div>');
+		$("textarea").wrap('<div class="col-sm-10"></div>');
+		$("#form_creer_annonce :input").addClass( "form-control");
+	});
+</script>
+{% endblock %}

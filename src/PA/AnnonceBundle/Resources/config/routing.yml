@@ -7,3 +7,7 @@ pa_annonce_homepage:
 pa_annonce_ajouter:
     path:     /creer
     defaults: { _controller: PAAnnonceBundle:Annonce:creerAnnonce }
+
+pa_annonce_secteur:
+    path:     /choixdepartement
+    defaults: { _controller: PAAnnonceBundle:Annonce:affSecteur }

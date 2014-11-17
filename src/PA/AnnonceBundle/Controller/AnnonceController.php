@@ -4,6 +4,7 @@ namespace PA\AnnonceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use PA\AnnonceBundle\Entity\Annonce;
 use PA\AnnonceBundle\Form\AnnonceType;
@@ -40,7 +41,50 @@ class AnnonceController extends Controller
       	}
 
         return $this->render('PAAnnonceBundle:Annonce:ajouterannonce.html.twig', array('form' => $form->createView()));
-    }
+  }
+
+  public function affSecteurAction()
+  {
+      $request = $this->container->get('request');
+      $departement = $request->request->get('depart'); // On récupère le département passé en POST en AJAX
+
+      if ($departement != null) {
+        $secteurs = new JsonResponse(); // On créé un JSON
+        switch ($departement) {
+          case "armor" :      $secteurs->setData(array( 
+                                  'lan' => "Lannion",
+                                  'guimp' => "Guingamp",
+                                  'brieuc' => "Saint Brieuc",
+                                  'lam' => "Lamballe"
+                              ));
+                              break;
+          case "finistere" :  $secteurs->setData(array(
+                                  'bre' => "Brest",
+                                  'quimp' => "Quimper",
+                                  'mor' => "Morlaix",
+                                  'chat' => "Chateaulin/Crozon",
+                                  'car' => "Carhaix"
+                              ));
+                              break;
+          case "ile" :        $secteurs->setData(array(
+                                  'ren' => "Rennes",
+                                  'foug' => "Fougère",
+                                  'malo' => "Saint Malo",
+                                  'red' => "Redon"
+                              ));
+                              break;
+          case "morbihan" :   $secteurs->setData(array(
+                                  'lor' => "Lorient",
+                                  'van' => "Vannes",
+                                  'ploer' => "Ploërmel",
+                                  'pont' => "Pontivy"
+                              ));
+        }
+        return $secteurs; //On renvoie un JSON à la vue courante
+      }
+      return null;
+  }
+
 	public function supprimerAnnonceAction($annonce)
 	{
 	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');

@@ -14,9 +14,14 @@
 	<!-- First section -->
 	<div class="row">
 		<h2>Créer une nouvelle annonce</h2>
-		{{ form_start(form, {'attr': {'id': 'form_creer_annonce'}}) }}
-		{{ form_rest(form) }}
-		{{ form_end(form) }}
+		<form action="{{path('pa_annonce_ajouter')}}" id="form_creer_annonce" method="post" {{ form_enctype(form) }}>
+			{{ form_rest(form) }}
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" id="form_submit" value="Envoyer">
+				</div>
+			</div>
+		</form>
 
 	<!-- /.row -->
 
@@ -34,16 +39,17 @@
 		$("#pa_annoncebundle_annonce_an_prix").wrap('<div class="col-xs-2"></div>');
 		$("#pa_annoncebundle_annonce_an_description").wrap('<div class="col-sm-10"></div>');
 		$("#pa_annoncebundle_annonce_an_departement").wrap('<div class="col-xs-3"></div>');
-		$("#pa_annoncebundle_annonce_an_cp").wrap('<div class="col-xs-4"></div>');
+		$("#pa_annoncebundle_annonce_an_secteur").wrap('<div class="col-xs-4"></div>');
 		$("#pa_annoncebundle_annonce_an_publie").removeClass();
 		$("#pa_annoncebundle_annonce_an_publie").wrap('<div class="col-xs-1"></div>');
+		$("#form_submit").removeClass("form-control");
 	});
 
 	$("#pa_annoncebundle_annonce_an_departement").on('change', function() {
 		var val = $(this).val(); // On récupère le département
  
         if(val != '') {
-            $("#pa_annoncebundle_annonce_an_cp").empty(); // On vide la liste des secteurs
+            $("#pa_annoncebundle_annonce_an_secteur").empty(); // On vide la liste des secteurs
              
             $.ajax({
                 type: "POST",
@@ -51,7 +57,7 @@
             	data: {'depart': val}, // On envoie au controleur le paramètre département
                 success: function(json) { 
                     $.each(json, function(index, value) { //On affiche dans la liste la réponse du controleur (JSON)
-                        $("#pa_annoncebundle_annonce_an_cp").append('<option value="'+ index +'">'+ value +'</option>');
+                        $("#pa_annoncebundle_annonce_an_secteur").append('<option value="'+ index +'">'+ value +'</option>');
                     });
                 }
             });

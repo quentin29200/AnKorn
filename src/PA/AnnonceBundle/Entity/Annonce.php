@@ -106,11 +106,11 @@ class Annonce
     private $an_departement;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="an_cp", type="string", length=5)
+     * @ORM\Column(name="an_secteur", type="array")
      */
-    private $an_cp;
+    private $an_secteur;
 
     /**
      * @var string
@@ -406,25 +406,25 @@ class Annonce
     }
 
     /**
-     * Set an_cp
+     * Set an_secteur
      *
-     * @param string $anCp
+     * @param string $anSecteur
      * @return Annonce
      */
-    public function setAnCp($anCp)
+    public function setAnSecteur($anSecteur)
     {
-        $this->an_cp = $anCp;
+        $this->an_secteur = $anSecteur;
 
         return $this;
     }
 
     /**
-     * Get an_cp
+     * Get an_secteur
      *
      * @return string 
      */
-    public function getAnCp()
+    public function getAnSecteur()
     {
-        return $this->an_cp;
+        return $this->an_secteur;
     }
 }

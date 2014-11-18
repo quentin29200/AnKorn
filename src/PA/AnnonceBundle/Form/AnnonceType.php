@@ -21,7 +21,7 @@ class AnnonceType extends AbstractType
             ->add('an_categorie', 'text', array('label'=>'Catégorie* : '))
             ->add('an_prix', 'integer', array('label'=>'Prix (€): '))
             ->add('an_departement', 'choice', array('label'=>'Département* : ', 'choices'=>array('armor' => 'Côtes d\'armor','finistere' => 'Finistère', 'ile' => 'Ile et Vilaine', 'morbihan' => 'Morbihan')))
-            ->add('an_cp', 'choice', array('label'=>'Secteur* : ', 'choices'=>array('choix' => '--Veuillez choisir un département--')))
+            ->add('an_secteur', 'callback', array('label'=>'Secteur* : ', 'choices'=>array('choix' => '--Veuillez choisir un département--')))
             ->add('an_publie', 'checkbox', array('label'=>'Visible : ', 'required'  => false))
         ;
     }

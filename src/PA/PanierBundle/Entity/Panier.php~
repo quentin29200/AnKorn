@@ -93,34 +93,4 @@ class Panier
     {
         return $this->pa_annonces;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pa_annonces = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add pa_annonces
-     *
-     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonces
-     * @return Panier
-     */
-    public function addPaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonces)
-    {
-        $this->pa_annonces[] = $paAnnonces;
-
-        return $this;
-    }
-
-    /**
-     * Remove pa_annonces
-     *
-     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonces
-     */
-    public function removePaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonces)
-    {
-        $this->pa_annonces->removeElement($paAnnonces);
-    }
 }

@@ -47,14 +47,14 @@ class Annonce
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="an_date_supression", type="datetime")
+     * @ORM\Column(name="an_date_supression", type="datetime", nullable=true)
      */
     private $an_dateSupression;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="an_date_acquisition", type="datetime")
+     * @ORM\Column(name="an_date_acquisition", type="datetime", nullable=true)
      */
     private $an_dateAcquisition;
 
@@ -68,14 +68,15 @@ class Annonce
     /**
      * @var string
      *
-     * @ORM\Column(name="an_image", type="string", length=255)
+     * @ORM\Column(name="an_image", type="string", length=255, nullable=true )
      */
     private $an_image;
 
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="an_categorie", type="object")
+     * @ORM\ManyToOne(targetEntity="PA\AnnonceBundle\Entity\Categorie")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $an_categorie;
 
@@ -83,7 +84,7 @@ class Annonce
      * @var \stdClass
      *
      * @ORM\ManyToOne(targetEntity="PA\UserBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $an_user;
 
@@ -95,9 +96,9 @@ class Annonce
     private $an_prix;
 
     /**
-     * @var boolean
+     * @var array
      *
-     * @ORM\Column(name="an_type", type="boolean")
+     * @ORM\Column(name="an_type", type="array")
      */
     private $an_type;
 
@@ -115,12 +116,10 @@ class Annonce
      */
     private $an_secteur;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="an_cp", type="string", length=5)
-     */
-    
+    public function __construct()
+    {
+        $this->an_datePublication = new \Datetime();
+    }
 
     /**
      * Get an_id

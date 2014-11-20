@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnnonceRepository extends EntityRepository
 {
+	public function recupannonces()
+	{
+		$qb = $this->createQueryBuilder('a');
+ 		$qb
+   			->where('a.an_dateSupression IS NULL')
+    		->orderBy('a.an_datePublication', 'DESC')
+  		;
+
+  		return $qb
+   			->getQuery()
+    		->getResult()
+  		;
+	}
 }

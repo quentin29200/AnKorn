@@ -9,7 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PA\AnnonceBundle\Entity\AnnonceRepository")
+ *
  */
+
 class Annonce
 {
     /**
@@ -45,14 +47,14 @@ class Annonce
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="an_date_supression", type="datetime")
+     * @ORM\Column(name="an_date_supression", type="datetime", nullable=true)
      */
     private $an_dateSupression;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="an_date_acquisition", type="datetime")
+     * @ORM\Column(name="an_date_acquisition", type="datetime", nullable=true)
      */
     private $an_dateAcquisition;
 
@@ -66,7 +68,7 @@ class Annonce
     /**
      * @var string
      *
-     * @ORM\Column(name="an_image", type="string", length=255)
+     * @ORM\Column(name="an_image", type="string", length=255, nullable=true )
      */
     private $an_image;
 
@@ -80,7 +82,8 @@ class Annonce
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="an_user", type="object")
+     * @ORM\ManyToOne(targetEntity="PA\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $an_user;
 
@@ -92,9 +95,9 @@ class Annonce
     private $an_prix;
 
     /**
-     * @var boolean
+     * @var array
      *
-     * @ORM\Column(name="an_type", type="boolean")
+     * @ORM\Column(name="an_type", type="array")
      */
     private $an_type;
 
@@ -106,319 +109,323 @@ class Annonce
     private $an_departement;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="an_cp", type="string", length=5)
+     * @ORM\Column(name="an_secteur", type="array")
      */
-    private $an_cp;
+    private $an_secteur;
 
+    public function __construct()
+    {
+        $this->an_datePublication = new \Datetime();
+    }
 
     /**
-     * Get id
+     * Get an_id
      *
      * @return integer 
      */
-    public function getId()
+    public function getAnId()
     {
-        return $this->id;
+        return $this->an_id;
     }
 
     /**
-     * Set titre
+     * Set an_titre
      *
-     * @param string $titre
+     * @param string $anTitre
      * @return Annonce
      */
-    public function setTitre($titre)
+    public function setAnTitre($anTitre)
     {
-        $this->titre = $titre;
+        $this->an_titre = $anTitre;
 
         return $this;
     }
 
     /**
-     * Get titre
+     * Get an_titre
      *
      * @return string 
      */
-    public function getTitre()
+    public function getAnTitre()
     {
-        return $this->titre;
+        return $this->an_titre;
     }
 
     /**
-     * Set description
+     * Set an_description
      *
-     * @param string $description
+     * @param string $anDescription
      * @return Annonce
      */
-    public function setDescription($description)
+    public function setAnDescription($anDescription)
     {
-        $this->description = $description;
+        $this->an_description = $anDescription;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get an_description
      *
      * @return string 
      */
-    public function getDescription()
+    public function getAnDescription()
     {
-        return $this->description;
+        return $this->an_description;
     }
 
     /**
-     * Set datePublication
+     * Set an_datePublication
      *
-     * @param \DateTime $datePublication
+     * @param \DateTime $anDatePublication
      * @return Annonce
      */
-    public function setDatePublication($datePublication)
+    public function setAnDatePublication($anDatePublication)
     {
-        $this->datePublication = $datePublication;
+        $this->an_datePublication = $anDatePublication;
 
         return $this;
     }
 
     /**
-     * Get datePublication
+     * Get an_datePublication
      *
      * @return \DateTime 
      */
-    public function getDatePublication()
+    public function getAnDatePublication()
     {
-        return $this->datePublication;
+        return $this->an_datePublication;
     }
 
     /**
-     * Set dateSupression
+     * Set an_dateSupression
      *
-     * @param \DateTime $dateSupression
+     * @param \DateTime $anDateSupression
      * @return Annonce
      */
-    public function setDateSupression($dateSupression)
+    public function setAnDateSupression($anDateSupression)
     {
-        $this->dateSupression = $dateSupression;
+        $this->an_dateSupression = $anDateSupression;
 
         return $this;
     }
 
     /**
-     * Get dateSupression
+     * Get an_dateSupression
      *
      * @return \DateTime 
      */
-    public function getDateSupression()
+    public function getAnDateSupression()
     {
-        return $this->dateSupression;
+        return $this->an_dateSupression;
     }
 
     /**
-     * Set dateAcquisition
+     * Set an_dateAcquisition
      *
-     * @param \DateTime $dateAcquisition
+     * @param \DateTime $anDateAcquisition
      * @return Annonce
      */
-    public function setDateAcquisition($dateAcquisition)
+    public function setAnDateAcquisition($anDateAcquisition)
     {
-        $this->dateAcquisition = $dateAcquisition;
+        $this->an_dateAcquisition = $anDateAcquisition;
 
         return $this;
     }
 
     /**
-     * Get dateAcquisition
+     * Get an_dateAcquisition
      *
      * @return \DateTime 
      */
-    public function getDateAcquisition()
+    public function getAnDateAcquisition()
     {
-        return $this->dateAcquisition;
+        return $this->an_dateAcquisition;
     }
 
     /**
-     * Set publie
+     * Set an_publie
      *
-     * @param boolean $publie
+     * @param boolean $anPublie
      * @return Annonce
      */
-    public function setpublie($publie)
+    public function setAnPublie($anPublie)
     {
-        $this->publie = $publie;
+        $this->an_publie = $anPublie;
 
         return $this;
     }
 
     /**
-     * Get publie
+     * Get an_publie
      *
      * @return boolean 
      */
-    public function getpublie()
+    public function getAnPublie()
     {
-        return $this->publie;
+        return $this->an_publie;
     }
 
     /**
-     * Set image
+     * Set an_image
      *
-     * @param string $image
+     * @param string $anImage
      * @return Annonce
      */
-    public function setImage($image)
+    public function setAnImage($anImage)
     {
-        $this->image = $image;
+        $this->an_image = $anImage;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get an_image
      *
      * @return string 
      */
-    public function getImage()
+    public function getAnImage()
     {
-        return $this->image;
+        return $this->an_image;
     }
 
     /**
-     * Set categorie
+     * Set an_categorie
      *
-     * @param \stdClass $categorie
+     * @param \stdClass $anCategorie
      * @return Annonce
      */
-    public function setCategorie($categorie)
+    public function setAnCategorie($anCategorie)
     {
-        $this->categorie = $categorie;
+        $this->an_categorie = $anCategorie;
 
         return $this;
     }
 
     /**
-     * Get categorie
+     * Get an_categorie
      *
      * @return \stdClass 
      */
-    public function getCategorie()
+    public function getAnCategorie()
     {
-        return $this->categorie;
+        return $this->an_categorie;
     }
 
     /**
-     * Set user
+     * Set an_user
      *
-     * @param \stdClass $user
+     * @param \stdClass $anUser
      * @return Annonce
      */
-    public function setUser($user)
+    public function setAnUser($anUser)
     {
-        $this->user = $user;
+        $this->an_user = $anUser;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get an_user
      *
      * @return \stdClass 
      */
-    public function getUser()
+    public function getAnUser()
     {
-        return $this->user;
+        return $this->an_user;
     }
 
     /**
-     * Set prix
+     * Set an_prix
      *
-     * @param integer $prix
+     * @param integer $anPrix
      * @return Annonce
      */
-    public function setPrix($prix)
+    public function setAnPrix($anPrix)
     {
-        $this->prix = $prix;
+        $this->an_prix = $anPrix;
 
         return $this;
     }
 
     /**
-     * Get prix
+     * Get an_prix
      *
      * @return integer 
      */
-    public function getPrix()
+    public function getAnPrix()
     {
-        return $this->prix;
+        return $this->an_prix;
     }
 
     /**
-     * Set type
+     * Set an_type
      *
-     * @param boolean $type
+     * @param boolean $anType
      * @return Annonce
      */
-    public function setType($type)
+    public function setAnType($anType)
     {
-        $this->type = $type;
+        $this->an_type = $anType;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get an_type
      *
      * @return boolean 
      */
-    public function getType()
+    public function getAnType()
     {
-        return $this->type;
+        return $this->an_type;
     }
 
     /**
-     * Set departement
+     * Set an_departement
      *
-     * @param array $departement
+     * @param array $anDepartement
      * @return Annonce
      */
-    public function setDepartement($departement)
+    public function setAnDepartement($anDepartement)
     {
-        $this->departement = $departement;
+        $this->an_departement = $anDepartement;
 
         return $this;
     }
 
     /**
-     * Get departement
+     * Get an_departement
      *
      * @return array 
      */
-    public function getDepartement()
+    public function getAnDepartement()
     {
-        return $this->departement;
+        return $this->an_departement;
     }
 
     /**
-     * Set cp
+     * Set an_secteur
      *
-     * @param string $cp
+     * @param string $anSecteur
      * @return Annonce
      */
-    public function setcp($cp)
+    public function setAnSecteur($anSecteur)
     {
-        $this->cp = $cp;
+        $this->an_secteur = $anSecteur;
 
         return $this;
     }
 
     /**
-     * Get cp
+     * Get an_secteur
      *
      * @return string 
      */
-    public function getcp()
+    public function getAnSecteur()
     {
-        return $this->cp;
+        return $this->an_secteur;
     }
 }

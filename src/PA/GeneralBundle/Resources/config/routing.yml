@@ -23,6 +23,11 @@ pa_general_mon_compte:
     defaults: { _controller: PAGeneralBundle:Default:afficherMonCompte }
 
 
+pa_general_mon_panier:
+    path:     /mon-panier/
+    defaults: { _controller: PAGeneralBundle:Default:afficherPanier }
+
+
 pa_general_contact:
     path:     /contact/
     defaults: { _controller: PAGeneralBundle:Default:afficherContact }
@@ -31,6 +36,11 @@ pa_general_contact:
 pa_general_mentions:
     path:     /mentions-legales/
     defaults: { _controller: PAGeneralBundle:Default:afficherMentions }
+
+
+pa_general_deconnexion:
+    path:     /deconnexion/
+    defaults: { _controller: PAGeneralBundle:Default:deconnexion }
 
 
 pa_general_vide:

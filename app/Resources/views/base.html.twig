@@ -13,6 +13,7 @@
         {% endstylesheets %}
         {% endblock %}
         <script type="text/javascript" src="{{ asset('jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bootstrap.js') }}"></script>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -27,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">An Korn</a>
+                    <a class="navbar-brand" href="{{ path('pa_general_accueil') }}">An Korn</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,22 +46,19 @@
                             <a href="{{ path('pa_general_mes_annonces') }}">{{'Mes_annonces_title'|trans}}</a>
                         </li>
                         <li class="dropdown">
-                            <a href="{{ path('pa_general_mon_compte') }}" class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_title'|trans}} <b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_title'|trans}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="full-width.html">Full Width Page</a>
+                                    <a href="{{path('pa_general_mon_panier')}}">{{'Mon_compte_panier_title'|trans}}</a>
                                 </li>
                                 <li>
-                                    <a href="sidebar.html">Sidebar Page</a>
+                                    <a href="{{path('pa_general_mon_compte')}}">{{'Mon_compte_espace_title'|trans}}</a>
                                 </li>
                                 <li>
-                                    <a href="faq.html">FAQ</a>
+                                    <hr />
                                 </li>
                                 <li>
-                                    <a href="404.html">404</a>
-                                </li>
-                                <li>
-                                    <a href="pricing.html">Pricing Table</a>
+                                    <a href="{{path('pa_general_deconnexion')}}">{{'Mon_compte_deconnexion_title'|trans}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -82,10 +80,5 @@
                 </div>
             </footer>
         </div>
-        {% block javascripts %}
-        {% javascripts 'js/*' %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% endblock %}
     </body>
 </html>

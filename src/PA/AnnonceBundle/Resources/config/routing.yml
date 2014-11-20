@@ -11,3 +11,11 @@ pa_annonce_ajouter:
 pa_annonce_secteur:
     path:     /choixdepartement
     defaults: { _controller: PAAnnonceBundle:Annonce:affSecteur }
+
+pa_annonce_ajoutercategorie:
+    path:     /creercategorie
+    defaults: { _controller: PAAnnonceBundle:Categorie:creerCategorie }
+
+pa_annonce_afficher:
+    path:     /liste
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnonces }

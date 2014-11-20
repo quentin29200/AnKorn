@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+	<!-- Marketing Icons Section -->
+	<div class="clear"></div>
+	<!-- /.row -->
+
+	<!-- ================ -->
+	<!-- Mentions Section -->
+	<!-- ================ -->
+
+	<!-- First section -->
+	<div class="row">
+		<h2>Créer une nouvelle categorie</h2>
+		<form action="{{path('pa_annonce_ajoutercategorie')}}" id="form_creer_categorie" method="post" {{ form_enctype(form) }}>
+			{{ form_rest(form) }}
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" id="form_submit" value="Envoyer">
+				</div>
+			</div>
+		</form>
+
+	<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+<script>
+	$().ready(function() {
+		$("#form_creer_categorie").addClass("form-horizontal");
+		$("#form_creer_categorie").children().addClass( "form-group" );
+		$("label").addClass( "col-sm-2 control-label");
+		$("#form_creer_categorie :input").addClass( "form-control");
+		$("#pa_annoncebundle_categorie_libelle").wrap('<div class="col-xs-3"></div>');
+		$("#form_submit").removeClass("form-control");
+	});
+</script>
+{% endblock %}

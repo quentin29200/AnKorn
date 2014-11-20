@@ -27,11 +27,11 @@ class AnnonceController extends Controller
 
     	// Si quelque chose est renvoyé par la page et que les types correspondent bien
     	if ($form->handleRequest($request)->isValid()) {
-    		// On créé l'Entity Manager
-    		$em = $this->getDoctrine()->getManager();
+    		  // On créé l'Entity Manager
+    		  $em = $this->getDoctrine()->getManager();
 
-    		// On ajoute les données du formulaire à notre objet
-      		$em->persist($advert);
+    		  // On ajoute les données du formulaire à notre objet
+      		$em->persist($annonce);
 
       		// On met la BDD à jour
       		$em->flush();
@@ -102,6 +102,8 @@ class AnnonceController extends Controller
 
 	public function afficherAnnoncesAction()
 	{
-	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
+      $em = $this->getDoctrine()->getManager();
+      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+      return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('entities'=> $annonces));
 	}
 }

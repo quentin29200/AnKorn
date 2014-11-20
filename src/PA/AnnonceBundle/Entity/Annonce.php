@@ -9,7 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PA\AnnonceBundle\Entity\AnnonceRepository")
+ *
  */
+
 class Annonce
 {
     /**
@@ -80,7 +82,8 @@ class Annonce
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="an_user", type="object")
+     * @ORM\ManyToOne(targetEntity="PA\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $an_user;
 

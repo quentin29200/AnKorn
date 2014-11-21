@@ -12,19 +12,19 @@
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner">
 	    <div class="item active">
-	        <div class="fill" style="background-image:url('/web/images/slider-1.jpeg');"></div>
+	        <div class="fill" style="background-image:url(' {{ asset('/ProjetAnnonces/web/bundles/pageneral/images/slider-1.jpeg')}} ');"></div>
 	        <div class="carousel-caption">
 	            <h2>{{'Legend_slide1' | trans}}</h2>
 	        </div>
 	    </div>
 	    <div class="item">
-	        <div class="fill" style="background-image:url('/web/images/slider-2.jpeg');"></div>
+	        <div class="fill" style="background-image:url(' {{ asset('/ProjetAnnonces/web/bundles/pageneral/images/slider-2.jpeg')}} ');"></div>
 	        <div class="carousel-caption">
 	            <h2>{{'Legend_slide2' | trans}}</h2>
 	        </div>
 	    </div>
 	    <div class="item">
-	        <div class="fill" style="background-image:url('/web/images/slider-3.jpeg');"></div>
+	        <div class="fill" style="background-image:url(' {{ asset('/ProjetAnnonces/web/bundles/pageneral/images/slider-3.jpeg')}} ');"></div>
 	        <div class="carousel-caption">
 	            <h2>{{'Legend_slide3' | trans}}</h2>
 	        </div>
@@ -49,7 +49,7 @@
 	        <h1 class="page-header">
 	            {{'message_bienvenue_top' | trans}}
 	        </h1>
-	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
+	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a></p>
 	        <hr />
 	    </div>
 	    <div class="col-md-4">
@@ -93,11 +93,31 @@
 	    <div class="col-lg-12">
 	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
 	    </div>
-	    {% set entities = "" %}
+	    {% set entities = "tt" %}
 	    {% if entities is not empty %}
 	    <div class="col-md-4 col-sm-6">
 	        <a href="portfolio-item.html">
-	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Annonce 1" alt="">
+	        </a>
+	    </div>
+	    <div class="col-md-4 col-sm-6">
+	        <a href="portfolio-item.html">
+	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Annonce 2" alt="">
+	        </a>
+	    </div>
+	    <div class="col-md-4 col-sm-6">
+	        <a href="portfolio-item.html">
+	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Annonce 3" alt="">
+	        </a>
+	    </div>
+	    <div class="col-md-4 col-sm-6">
+	        <a href="portfolio-item.html">
+	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Annonce 4" alt="">
+	        </a>
+	    </div>
+	    <div class="col-md-4 col-sm-6">
+	        <a href="portfolio-item.html">
+	            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Annonce 5" alt="">
 	        </a>
 	    </div>
 	    {% else %}

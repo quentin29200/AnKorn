@@ -37,6 +37,12 @@ class DefaultController extends Controller
         return $this->render('PAGeneralBundle:Default:monCompte.html.twig');
     }
 
+    /* -- Page de mon compte --- */
+    public function afficherPanierAction()
+    {
+        return $this->render('PAGeneralBundle:Default:panier.html.twig');
+    }
+
     /* -- Page de contact --- */
     public function afficherContactAction()
     {
@@ -47,6 +53,18 @@ class DefaultController extends Controller
     public function afficherMentionsAction()
     {
         return $this->render('PAGeneralBundle:Default:mentions.html.twig');
+    }
+
+    /* --- Page de connexion --- */
+    public function connexionAction()
+    {
+        return $this->render('PAGeneralBundle:Default:connexion.html.twig');
+    }
+
+    /* --- Page de deconnexion --- */
+    public function deconnexionAction()
+    {
+        return $this->render('PAGeneralBundle:Default:deconnexion.html.twig');
     }
 
     /* --- PAGE VIDE A REMPLACER --- */

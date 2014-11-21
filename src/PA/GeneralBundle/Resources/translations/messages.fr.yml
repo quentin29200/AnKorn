@@ -1,13 +1,17 @@
 # ==========================================
 # Nom des liens de la barre de menus du haut
 # ==========================================
-Welcome: Bienvenue 
+Welcome: "Bienvenue sur An Korn"
 Accueil_title: Accueil
 Contact_title: Contact
 Offres_title: Offres
 Demandes_title: Demandes
 Mes_annonces_title: "Mes annonces"
-Mon_compte_title: "Mon compte"
+Mon_compte_disconnected_title: "Espace perso"
+Mon_compte_connected_title: "Mon compte"
+Mon_compte_espace_title: "Mon espace"
+Mon_compte_panier_title: "Mon panier"
+Mon_compte_deconnexion_title: "Déconnexion"
 
 # ================
 # Titre des slides
@@ -17,11 +21,12 @@ Legend_slide2: "Déposez vos annonces en toute simplicité."
 Legend_slide3: "Recherchez ce dont vous avez besoin."
 
 # =======
-# Contenu
+# Accueil
 # =======
 message_bienvenue_top: "Bienvenue sur le site d'An Korn !"
+fil_ariane_text: "Vous êtes ici : "
 panel_heading_1_title: "Des offres"
-panel_heading_1_content: "Vous avez des objets que vous souhaitez vendre mais vous ne savez pas coment ? Faites confiance à An Korn et déposer vos annonces !"
+panel_heading_1_content: "Vous avez des objets que vous souhaitez vendre mais vous ne savez pas comment ? Faites confiance à An Korn et déposer vos annonces !"
 panel_heading_2_title: "Des demandes"
 panel_heading_2_content: "Vous ne voulez pas vendre mais plutôt acheter ? Vous recherchez des objets ? An Korn a pensé à tout !"
 panel_heading_3_title: "Un espace client"
@@ -33,6 +38,48 @@ panel_heading_btn: "Ça m'intéresse !"
 # ========
 annonces_portfolio_title: "Les annonces"
 no_result_annonces: "Aucun résultat."
+
+# ======
+# Offres
+# ======
+h2_offres_title: "Les offres"
+no_result_offres: "Aucune offre disponible."
+
+# ========
+# Demandes
+# ========
+h2_demandes_title: "Les demandes"
+no_result_demandes: "Aucune demande disponible."
+
+# =======================
+# Connexion - Deconnexion
+# =======================
+connexion_title: "Connexion"
+connexion_welcome: "Bienvenue sur la page de connexion."
+connexion_already_connected: "Vous êtes déja connecté(e). Nous pouvez désormais consulter les annonces que vous avez déjà déposées, visualiser le contenu de votre panier ou tout simplement continuer la visite de ce charmant site ! Vous trouverez ci-dessous des liens qui vous redirigeront vers vos rubriques favorites !"
+connexion_please_connect_or_suscribe: "Bonjour à vous. Pour accéder à votre panier, veuillez tout d'abord vous connecter si vous possédez déjà un compte. Si nous avons la chance de vous accueillir pour la première fois, veuillez vous inscrire en cliquant sur le lien 'S'inscrire' un peu plus bas. Bonne journée et bonne visite !"
+connexion_form_id: "Votre identifiant"
+connexion_form_pw: "Votre mot de passe"
+deconnexion_title: "Déconnexion"
+
+# ===========
+# Inscription
+# ===========
+suscribe_title: "Inscription"
+suscribe_on_connexion_page: "Toujours pas membre ? Viens vite t'inscrire ! Clique sur ce petit lien en dessous."
+suscribe_go: "Je m'inscris"
+
+# =======
+# Contact
+# =======
+contact_welcome: "Bienvenue sur la page de contact."
+contact_form_title: "Formulaire de contact"
+contact_champ_prenom: "Prénom"
+contact_champ_nom: "Nom de famille"
+contact_champ_email: "Adresse e-mail"
+contact_champ_email_confirm: "Confirmez votre adresse e-mail"
+contact_champ_message: "Votre message"
+contact_champ_envoyer: "Envoyer"
 
 # ================
 # === Mentions ===
@@ -61,7 +108,7 @@ mention_1_1: "En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pou
 mention_1_2: "Propriétaires : Mr BETOURNE, Mr GIGOU et Mr LAGADEC – Étudiants – Rennes"
 mention_1_3: "Créateurs  : Mr BETOURNE, Mr GIGOU et Mr LAGADEC"
 mention_1_4: "Responsables publication : Mr BETOURNE, Mr GIGOU et Mr LAGADEC"
-mention_1_5: "Les responsables publication sont une personnes physiques."
+mention_1_5: "Les responsables publication sont des personnes physiques."
 mention_1_6: "Webmasters : Mr BETOURNE, Mr GIGOU et Mr LAGADEC"
 mention_2_1: "L’utilisation du site http://www.ankorn.com implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site http://www.ankorn.com sont donc invités à les consulter de manière régulière."
 mention_2_2: "Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par Mr BETOURNE, Mr GIGOU et Mr LAGADEC, qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention."

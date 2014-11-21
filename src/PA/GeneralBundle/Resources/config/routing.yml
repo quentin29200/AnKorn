@@ -38,6 +38,11 @@ pa_general_mentions:
     defaults: { _controller: PAGeneralBundle:Default:afficherMentions }
 
 
+pa_general_connexion:
+    path:     /connexion/
+    defaults: { _controller: PAGeneralBundle:Default:connexion }
+
+
 pa_general_deconnexion:
     path:     /deconnexion/
     defaults: { _controller: PAGeneralBundle:Default:deconnexion }

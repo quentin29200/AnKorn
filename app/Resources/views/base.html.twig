@@ -45,10 +45,10 @@
                         <li>
                             <a href="{{ path('pa_general_demandes') }}">{{'Demandes_title'|trans}}</a>
                         </li>
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                         <li>
                             <a href="{{ path('pa_general_mes_annonces') }}">{{'Mes_annonces_title'|trans}}</a>
                         </li>
-                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_connected_title'|trans}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -83,11 +83,27 @@
             <hr>
             <footer>
                 <div align=center>
-                    <p>{{ 'footer_text_1' | trans }}</p>
-                    <p>{{ 'footer_text_2' | trans }}</p>
-                    <p><a href="{{ path('pa_general_mentions') }}">{{ 'mentions_footer_title' | trans }}</a> - <a href="{{ path('pa_general_contact') }}">{{ 'contact_footer_title' | trans }}</a></p>
+                    <div class="col-sm-4">
+                        <p><b>Administration</b></p>
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            <p><a href="{{ path('pa_general_deconnexion') }}">{{ 'footer_deconnexion_title' | trans }}</a></p>
+                        {% else %}
+                            <p><a href="{{ path('pa_general_connexion') }}">{{ 'footer_connexion_title' | trans }}</a></p>
+                            <p><a href="{{ path('pa_general_inscription') }}">{{ 'footer_inscription_title' | trans }}</a></p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-4">
+                        <p><b>Liens & partenariats</b></p>
+                        <p><a href="{{ path('pa_general_liens') }}">{{ 'footer_liens_title' | trans }}</a></p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><b>Contact</b></p>
+                        <p><a href="{{ path('pa_general_contact') }}">{{ 'footer_contact_title' | trans }}</a></p>
+                        <p><a href="{{ path('pa_general_mentions') }}">{{ 'footer_mentions_title' | trans }}</a></p>
+                    </div>
                 </div>
             </footer>
+            <div class="clear"></div>
         </div>
     </body>
 </html>

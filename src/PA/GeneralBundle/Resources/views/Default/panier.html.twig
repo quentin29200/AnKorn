@@ -12,11 +12,14 @@
 	<!-- ================ -->
 
 	<!-- First section -->
+	{% is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
 	<div class="row">
-		<h2>Bienvenue sur la page de votre panier.</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_panier') }}">{{ 'Mon_compte_panier_title' | trans }}</a></p>
+		<h2>{{ 'panier_welcome' | trans }}</h2>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_panier') }}">{{ 'Mon_compte_panier_title' | trans }}</a></p>
 	<!-- /.row -->
-
 	</div>
 	<!-- /.container -->
+	{% else %}
+	<?php header("Location: {{ path('pa_general_connexion') }}"); ?>
+	{% endif %}
 {% endblock %}

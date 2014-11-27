@@ -12,6 +12,8 @@ Mon_compte_connected_title: "Mon compte"
 Mon_compte_espace_title: "Mon espace"
 Mon_compte_panier_title: "Mon panier"
 Mon_compte_deconnexion_title: "Déconnexion"
+Inscription_title: "Inscription"
+Liens_title: "Liens"
 
 # ================
 # Titre des slides
@@ -51,6 +53,18 @@ no_result_offres: "Aucune offre disponible."
 h2_demandes_title: "Les demandes"
 no_result_demandes: "Aucune demande disponible."
 
+# ======
+# Panier
+# ======
+panier_welcome: "Bienvenue sur la page de votre panier."
+
+# ==========
+# Mon compte
+# ==========
+mon_compte_welcome: "Bienvenue sur la page de mon compte."
+mon_compte_text_disconnect : "Vous n'êtes pas connecté. Veuillez vous connecter en cliquant sur le bouton ci-dessous !"
+mon_compte_connexion_button: "Je me connecte !"
+
 # =======================
 # Connexion - Deconnexion
 # =======================
@@ -69,6 +83,11 @@ suscribe_title: "Inscription"
 suscribe_on_connexion_page: "Toujours pas membre ? Viens vite t'inscrire ! Clique sur ce petit lien en dessous."
 suscribe_go: "Je m'inscris"
 
+# =====
+# Liens
+# =====
+liens_welcome: "Bienvenue sur la page des liens et partenariats."
+
 # =======
 # Contact
 # =======
@@ -80,6 +99,15 @@ contact_champ_email: "Adresse e-mail"
 contact_champ_email_confirm: "Confirmez votre adresse e-mail"
 contact_champ_message: "Votre message"
 contact_champ_envoyer: "Envoyer"
+contact_addr_title: "Projet WEB 2014"
+contact_addr_noms: "MR BETOURNE, Mr GIGOU, Mr LAGADEC"
+contact_addr_istic: "L3 MIAGE, ISTIC."
+contact_addr_rennes: "Beaulieu, RENNES."
+contact_addr_mail_bdd_title: "Contacts base de données, gestion du panier et des utilisateurs"
+contact_addr_mail_bdd1: "joffrey.betourne@gmail.com"
+contact_addr_mail_bdd2: "quentin.lagadec@gmail.com"
+contact_addr_mail_design_title: "Contact design"
+contact_addr_mail_design: "nicolas.gigou@gmail.com"
 
 # ================
 # === Mentions ===
@@ -147,7 +175,9 @@ mention_11_2: "Informations personnelles : « les informations qui permettent, s
 # ======
 # Footer
 # ======
-footer_text_1: "Copyright © An Korn 2014."
-footer_text_2: "Une production de Mr BETOURNE, Mr GIGOU et Mr LAGADEC."
-mentions_footer_title: "Mentions légales"
-contact_footer_title: "Contact"
+footer_connexion_title: "Connexion"
+footer_inscription_title: "Inscription"
+footer_liens_title: "Liens"
+footer_deconnexion_title: "Déconnexion"
+footer_mentions_title: "Mentions légales"
+footer_contact_title: "Contact"

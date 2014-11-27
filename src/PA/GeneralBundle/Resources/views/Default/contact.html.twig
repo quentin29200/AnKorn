@@ -16,37 +16,56 @@
 	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_contact') }}">{{ 'Contact_title' | trans }}</a></p>
 	    <hr />
 		<div class="container">
-				<h1 class="text-center">{{ 'contact_form_title' | trans }}</h1>
-				<div class="clear"></div>
-				<div class="col-sm-8">
-					<form>
-						<div class="row form-group">
-							<div class="col-xs-5">
-								<input id="firstName" class="form-control" name="firstName" type="text" placeHolder="{{ 'contact_champ_prenom' | trans }}" />
-							</div>
-							<div class="col-xs-5">
-								<input id="lastName" class="form-control" name="lastName" type="text" placeHolder="{{ 'contact_champ_nom' | trans }}" />
-							</div>
+			<h1 class="text-center">{{ 'contact_form_title' | trans }}</h1>
+			<div class="clear"></div>
+			<div class="col-sm-8">
+				<form>
+					<div class="row form-group">
+						<div class="col-xs-5">
+							<input id="firstName" class="form-control" name="firstName" type="text" placeHolder="{{ 'contact_champ_prenom' | trans }}" />
 						</div>
-						<div class="row form-group">
-							<div class="col-xs-5">
-								<input class="form-control" name="email" type="email" placeHolder="{{ 'contact_champ_email' | trans }}" />
-							</div>
-							<div class="col-xs-5">
-								<input class="form-control" name="phone" type="email" placeHolder="{{ 'contact_champ_email_confirm' | trans }}" />
-							</div>
+						<div class="col-xs-5">
+							<input id="lastName" class="form-control" name="lastName" type="text" placeHolder="{{ 'contact_champ_nom' | trans }}" />
 						</div>
-						<div class="row form-group">
-							<div class="col-xs-10">
-								<textarea class="form-control" rows="5">{{ 'contact_champ_message' | trans }}</textarea>
-							</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-xs-5">
+							<input class="form-control" name="email" type="email" placeHolder="{{ 'contact_champ_email' | trans }}" />
 						</div>
-						<div class="row form-group">
-							<div class="col-xs-10">
-								<button class="btn btn-default pull-right">{{ 'contact_champ_envoyer' | trans }}</button>
-							</div>
+						<div class="col-xs-5">
+							<input class="form-control" name="phone" type="email" placeHolder="{{ 'contact_champ_email_confirm' | trans }}" />
 						</div>
-					</form> <!-- /.form -->
+					</div>
+					<div class="row form-group">
+						<div class="col-xs-10">
+							<textarea class="form-control" rows="5">{{ 'contact_champ_message' | trans }}</textarea>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-xs-10">
+							<button class="btn btn-default pull-right">{{ 'contact_champ_envoyer' | trans }}</button>
+						</div>
+					</div>
+				</form> <!-- /.form -->
+			</div> <!-- /.col-sm-8 -->
+			<div class="col-sm-4">
+				<address>
+					<strong>{{ 'contact_addr_title' | trans }}</strong><br>
+					{{ 'contact_addr_noms' | trans }}<br>
+					{{ 'contact_addr_istic' | trans }}<br>
+					{{ 'contact_addr_rennes' | trans }}<br>
+				</address>
+				
+				<address>
+					<strong>{{ 'contact_addr_mail_bdd_title' | trans }}</strong><br>
+					<a href="mailto:#">{{ 'contact_addr_mail_bdd1' | trans }}</a>
+					<a href="mailto:#">{{ 'contact_addr_mail_bdd2' | trans }}</a>
+				</address>
+
+				<address>
+					<strong>{{ 'contact_addr_mail_design_title' | trans }}</strong><br>
+					<a href="mailto:#">{{ 'contact_addr_mail_design' | trans }}</a>
+				</address>
 				</div> <!-- /.col-sm-8 -->
 		</div> <!-- /.container -->
 	</div> <!-- /.row -->

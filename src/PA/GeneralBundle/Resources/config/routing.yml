@@ -38,16 +38,21 @@ pa_general_mentions:
     defaults: { _controller: PAGeneralBundle:Default:afficherMentions }
 
 
+pa_general_liens:
+    path:     /liens/
+    defaults: { _controller: PAGeneralBundle:Default:afficheLiens }
+
+
 pa_general_connexion:
     path:     /connexion/
     defaults: { _controller: PAGeneralBundle:Default:connexion }
 
 
+pa_general_inscription:
+    path:     /inscription/
+    defaults: { _controller: PAGeneralBundle:Default:afficheInscription }
+
+
 pa_general_deconnexion:
     path:     /deconnexion/
     defaults: { _controller: PAGeneralBundle:Default:deconnexion }
-
-
-pa_general_vide:
-    path:     /vide/
-    defaults: { _controller: PAGeneralBundle:Default:afficherVIDE }

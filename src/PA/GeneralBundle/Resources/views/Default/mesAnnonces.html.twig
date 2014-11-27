@@ -19,11 +19,14 @@
 
 		<div class="clear"></div>
 		<!-- Display Content just if the user is connected -->
-		{% if is_granted('ROLE_USER') %}
+		{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
 		<!-- We check if there are some ads in the database -->
 			{% if entities is not empty %}
 				<!-- For all occurrences of ads -->
 				{% for entity in entities %}
+					<!-- ========================================================= -->
+					<!-- { % if entity.anuserid == L ID DE L UTILISATEUR COURANT % } -->
+					<!-- ========================================================= -->
 				    <div class="col-md-4 col-sm-6">
 				        <a href="portfolio-item.html">
 				            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
@@ -36,52 +39,7 @@
 			{% endif %}
 		<!-- If the user is not connnected -->
 		{% else %}
-			<!-- <div class="col-md-4 col-sm-6"> -->
-			<div class="page-header">
-				<p>Bonjour à vous. Pour accéder à votre panier, veuillez tout d'abord vous connecter si vous possédez déjà un compte. Si nous avons la chance de vous accueillir pour la première fois, veuillez vous inscrire en cliquant sur le lien "S'inscrire" un peu plus bas. Bonne journée et bonne visite !</p>
-				<div class="container">
-					<div class="clear"></div
-					<div class="row">
-						<div class="col-xs-12">
-						    <div class="main">
-						        <div class="row">
-							        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-							        	<fieldset>
-							        		<legend>Connexion</legend>
-								            <form action="/users/login" name="login" role="form" class="form-horizontal" method="post" accept-charset="utf-8">
-								                <div class="form-group">
-								                	<div class="col-md-8">
-								                		<label for="username">Votre identifiant :</label>
-								                		<input name="username" placeholder="Idenfiant" class="form-control" type="text" id="UserUsername"/>
-								                	</div>
-								                </div>
-								                <div class="form-group">
-								                	<div class="col-md-8">
-								                		<label for="password">Votre mot de passe :</label>
-								                		<input name="password" placeholder="Mot de passe" class="form-control" type="password" id="UserPassword"/>
-								                	</div>
-								                </div>
-								                <div class="form-group">
-								                	<div class="col-md-offset-0 col-md-8">
-								                		<input  class="btn btn-success btn btn-success blue" type="submit" value="Connexion"/>
-								                	</div>
-								                </div>
-								            </form>
-							        	</fieldset>
-							        </div>
-							        <div class="col-md-4 col-sm-6">
-							        	<fieldset style="margin-bottom: -15px;">
-							        		<legend>Inscription</legend>
-								        	<p>Toujours pas membre ? Viens vite t'inscrire ! Clique sur ce petit lien en dessous.</p>
-								        	<a href="{ path('pa_general_suscribe') }">Je m'inscris</a>
-							        	</fieldset>
-							        </div>
-						        </div>
-						    </div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php header("Location: {{  path('pa_general_connexion') }}"); ?>
 		{% endif %}
 		</div>
 	</div>

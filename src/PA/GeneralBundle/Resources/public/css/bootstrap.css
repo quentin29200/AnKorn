@@ -244,7 +244,6 @@ th {
   }
   .navbar {
     display: none;
-    background-color: green;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -4291,8 +4290,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: green;                                                             /* Ligne sous top-menu */
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;

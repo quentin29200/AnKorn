@@ -11,12 +11,35 @@
 	<!-- Mentions Section -->
 	<!-- ================ -->
 
+	<!-- Display Content just if the user is connected -->
+	{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
 	<!-- First section -->
 	<div class="row">
-		<h2>Bienvenue sur la page de mon compte.</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_title' | trans }}</a></p>
-	<!-- /.row -->
+		<h2>{{ 'mon_compte_welcome' | trans }}</h2>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a></p>
 
+		<div class="clear"></div>
+		<!-- <div class="alert alert-danger">{{ 'connexion_already_connected' | trans }}</div> -->
+		<div class="alert alert-danger" role="alert">
+  Enter a valid email address
+</div>
+
+		<ul>
+			<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
+		</ul>
+
+	<!-- If the user is not connected -->
+	{% else %}
+		<div class="clear"></div>
+		<div class="text-center">
+			<p>{{ 'mon_compte_text_disconnect' | trans }}</p>
+			<button onclick="location.href = '{{ path('pa_general_connexion') }}';" class="btn btn-success" >{{ 'mon_compte_connexion_button' | trans }}</button>
+		</div>
+	{% endif %}
+	
 	</div>
-	<!-- /.container -->
+	<!-- /.row -->
 {% endblock %}

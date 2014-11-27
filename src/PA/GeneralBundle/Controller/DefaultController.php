@@ -10,19 +10,25 @@ class DefaultController extends Controller
     /* -- Page d index, d accueil --- */
     public function afficherIndexAction()
     {
-        return $this->render('PAGeneralBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+        return $this->render('PAGeneralBundle:Default:index.html.twig', array('entities'=>$annonces));
     }
 
     /* -- Page des offres --- */
     public function afficherOffresAction()
     {
-        return $this->render('PAGeneralBundle:Default:offres.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+        return $this->render('PAGeneralBundle:Default:offres.html.twig', array('entities'=>$annonces));
     }
 
     /* -- Page des demandes --- */
     public function afficherDemandesAction()
     {
-        return $this->render('PAGeneralBundle:Default:demandes.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+        return $this->render('PAGeneralBundle:Default:demandes.html.twig', array('entities'=>$annonces));
     }
 
     /* -- Page des mes annonces --- */
@@ -61,16 +67,35 @@ class DefaultController extends Controller
         return $this->render('PAGeneralBundle:Default:connexion.html.twig');
     }
 
+    /* --- Page d'inscription --- */
+    public function afficheInscriptionAction()
+    {
+        return $this->render('PAGeneralBundle:Default:inscription.html.twig');
+    }
+
+    /* --- Page des liens --- */
+    public function afficheLiensAction()
+    {
+        return $this->render('PAGeneralBundle:Default:liens.html.twig');
+    }
+
     /* --- Page de deconnexion --- */
     public function deconnexionAction()
     {
         return $this->render('PAGeneralBundle:Default:deconnexion.html.twig');
     }
 
-    /* --- PAGE VIDE A REMPLACER --- */
-    public function afficherVIDEAction()
+    /* --- Redirection vers la page de connexion --- */
+    public function redirectConnexionAction(){
+        return $this->redirect($this->generateUrl('welcome'), 301);
+    }
+
+    /* --- Affichage des annonces --- */
+    public function afficherAnnoncesAction()
     {
-        return $this->render('PAGeneralBundle:Default:vide.html.twig');
+      $em = $this->getDoctrine()->getManager();
+      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+      return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('entities'=> $annonces));
     }
 
 }

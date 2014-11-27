@@ -37,7 +37,7 @@ class AnnonceController extends Controller
       		$em->flush();
 
       		$request->getSession()->getFlashBag()->add('info','Annonce créée');
-      		return $this->render('PAAnnonceBundle:Default:index.html.twig');
+      		return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
       	}
 
         return $this->render('PAAnnonceBundle:Annonce:ajouterannonce.html.twig', array('form' => $form->createView()));

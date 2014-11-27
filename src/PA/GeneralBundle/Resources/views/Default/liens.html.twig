@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+	<!-- Marketing Icons Section -->
+	<div class="clear"></div>
+	<!-- /.row -->
+
+	<!-- =========== -->
+	<!-- Ads Section -->
+	<!-- =========== -->
+
+	<!-- First section -->
+	<div class="row">
+		<h2>{{ 'liens_welcome' | trans }}</h2>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_liens') }}">{{ 'Liens_title' | trans }}</a></p>
+		<!-- /.row -->
+
+		<div class="clear"></div>
+
+		<div class="row">
+			<p>Voici une liste non exhaustive des personnes avec qui nous avons le plaisir de travailler ou de cotoyer au cours de notre projet. CEla peut aller des développeurs en eux-mêmes aux différents établissements scolaires que nous avons (eu) la chance de fréquenter.</p>
+			<ul>
+				<li>Premier truc.</li>
+				<li>Deuxième truc.</li>
+				<li>Troisième truc.</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /.container -->
+{% endblock %}

@@ -33,7 +33,7 @@ class CategorieController extends Controller
       		$em->flush();
 
       		$request->getSession()->getFlashBag()->add('info','Categorie créée');
-      		return $this->render('PAAnnonceBundle:Default:index.html.twig');
+      		return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
       	}
 
         return $this->render('PAAnnonceBundle:Categorie:ajoutercategorie.html.twig', array('form' => $form->createView()));

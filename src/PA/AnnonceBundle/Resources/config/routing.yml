@@ -5,7 +5,7 @@ pa_annonce_homepage:
     defaults: { _controller: PAAnnonceBundle:Annonce:index }
 
 pa_annonce_ajouter:
-    path:     /creer
+    path:     /espacemembre/creer
     defaults: { _controller: PAAnnonceBundle:Annonce:creerAnnonce }
 
 pa_annonce_secteur:
@@ -13,7 +13,7 @@ pa_annonce_secteur:
     defaults: { _controller: PAAnnonceBundle:Annonce:affSecteur }
 
 pa_annonce_ajoutercategorie:
-    path:     /creercategorie
+    path:     /admin/creercategorie
     defaults: { _controller: PAAnnonceBundle:Categorie:creerCategorie }
 
 pa_annonce_afficher:

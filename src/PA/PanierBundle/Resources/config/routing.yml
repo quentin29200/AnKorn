@@ -1,5 +1,10 @@
 # ROUTING PANIER 
 # REGROUPE L'ENSEMBLE DES ADRESSES ASSOCIE AU BUNDLE PANIER
-pa_panier_homepage:
-    path:     /panier/{name}
-    defaults: { _controller: PAPanierBundle:Panier:index }
+pa_panier_ajouterannonce:
+    path:     /espacemembre/ajouterannonce/{id}
+    defaults: { _controller: PAPanierBundle:Panier:ajouterAnnonce }
+
+pa_panier_afficher:
+    path:     /espacemembre/monpanier
+    defaults: { _controller: PAPanierBundle:Panier:afficherPanier }
+

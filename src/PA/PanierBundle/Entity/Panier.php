@@ -28,14 +28,14 @@ class Panier
      *
      * @ORM\OneToOne(targetEntity="PA\UserBundle\Entity\User", cascade={"persist"})
      */
-    private $pa_user;
+    private $pauser;
 
     /**
      * @var \stdClass
      *
      * @ORM\ManyToMany(targetEntity="PA\AnnonceBundle\Entity\Annonce", cascade={"persist"})
      */
-    private $pa_annonces;
+    private $paannonces;
 
 
     /**
@@ -56,7 +56,7 @@ class Panier
      */
     public function setPaUser($paUser)
     {
-        $this->pa_user = $paUser;
+        $this->paUser = $paUser;
 
         return $this;
     }
@@ -68,7 +68,7 @@ class Panier
      */
     public function getPaUser()
     {
-        return $this->pa_user;
+        return $this->paUser;
     }
 
     /**
@@ -79,7 +79,7 @@ class Panier
      */
     public function setPaAnnonces($paAnnonces)
     {
-        $this->pa_annonces = $paAnnonces;
+        $this->paannonces = $paAnnonces;
 
         return $this;
     }
@@ -91,36 +91,36 @@ class Panier
      */
     public function getPaAnnonces()
     {
-        return $this->pa_annonces;
+        return $this->paannonces;
     }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->pa_annonces = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->paannonces = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add pa_annonces
+     * Add paannonces
      *
-     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonces
+     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonce
      * @return Panier
      */
-    public function addPaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonces)
+    public function addPaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonce)
     {
-        $this->pa_annonces[] = $paAnnonces;
+        $this->paannonces[] = $paAnnonce;
 
         return $this;
     }
 
     /**
-     * Remove pa_annonces
+     * Remove paannonces
      *
-     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonces
+     * @param \PA\AnnonceBundle\Entity\Annonce $paAnnonce
      */
-    public function removePaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonces)
+    public function removePaAnnonce(\PA\AnnonceBundle\Entity\Annonce $paAnnonce)
     {
-        $this->pa_annonces->removeElement($paAnnonces);
+        $this->paannonces->removeElement($paAnnonce);
     }
 }

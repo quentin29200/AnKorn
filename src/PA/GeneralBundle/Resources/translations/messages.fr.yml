@@ -12,6 +12,7 @@ Mon_compte_connected_title: "Mon compte"
 Mon_compte_espace_title: "Mon espace"
 Mon_compte_panier_title: "Mon panier"
 Mon_compte_deconnexion_title: "Déconnexion"
+interfaceGestion_title: "Interface de gestion"
 Inscription_title: "Inscription"
 Liens_title: "Liens"
 
@@ -82,6 +83,21 @@ deconnexion_title: "Déconnexion"
 suscribe_title: "Inscription"
 suscribe_on_connexion_page: "Toujours pas membre ? Viens vite t'inscrire ! Clique sur ce petit lien en dessous."
 suscribe_go: "Je m'inscris"
+
+# =================================
+# Interface de gestion (ADMIN ONLY)
+# =================================
+interfaceG_search_user: "Rechercher les utilisateurs par identifiants ou par nom :"
+interfaceG_user_id_head: "ID"
+interfaceG_user_username_head: "Nom d'utilisateur"
+interfaceG_user_email_head: "Adresse e-mail"
+interfaceG_user_role_head: "Rôle"
+interfaceG_search_ad: "Rechercher les annonces par identifiants ou par nom :"
+interfaceG_ads_idAds_head: "ID de l'annonce"
+interfaceG_ads_idUser_head: "ID de l'utilisateur associé"
+interfaceG_ads_type_head: "Type"
+interfaceG_ads_titre_head: "Titre"
+interfaceG_ads_prix_head: "Prix"
 
 # =====
 # Liens

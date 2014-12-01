@@ -56,3 +56,8 @@ pa_general_inscription:
 pa_general_deconnexion:
     path:     /deconnexion/
     defaults: { _controller: PAGeneralBundle:Default:deconnexion }
+
+
+pa_general_interface:
+    path:     /admin/interfaceGestion/
+    defaults: { _controller: PAGeneralBundle:Default:afficheInterface }

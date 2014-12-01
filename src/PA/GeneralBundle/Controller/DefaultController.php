@@ -98,4 +98,11 @@ class DefaultController extends Controller
       return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('entities'=> $annonces));
     }
 
+    /* --- Page de l'interface administrateur --- */
+    public function afficheInterfaceAction()
+    {
+        // On affiche l'interface de gestion
+        return $this->render('PAGeneralBundle:Default:interfaceGestion.html.twig');
+    }
+
 }

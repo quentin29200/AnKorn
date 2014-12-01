@@ -1,0 +1,119 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Spacing section -->
+		<div class="clear"></div>
+		<!-- /.row -->
+
+		<!-- First section -->
+		{% if is_granted('ROLE_ADMIN') %}
+		<h2>Interface de gestion administrateur</h2>
+		<div class="row">
+			<h3>Utilisateurs</h3>
+			<label for="searchUserByIdOrName">{{ 'interfaceG_search_user' | trans }}</label>
+			<div class="input-group">
+				<input id="searchUserByIdOrName" placeholder="ID ou nom de l'utilisateur" type="text" class="form-control" />
+				<span class="input-group-btn">
+			  		<button class="btn btn-default" type="submit">OK</button>
+				</span>
+			</div>
+
+			<div class="clear"></div>
+
+			<table class="table table-hover table-bordered table-condensed">
+				<thead>
+					<tr class="info">
+						<th>{{ 'interfaceG_user_id_head' | trans }}</th>
+						<th>{{ 'interfaceG_user_username_head' | trans }}</th>
+						<th>{{ 'interfaceG_user_email_head' | trans }}</th>
+						<th>{{ 'interfaceG_user_role_head' | trans }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Looser</td>
+					</tr>
+					<tr>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Looser</td>
+					</tr>
+					<tr>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Looser</td>
+					</tr>
+				</tbody>
+			</table>
+			<form-group class="pull-right">
+				<a href="#" class="btn btn-success btn-sm active" role="button">Ajouter</a>
+				<a href="#" class="btn btn-warning btn-sm" role="button" disabled="disabled">Modifier</a>
+				<a href="#" class="btn btn-danger btn-sm" role="button" disabled="disabled">Supprimer</a>
+			</form-group>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="row">
+			<h3>Annonces</h3>
+			<label for="searchAdsByIdOrName">{{ 'interfaceG_search_ad' | trans }}</label>
+			<div class="input-group">
+				<input id="searchAdsByIdOrName" placeholder="ID ou nom de l'annonce" type="text" class="form-control" />
+				<span class="input-group-btn">
+			  		<button class="btn btn-default" type="submit">OK</button>
+				</span>
+			</div>
+
+			<div class="clear"></div>
+
+			<table class="table table-hover table-bordered table-condensed">
+				<thead>
+				<tr class="info">
+					<th>{{ 'interfaceG_ads_idAds_head' | trans }}</th>
+					<th>{{ 'interfaceG_ads_idUser_head' | trans }}</th>
+					<th>{{ 'interfaceG_ads_type_head' | trans }}</th>
+					<th>{{ 'interfaceG_ads_titre_head' | trans }}</th>
+					<th>{{ 'interfaceG_ads_prix_head' | trans }}</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Id ads 1</td>
+						<td>Id user 1</td>
+						<td>Cat</td>
+						<td>Title</td>
+						<td>15€</td>
+					</tr>
+					<tr>
+						<td>Id ads 2</td>
+						<td>Id user 2</td>
+						<td>Cat</td>
+						<td>Title</td>
+						<td>15€</td>
+					</tr>
+					<tr>
+						<td>Id ads 2</td>
+						<td>Id user 2</td>
+						<td>Cat</td>
+						<td>Title</td>
+						<td>15€</td>
+					</tr>
+				</tbody>
+			</table>
+			<form-group class="pull-right">
+				<a href="#" class="btn btn-success btn-sm active" role="button">Ajouter</a>
+				<a href="#" class="btn btn-warning btn-sm" role="button" disabled="disabled">Modifier</a>
+				<a href="#" class="btn btn-danger btn-sm" role="button" disabled="disabled">Supprimer</a>
+			</form-group>
+		</div>
+		{% endif %}
+
+	</div>	<!-- /.container -->
+{% endblock %}

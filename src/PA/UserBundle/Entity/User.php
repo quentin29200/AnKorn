@@ -47,13 +47,6 @@ class User extends BaseUser
      */
     private $us_tel;
 
-    /**
-     * @var \stdClass
-     *
-     * @ORM\OneToOne(targetEntity="PA\PanierBundle\Entity\Panier", cascade={"persist"})
-     */
-    private $us_panier;
-
 
     public function __construct()
     {

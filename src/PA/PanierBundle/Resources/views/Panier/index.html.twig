@@ -1,15 +1,36 @@
-{% if panier is not empty %}
-	{{panier.paId}}
-	<p>Liste des annonces</p>
-    {% for annonce in panier.paannonces %}
-	    <div class="col-md-4 col-sm-6">
-	    	<h4>{{annonce.antitre}}</h4>
-	        <a href="portfolio-item.html">
-	            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
-	        </a>
-	        {{ annonce.andescription }}
-	    </div>
-	{% endfor %}
-{% else %}
-    {{'no_result_annonces' | trans}}
-{% endif %}
+
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+	<!-- Marketing Icons Section -->
+	<div class="clear"></div>
+	<!-- /.row -->
+
+	<!-- ================ -->
+	<!-- Mentions Section -->
+	<!-- ================ -->
+
+	<!-- First section -->
+	<div class="row">
+		<h2>{{ 'panier_welcome' | trans }}</h2>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_panier') }}">{{ 'Mon_compte_panier_title' | trans }}</a></p>
+	    {% if panier is not empty %}
+			<p>Contenu de mon panier :</p>
+		    {% for annonce in panier.paannonces %}
+			    <div class="col-md-4 col-sm-6">
+			    	<h4>{{annonce.antitre}}</h4>
+			        <a href="portfolio-item.html">
+			            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
+			        </a>
+			        {{ annonce.andescription }}
+			    </div>
+			{% endfor %}
+		{% else %}
+		    {{'no_result_annonces' | trans}}
+		{% endif %}
+	<!-- /.row -->
+	</div>
+	<!-- /.container -->
+{% endblock %}

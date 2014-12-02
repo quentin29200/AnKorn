@@ -1,3 +1,4 @@
+{% block title %}Interface de gestion | An Korn{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %}
 	<!-- Page Content -->
@@ -14,7 +15,7 @@
 			<h3>Utilisateurs</h3>
 			<label for="searchUserByIdOrName">{{ 'interfaceG_search_user' | trans }}</label>
 			<div class="input-group">
-				<input id="searchUserByIdOrName" placeholder="ID ou nom de l'utilisateur" type="text" class="form-control" />
+				<input id="searchUserByIdOrName" placeholder="{{ 'interfaceG_user_placeHolder' | trans }}" type="text" class="form-control" />
 				<span class="input-group-btn">
 			  		<button class="btn btn-default" type="submit">OK</button>
 				</span>
@@ -65,7 +66,7 @@
 			<h3>Annonces</h3>
 			<label for="searchAdsByIdOrName">{{ 'interfaceG_search_ad' | trans }}</label>
 			<div class="input-group">
-				<input id="searchAdsByIdOrName" placeholder="ID ou nom de l'annonce" type="text" class="form-control" />
+				<input id="searchAdsByIdOrName" placeholder="{{ 'interfaceG_ads_placeHolder' | trans }}" type="text" class="form-control" />
 				<span class="input-group-btn">
 			  		<button class="btn btn-default" type="submit">OK</button>
 				</span>

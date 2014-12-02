@@ -64,7 +64,7 @@ class DefaultController extends Controller
     /* --- Page de connexion --- */
     public function connexionAction()
     {
-        return $this->render('PAGeneralBundle:Default:connexion.html.twig');
+        return $this->redirect('/anKorn/web/app_dev.php/login');
     }
 
     /* --- Page d'inscription --- */
@@ -82,7 +82,7 @@ class DefaultController extends Controller
     /* --- Page de deconnexion --- */
     public function deconnexionAction()
     {
-        return $this->render('PAGeneralBundle:Default:deconnexion.html.twig');
+        return $this->redirect('/anKorn/web/app_dev.php/logout');
     }
 
     /* --- Redirection vers la page de connexion --- */

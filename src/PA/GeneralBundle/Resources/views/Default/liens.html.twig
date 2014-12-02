@@ -1,3 +1,4 @@
+{% block title %}{{ 'liens_block_title' | trans }}{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %}
 	<!-- Page Content -->
@@ -20,11 +21,13 @@
 		<div class="clear"></div>
 
 		<div class="row">
-			<p>Voici une liste non exhaustive des personnes avec qui nous avons le plaisir de travailler ou de cotoyer au cours de notre projet. CEla peut aller des développeurs en eux-mêmes aux différents établissements scolaires que nous avons (eu) la chance de fréquenter.</p>
+			<p>{{ 'liens_texte_intro' | trans }}</p>
 			<ul>
-				<li>Premier truc.</li>
-				<li>Deuxième truc.</li>
-				<li>Troisième truc.</li>
+				<li><a href="https://www.univ-rennes1.fr/">{{ 'liens_ur1' | trans }}</a></li>
+				<li><a href="http://www.istic.univ-rennes1.fr/">{{ 'liens_istic' | trans }}</a></li>
+				<li><a href="http://symfony.com/">{{ 'liens_symfony' | trans }}</a></li>
+				<li><a href="http://nicolas-gigou.fr/">{{ 'liens_gigou' | trans }}</a></li>
+				<li><a href="http://quentinlgdc.blogspot.fr/">{{ 'liens_lgdc' | trans }}</a></li>
 			</ul>
 		</div>
 	</div>

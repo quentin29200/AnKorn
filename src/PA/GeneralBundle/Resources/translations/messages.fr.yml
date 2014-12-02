@@ -87,22 +87,31 @@ suscribe_go: "Je m'inscris"
 # =================================
 # Interface de gestion (ADMIN ONLY)
 # =================================
-interfaceG_search_user: "Rechercher les utilisateurs par identifiants ou par nom :"
+interfaceG_search_user: "Rechercher les utilisateurs par identifiant :"
 interfaceG_user_id_head: "ID"
 interfaceG_user_username_head: "Nom d'utilisateur"
 interfaceG_user_email_head: "Adresse e-mail"
 interfaceG_user_role_head: "Rôle"
-interfaceG_search_ad: "Rechercher les annonces par identifiants ou par nom :"
+interfaceG_user_placeHolder: "ID de l'utilisateur"
+interfaceG_search_ad: "Rechercher les annonces par identifiant :"
 interfaceG_ads_idAds_head: "ID de l'annonce"
 interfaceG_ads_idUser_head: "ID de l'utilisateur associé"
 interfaceG_ads_type_head: "Type"
 interfaceG_ads_titre_head: "Titre"
 interfaceG_ads_prix_head: "Prix"
+interfaceG_ads_placeHolder: "ID de l'annonce"
 
 # =====
 # Liens
 # =====
+liens_block_title: "Liens | AnKorn"
 liens_welcome: "Bienvenue sur la page des liens et partenariats."
+liens_texte_intro: "Voici une liste non exhaustive des personnes avec qui nous avons le plaisir de travailler ou de cotoyer au cours de notre projet. Cela peut aller des développeurs en eux-mêmes aux différents établissements scolaires que nous avons (eu) la chance de fréquenter."
+liens_ur1: "Université de Rennes 1"
+liens_istic: "ISTIC de Beaulieu, Rennes"
+liens_symfony: "Symfony2"
+liens_gigou: "Nicolas GIGOU (Design)"
+liens_lgdc: "Quentin LAGADEC (Gestion utilisateurs et panier)"
 
 # =======
 # Contact

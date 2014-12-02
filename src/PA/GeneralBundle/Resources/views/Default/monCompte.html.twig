@@ -17,19 +17,16 @@
 	<div class="row">
 		<h2>{{ 'mon_compte_welcome' | trans }}</h2>
 	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a></p>
+	</div>
 
-		<div class="clear"></div>
-		<!-- <div class="alert alert-danger">{{ 'connexion_already_connected' | trans }}</div> -->
-		<div class="alert alert-danger" role="alert">
-  Enter a valid email address
-</div>
+	<div class="clear"></div>
 
-		<ul>
-			<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
-			<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
-			<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
-			<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
-		</ul>
+	<ul>
+		<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
+		<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
+		<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
+		<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
+	</ul>
 
 	<!-- If the user is not connected -->
 	{% else %}

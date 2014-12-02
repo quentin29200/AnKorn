@@ -14,6 +14,7 @@
 	<!-- First section -->
 	<div class="row">
 		<h2>Créer une nouvelle annonce</h2>
+		<p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a> >> <a href="{{ path('pa_annonce_ajouter') }}">{{ 'Creer_annonce_title' | trans }}</a></p>
 		<form action="{{path('pa_annonce_ajouter')}}" id="form_creer_annonce" method="post" {{ form_enctype(form) }}>
 			{{ form_rest(form) }}
 			<div class="form-group">

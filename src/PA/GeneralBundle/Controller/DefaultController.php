@@ -12,9 +12,8 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
-        return $this->render('PAGeneralBundle:Default:index.html.twig', array('entities'=>$annonces));
+        return $this->render('PAGeneralBundle:Default:index.html.twig', array('annonces'=>$annonces));
     }
-
 
     /* -- Page de mon compte --- */
     public function afficherMonCompteAction()

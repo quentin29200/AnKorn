@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 use PA\AnnonceBundle\Entity\Annonce;
 use PA\AnnonceBundle\Form\AnnonceType;
+use PA\UserBundle\Entity\User;
 
 // CONTROLEUR D'ANNONCE 
 // REGROUPE L'ENSEMBLE DES ACTIONS POUVANT ETRE EFFECTUE SUR UNE ANNONCE
@@ -21,6 +22,7 @@ class AnnonceController extends Controller
     {
     	// Création de l'objet Annonce
     	$annonce = new Annonce();
+      $utilisateur = new User();
 
     	// Création du formulaire a partir de Annonce Type
     	$form = $this->get('form.factory')->create(new AnnonceType(), $annonce);
@@ -30,14 +32,19 @@ class AnnonceController extends Controller
     		  // On créé l'Entity Manager
     		  $em = $this->getDoctrine()->getManager();
 
-    		  // On ajoute les données du formulaire à notre objet
+          // Récupération de l'ID de l'utilisateur
+          $iduser = $this->container->get('security.context')->getToken()->getUser()->getId();
+          $utilisateur = $em->getRepository('PAUserBundle:User')->find($iduser);
+    		  $annonce->setanuser($utilisateur);
+
+          // On ajoute les données du formulaire à notre objet
       		$em->persist($annonce);
 
       		// On met la BDD à jour
       		$em->flush();
 
-      		$request->getSession()->getFlashBag()->add('info','Annonce créée');
-      		return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
+      		$request->getSession()->getFlashBag()->add('info','Votre annonce a bien été créée.');
+      		return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
       	}
 
         return $this->render('PAAnnonceBundle:Annonce:ajouterannonce.html.twig', array('form' => $form->createView()));
@@ -99,6 +106,17 @@ class AnnonceController extends Controller
 	{
 	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
 	}
+
+  public function afficherMesAnnoncesAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      // Récupération de l'ID de l'utilisateur
+      $utilisateur = $this->container->get('security.context')->getToken()->getUser()->getId();
+
+      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupmesannonces($utilisateur);
+      return $this->render('PAAnnonceBundle:Annonce:mesannonces.html.twig', array('annonces'=> $annonces));
+  }
 
 	public function afficherAnnoncesOffreAction()
 	{

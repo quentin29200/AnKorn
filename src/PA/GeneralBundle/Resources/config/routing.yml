@@ -2,11 +2,6 @@ pa_general_accueil:
     path:     /
     defaults: { _controller: PAGeneralBundle:Default:afficherIndex }
 
-pa_general_mes_annonces:
-    path:     /mes-annonces/
-    defaults: { _controller: PAGeneralBundle:Default:afficherMesAnnonces }
-
-
 pa_general_mon_compte:
     path:     /mon-compte/
     defaults: { _controller: PAGeneralBundle:Default:afficherMonCompte }

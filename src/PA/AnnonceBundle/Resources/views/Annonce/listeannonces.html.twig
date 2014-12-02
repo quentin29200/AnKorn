@@ -1,76 +1,39 @@
 {% extends "::base.html.twig" %}
 {% block body %} 
-	<!-- Header Carousel -->
-	<header id="myCarousel" class="carousel slide">
-	<!-- Indicators -->
-	<ol class="carousel-indicators">
-	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	    <li data-target="#myCarousel" data-slide-to="1"></li>
-	    <li data-target="#myCarousel" data-slide-to="2"></li>
-	</ol>
-
-	<!-- Wrapper for slides -->
-	<div class="carousel-inner">
-	    <div class="item active">
-	        <div class="fill" style="background-image:url('/web/images/slider-1.jpeg');"></div>
-	        <div class="carousel-caption">
-	            <h2>{{'Legend_slide1' | trans}}</h2>
-	        </div>
-	    </div>
-	    <div class="item">
-	        <div class="fill" style="background-image:url('/web/images/slider-2.jpeg');"></div>
-	        <div class="carousel-caption">
-	            <h2>{{'Legend_slide2' | trans}}</h2>
-	        </div>
-	    </div>
-	    <div class="item">
-	        <div class="fill" style="background-image:url('/web/images/slider-3.jpeg');"></div>
-	        <div class="carousel-caption">
-	            <h2>{{'Legend_slide3' | trans}}</h2>
-	        </div>
-	    </div>
-	</div>
-
-	<!-- Controls -->
-	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-	    <span class="icon-prev"></span>
-	</a>
-	<a class="right carousel-control" href="#myCarousel" data-slide="next">
-	    <span class="icon-next"></span>
-	</a>
-	</header>
-
 	<!-- Page Content -->
 	<div class="container">
 
 	<!-- Marketing Icons Section -->
-	<div class="row">
-	    <div class="col-lg-12">
-	        <h1 class="page-header">
-	            {{'message_bienvenue_top' | trans}}
-	        </h1>
-	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
-	        <hr />
-	    </div>
-	</div>
+	<div class="clear"></div>
 	<!-- /.row -->
+
+	<!-- =========== -->
+	<!-- Ads Section -->
+	<!-- =========== -->
 
 	<!-- Portfolio Section -->
 	<div class="row">
 	    <div class="col-lg-12">
 	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
+	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
+	        <hr />
 	    </div>
 	    
 	    {% if annonces is not empty %}
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
-		    	<h4>{{annonce.antitre}}
-		        <a href="portfolio-item.html">
-		            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-		        </a>
-		        {{ annonce.andescription }}
-		        <b>{{ annonce.anprix }} €</b>
-		    </div>
+		        <div class="thumbnail">
+		        	<h4>{{annonce.antitre}}</h4>
+			        <a href="portfolio-item.html">
+			            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+			        </a>
+				    <div class="caption">
+				        {{ annonce.andescription }}
+				        <b>{{ annonce.anprix }} €</b>
+				        <p><a href="#" class="btn btn-primary" role="button">{{ 'voir_detail_txt' | trans }}</a></p>
+				    </div>
+				</div>
+			</div>
 		{% endfor %}
 	    {% else %}
 	    {{'no_result_annonces' | trans}}

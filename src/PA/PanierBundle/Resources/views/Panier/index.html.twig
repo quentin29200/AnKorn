@@ -21,12 +21,18 @@
 		    {% for annonce in panier.paannonces %}
 		    	{% if annonce.antype == 'offre' %}
 				    <div class="col-md-4 col-sm-6">
-				    	<h4>{{annonce.antitre}}</h4>
-				        <a href="portfolio-item.html">
-				            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
-				        </a>
-				        {{ annonce.andescription }}
-				    </div>
+				        <div class="thumbnail">
+				        	<h4>{{annonce.antitre}}</h4>
+					        <a href="portfolio-item.html">
+					            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+					        </a>
+						    <div class="caption">
+						        {{ annonce.andescription }}
+						        <b>{{ annonce.anprix }} €</b>
+						        <p><a href="#" class="btn btn-primary" role="button">{{ 'voir_detail_txt' | trans }}</a></p>
+						    </div>
+						</div>
+			   		</div>
 				{% endif %}
 			{% endfor %}
 		{% else %}

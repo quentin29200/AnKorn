@@ -23,3 +23,7 @@ pa_annonce_afficher_offre:
 pa_annonce_afficher_demande:
     path:     /demandes
     defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesDemande }
+
+pa_annonce_afficher_mesannonces:
+    path:     /espacemembre/mes-annonces
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherMesAnnonces }

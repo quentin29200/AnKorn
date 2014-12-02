@@ -12,4 +12,32 @@ use Doctrine\ORM\EntityRepository;
  */
 class PanierRepository extends EntityRepository
 {
+	public function recupmonpanier($id)
+	{
+		$qb = $this->createQueryBuilder('a');
+ 		$qb
+   			->where('a.pauser = :user')
+    		->setParameter('user', $id);
+  		;
+
+  		return $qb
+   			->getQuery()
+    		->getSingleResult()
+  		;
+	}
+
+  public function affichermonpanier($id)
+  {
+    $qb = $this->createQueryBuilder('p');
+    $qb
+        ->join('p.paannonces', 'a')
+        ->where('p.pauser = :user')
+        ->setParameter('user', $id);
+      ;
+
+      return $qb
+        ->getQuery()
+        ->getSingleResult()
+      ;
+  }
 }

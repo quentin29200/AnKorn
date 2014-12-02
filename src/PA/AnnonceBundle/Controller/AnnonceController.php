@@ -100,10 +100,17 @@ class AnnonceController extends Controller
 	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
 	}
 
-	public function afficherAnnoncesAction()
+	public function afficherAnnoncesOffreAction()
 	{
       $em = $this->getDoctrine()->getManager();
-      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
-      return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('entities'=> $annonces));
+      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannoncesoffre();
+      return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces));
 	}
+
+  public function afficherAnnoncesDemandeAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+      $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannoncesdemande();
+      return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces));
+  }
 }

@@ -16,6 +16,10 @@ pa_annonce_ajoutercategorie:
     path:     /admin/creercategorie
     defaults: { _controller: PAAnnonceBundle:Categorie:creerCategorie }
 
-pa_annonce_afficher:
-    path:     /liste
-    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnonces }
+pa_annonce_afficher_offre:
+    path:     /offres
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesOffre }
+
+pa_annonce_afficher_demande:
+    path:     /demandes
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesDemande }

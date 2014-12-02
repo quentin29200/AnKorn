@@ -52,39 +52,6 @@
 	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
 	        <hr />
 	    </div>
-	    <div class="col-md-4">
-	        <div class="panel panel-default">
-	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-check"></i>{{'panel_heading_1_title' | trans}}</h4>
-	            </div>
-	            <div class="panel-body">
-	                <p>{{'panel_heading_1_content' | trans}}</p>
-	                <a href="#" class="btn btn-default">{{ 'panel_heading_btn' | trans }}</a>
-	            </div>
-	        </div>
-	    </div>
-	    <div class="col-md-4">
-	        <div class="panel panel-default">
-	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-gift"></i>{{'panel_heading_2_title' | trans}}</h4>
-	            </div>
-	            <div class="panel-body">
-	                <p>{{'panel_heading_2_content' | trans}}</p>
-	                <a href="#" class="btn btn-default">{{ 'panel_heading_btn' | trans }}</a>
-	            </div>
-	        </div>
-	    </div>
-	    <div class="col-md-4">
-	        <div class="panel panel-default">
-	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-compass"></i>{{'panel_heading_3_title' | trans}}</h4>
-	            </div>
-	            <div class="panel-body">
-	                <p>{{'panel_heading_3_content' | trans}}</p>
-	                <a href="#" class="btn btn-default">{{ 'panel_heading_btn' | trans }}</a>
-	            </div>
-	        </div>
-	    </div>
 	</div>
 	<!-- /.row -->
 
@@ -94,14 +61,15 @@
 	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
 	    </div>
 	    
-	    {% if entities is not empty %}
-	    {% for entity in entities %}
+	    {% if annonces is not empty %}
+	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
-		    	<h4>{{entity.antitre}}
+		    	<h4>{{annonce.antitre}}
 		        <a href="portfolio-item.html">
 		            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
 		        </a>
-		        {{ entity.andescription }}
+		        {{ annonce.andescription }}
+		        <b>{{ annonce.anprix }} €</b>
 		    </div>
 		{% endfor %}
 	    {% else %}

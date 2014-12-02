@@ -98,7 +98,7 @@ class Annonce
     /**
      * @var array
      *
-     * @ORM\Column(name="an_type", type="array")
+     * @ORM\Column(name="an_type", type="text")
      */
     private $an_type;
 

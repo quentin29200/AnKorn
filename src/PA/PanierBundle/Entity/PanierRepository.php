@@ -32,7 +32,7 @@ class PanierRepository extends EntityRepository
     $qb
         ->join('p.paannonces', 'a')
         ->where('p.pauser = :user')
-        ->setParameter('user', $id);
+        ->setParameter('user', $id)
       ;
 
       return $qb

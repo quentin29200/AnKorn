@@ -41,6 +41,9 @@ panel_heading_btn: "Ça m'intéresse !"
 # ========
 annonces_portfolio_title: "Les annonces"
 no_result_annonces: "Aucun résultat."
+Creer_annonce_title: "Création d'une annonce"
+button_voir_detail: "Voir détail"
+button_edit_ads: "Modifier l'annonce"
 
 # ======
 # Offres
@@ -94,12 +97,13 @@ interfaceG_user_email_head: "Adresse e-mail"
 interfaceG_user_role_head: "Rôle"
 interfaceG_user_placeHolder: "ID de l'utilisateur"
 interfaceG_search_ad: "Rechercher les annonces par identifiant :"
-interfaceG_ads_idAds_head: "ID de l'annonce"
-interfaceG_ads_idUser_head: "ID de l'utilisateur associé"
+interfaceG_ads_idAds_head: "ID annonce"
+interfaceG_ads_idUser_head: "ID utilisateur"
 interfaceG_ads_type_head: "Type"
 interfaceG_ads_titre_head: "Titre"
 interfaceG_ads_prix_head: "Prix"
 interfaceG_ads_placeHolder: "ID de l'annonce"
+interfaceG_table_action: "Actions"
 
 # =====
 # Liens

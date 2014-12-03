@@ -6,6 +6,8 @@
 
 		<!-- Spacing section -->
 		<div class="clear"></div>
+		<i class="fa fa-tree">TETSTTTTT</i>
+		<div class="clear"></div>
 		<!-- /.row -->
 
 		<!-- First section -->
@@ -26,10 +28,11 @@
 			<table class="table table-hover table-bordered table-condensed">
 				<thead>
 					<tr class="info">
-						<th>{{ 'interfaceG_user_id_head' | trans }}</th>
-						<th>{{ 'interfaceG_user_username_head' | trans }}</th>
-						<th>{{ 'interfaceG_user_email_head' | trans }}</th>
-						<th>{{ 'interfaceG_user_role_head' | trans }}</th>
+						<th class="col-md-1">{{ 'interfaceG_user_id_head' | trans }}</th>
+						<th class="col-md-2">{{ 'interfaceG_user_username_head' | trans }}</th>
+						<th class="col-md-6">{{ 'interfaceG_user_email_head' | trans }}</th>
+						<th class="col-md-1">{{ 'interfaceG_user_role_head' | trans }}</th>
+						<th class="col-md-2">{{ 'interfaceG_table_action' | trans }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,25 +41,53 @@
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 					<tr>
 						<td>Brigitte</td>
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 					<tr>
 						<td>Brigitte</td>
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="#" class="btn btn-success btn-sm active" role="button">Ajouter</a>
-				<a href="#" class="btn btn-warning btn-sm" role="button" disabled="disabled">Modifier</a>
-				<a href="#" class="btn btn-danger btn-sm" role="button" disabled="disabled">Supprimer</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" role="button">Ajouter</a>
 			</form-group>
 		</div>
 
@@ -76,13 +107,14 @@
 
 			<table class="table table-hover table-bordered table-condensed">
 				<thead>
-				<tr class="info">
-					<th>{{ 'interfaceG_ads_idAds_head' | trans }}</th>
-					<th>{{ 'interfaceG_ads_idUser_head' | trans }}</th>
-					<th>{{ 'interfaceG_ads_type_head' | trans }}</th>
-					<th>{{ 'interfaceG_ads_titre_head' | trans }}</th>
-					<th>{{ 'interfaceG_ads_prix_head' | trans }}</th>
-				</tr>
+					<tr class="info">
+						<th class="col-md-1">{{ 'interfaceG_ads_idAds_head' | trans }}</th>
+						<th class="col-md-1">{{ 'interfaceG_ads_idUser_head' | trans }}</th>
+						<th class="col-md-1">{{ 'interfaceG_ads_type_head' | trans }}</th>
+						<th class="col-md-6">{{ 'interfaceG_ads_titre_head' | trans }}</th>
+						<th class="col-md-1">{{ 'interfaceG_ads_prix_head' | trans }}</th>
+						<th class="col-md-2">{{ 'interfaceG_table_action' | trans }}</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -91,6 +123,16 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 					<tr>
 						<td>Id ads 2</td>
@@ -98,6 +140,16 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 					<tr>
 						<td>Id ads 2</td>
@@ -105,13 +157,21 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
+						<td>
+							<p>
+								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
+							        <span class="glyphicon glyphicon-edit"> Edit</span>
+								</button>
+								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
+							        <span class="glyphicon glyphicon-trash"> Delete</span>
+								</button>
+							</p>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
 				<a href="#" class="btn btn-success btn-sm active" role="button">Ajouter</a>
-				<a href="#" class="btn btn-warning btn-sm" role="button" disabled="disabled">Modifier</a>
-				<a href="#" class="btn btn-danger btn-sm" role="button" disabled="disabled">Supprimer</a>
 			</form-group>
 		</div>
 		{% endif %}

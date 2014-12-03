@@ -97,14 +97,21 @@
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
 		        <div class="thumbnail">
-		        	<h4>{{annonce.antitre}}</h4>
-			        <a href="portfolio-item.html">
-			            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+			        <a href="{{ annonce.animage }}">
+			            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
 			        </a>
-				    <div class="caption">
-				        {{ annonce.andescription }}
+				    <div class="text-center">
+		        		<h3>{{annonce.antitre}}<br />
+				        	<small>{{ annonce.andescription }}</small>
+				        </h3>
 				        <b>{{ annonce.anprix }} €</b>
-				        <p><a href="#" class="btn btn-primary" role="button">{{ 'voir_detail_txt' | trans }}</a></p>
+				        <div class="clear"></div>
+                        <ul class="list-inline">
+                            <li><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-info-sign"></span> {{ 'button_voir_detail' | trans }}</a></li>
+                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
+	                            	<li><a href="#" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> {{ 'button_edit_ads' | trans }}</a></li>
+                            {% endif %}
+                        </ul>
 				    </div>
 				</div>
 	   		</div>

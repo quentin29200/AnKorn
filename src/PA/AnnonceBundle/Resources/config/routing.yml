@@ -8,6 +8,10 @@ pa_annonce_ajouter:
     path:     /espacemembre/creer
     defaults: { _controller: PAAnnonceBundle:Annonce:creerAnnonce }
 
+pa_annonce_modifier:
+    path:     /espacemembre/modifier/{id}
+    defaults: { _controller: PAAnnonceBundle:Annonce:modifierAnnonce }
+
 pa_annonce_secteur:
     path:     /choixdepartement
     defaults: { _controller: PAAnnonceBundle:Annonce:affSecteur }

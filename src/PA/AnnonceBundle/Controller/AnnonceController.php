@@ -25,7 +25,7 @@ class AnnonceController extends Controller
       $utilisateur = new User();
 
     	// Création du formulaire a partir de Annonce Type
-    	$form = $this->get('form.factory')->create(new AnnonceType(), $annonce);
+    	$form = $this->createForm(new AnnonceType, $annonce);
 
     	// Si quelque chose est renvoyé par la page et que les types correspondent bien
     	if ($form->handleRequest($request)->isValid()) {
@@ -47,7 +47,7 @@ class AnnonceController extends Controller
       		return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
       	}
 
-        return $this->render('PAAnnonceBundle:Annonce:ajouterannonce.html.twig', array('form' => $form->createView()));
+        return $this->render('PAAnnonceBundle:Annonce:formvuannonce.html.twig', array('form' => $form->createView(), 'iscreation' => true));
   }
 
   public function affSecteurAction()
@@ -97,10 +97,35 @@ class AnnonceController extends Controller
 	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
 	}
 
-	public function modifierAnnonceAction($annonce)
+	public function modifierAnnonceAction($id, Request $request)
 	{
-	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
-	}
+	        $em = $this->getDoctrine()->getManager(); 
+          // Récupération d'une annonce
+          $annonce =  $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->find($id);
+          // Récupération de l'ID de l'utilisateur
+          $utilisateur = $this->container->get('security.context')->getToken()->getUser()->getId();
+          $isadmin = $this->get('security.context')->isGranted('ROLE_ADMIN');
+          if ($annonce->getAnUser()->getId() == $utilisateur || $isadmin){
+              // Formulaire d'édition
+              $formeditannonce = $this->createForm(new AnnonceType, $annonce);
+              if ($formeditannonce->handleRequest($request)->isValid()) {
+                  // Test de validation
+
+                  // On ajoute les données du formulaire à notre objet
+                  $em->persist($annonce);
+
+                  // On met la BDD à jour
+                  $em->flush();
+
+                  $request->getSession()->getFlashBag()->add('info','Votre annonce a bien été modifée.');
+                  return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
+              }
+              return $this->render('PAAnnonceBundle:Annonce:formvuannonce.html.twig', array('form' => $formeditannonce->createView(),'idannonce' =>$id, 'iscreation' => false));
+          } else{
+              $request->getSession()->getFlashBag()->add('warning','Vous n\'êtes pas autorisé à modifier cette annonce');
+              return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
+          }	
+  }
 
 	public function afficherAnnonceAction($annonce)
 	{

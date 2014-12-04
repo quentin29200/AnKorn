@@ -44,6 +44,7 @@ no_result_annonces: "Aucun résultat."
 Creer_annonce_title: "Création d'une annonce"
 button_voir_detail: "Voir détail"
 button_edit_ads: "Modifier l'annonce"
+bouton_add_ads: "Ajouter une annonce"
 
 # ======
 # Offres

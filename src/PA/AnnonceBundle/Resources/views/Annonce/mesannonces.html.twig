@@ -1,3 +1,4 @@
+{% block title %}Mes annonces | An Korn{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %}
 	<!-- Page Content -->
@@ -14,10 +15,10 @@
 	<!-- First section -->
 	<div class="row">
 		<h2 class="page-header">Mes annonces</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
 		<hr />
 		
-		<a href="{{ path('pa_annonce_ajouter') }}"><button type="button" class="btn btn-primary">{{ 'ajouter_annonce' | trans }}</button></a>
+		<a href="{{ path('pa_annonce_ajouter') }}"><button type="button" class="btn btn-primary pull-right">{{ 'bouton_add_ads' | trans }}</button></a>
 		<div class="clear"></div>
 
 		<!-- Gestion des message flash -->
@@ -39,23 +40,33 @@
 			{% for annonce in annonces %}
 			    <div class="col-md-4 col-sm-6">
 			        <div class="thumbnail">
-			        	<h4>{{annonce.antitre}}</h4>
-				        <a href="portfolio-item.html">
-				            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+				        <a href="{{ annonce.animage }}">
+				            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="{{ annonce.antitre }}">
 				        </a>
-					    <div class="caption">
-					        {{ annonce.andescription }}
+					    <div class="text-center">
+			        		<h4>{{annonce.antitre}}</h4>
+					        <p>{{ annonce.andescription }}</p> <!-- | truncate(20, false, '...')  a rajouter -->
 					        <b>{{ annonce.anprix }} €</b>
-					        <p><a href="#" class="btn btn-primary" role="button">{{ 'voir_detail_txt' | trans }}</a> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></p>
+					        <div class="clear"></div>
+	                        <ul class="list-inline">
+	                            <li>
+	                            	<a href="#" class="btn btn-primary" role="button">{{ 'button_voir_detail' | trans }}</a>
+	                            </li>
+	                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
+		                        <li>
+		                        	<a href="#" class="btn btn-warning" role="button">{{ 'button_edit_ads' | trans }}</a>
+		                        </li>
+	                            {% endif %}
+	                        </ul>
 					    </div>
 					</div>
-			    </div>
+				</div>
 			{% endfor %}
 		<!-- No ads in the database -->
 		{% else %}
 			{{'no_result_annonces' | trans}}
 		{% endif %}
-		</div>
 	</div>
-	<!-- /.container -->
+</div>
+<!-- /.container -->
 {% endblock %}

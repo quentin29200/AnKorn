@@ -156,4 +156,16 @@ class AnnonceController extends Controller
       $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannoncesdemande();
       return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces));
   }
+    /* -- Vue autoremplie avec les donnees de l'annonce --- */
+    /* ================================================================================ */
+    /* ================================================================================ */
+    /* --- A MODIFIER ! JE NE DOIS RECUPERER QUE L'ANNONCE QUI APPARTIENT AU BOUTON --- */
+    /* ================================================================================ */
+    /* ================================================================================ */
+  public function afficherDetailAnnonceAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+      $annonce = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+      return $this->render('PAAnnonceBundle:Annonce:detailAnnonce.html.twig', array('annonce'=>$annonce));
+  }
 }

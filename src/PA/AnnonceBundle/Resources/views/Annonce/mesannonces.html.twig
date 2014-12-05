@@ -18,7 +18,7 @@
 	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
 		<hr />
 		
-		<a href="{{ path('pa_annonce_ajouter') }}"><button type="button" class="btn btn-primary pull-right">{{ 'bouton_add_ads' | trans }}</button></a>
+		<a href="{{ path('pa_annonce_ajouter') }}"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-fw fa-plus"></i>{{ 'bouton_add_ads' | trans }}</button></a>
 		<div class="clear"></div>
 
 		<!-- Gestion des message flash -->
@@ -50,11 +50,11 @@
 					        <div class="clear"></div>
 	                        <ul class="list-inline">
 	                            <li>
-	                            	<a href="#" class="btn btn-primary" role="button">{{ 'button_voir_detail' | trans }}</a>
+	                            	<a href="#" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
 	                            </li>
 	                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
 		                        <li>
-		                        	<a href="#" class="btn btn-warning" role="button">{{ 'button_edit_ads' | trans }}</a>
+		                        	<a href="#" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
 		                        </li>
 	                            {% endif %}
 	                        </ul>

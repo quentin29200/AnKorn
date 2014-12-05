@@ -34,11 +34,11 @@
 				        <div class="clear"></div>
                         <ul class="list-inline">
                             <li>
-                            	<a href="#" class="btn btn-primary" role="button">{{ 'button_voir_detail' | trans }}</a>
+                            	<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
                             </li>
                             {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
 	                        <li>
-	                        	<a href="#" class="btn btn-warning" role="button">{{ 'button_edit_ads' | trans }}</a>
+	                        	<a href="#" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
 	                        </li>
                             {% endif %}
                         </ul>

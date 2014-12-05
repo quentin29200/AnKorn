@@ -55,7 +55,7 @@
 	    <div class="col-md-4">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-check"></i>{{'panel_heading_1_title' | trans}}</h4>
+	                <h4><i class="fa fa-fw fa-car"></i>{{'panel_heading_1_title' | trans}}</h4>
 	            </div>
 	            <div class="panel-body">
 	                <p>{{'panel_heading_1_content' | trans}}</p>
@@ -66,7 +66,7 @@
 	    <div class="col-md-4">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-gift"></i>{{'panel_heading_2_title' | trans}}</h4>
+	                <h4><i class="fa fa-fw fa-book"></i>{{'panel_heading_2_title' | trans}}</h4>
 	            </div>
 	            <div class="panel-body">
 	                <p>{{'panel_heading_2_content' | trans}}</p>
@@ -77,7 +77,7 @@
 	    <div class="col-md-4">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
-	                <h4><i class="fa fa-fw fa-compass"></i>{{'panel_heading_3_title' | trans}}</h4>
+	                <h4><i class="fa fa-fw fa-child"></i>{{'panel_heading_3_title' | trans}}</h4>
 	            </div>
 	            <div class="panel-body">
 	                <p>{{'panel_heading_3_content' | trans}}</p>
@@ -107,9 +107,9 @@
 				        <b>{{ annonce.anprix }} €</b>
 				        <div class="clear"></div>
                         <ul class="list-inline">
-                            <li><a href="#" class="btn btn-primary" role="button"><i class="fa fa-info fa-lg"></i> {{ 'button_voir_detail' | trans }}</a></li>
+                            <li><a href="#" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a></li>
                             {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
-	                            	<li><a href="#" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> {{ 'button_edit_ads' | trans }}</a></li>
+	                            	<li><a href="#" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a></li>
                             {% endif %}
                         </ul>
 				    </div>

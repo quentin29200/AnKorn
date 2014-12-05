@@ -1,0 +1,49 @@
+{% block title %}{ { annonce.antitre } } | An Korn{% endblock %}
+{% extends "::base.html.twig" %}
+{% block body %}
+	<!-- Page Content -->
+	<div class="container">
+
+	<!-- Marketing Icons Section -->
+	<div class="clear"></div>
+	<!-- /.row -->
+
+	<!-- =========== -->
+	<!-- Ads Section -->
+	<!-- =========== -->
+
+	<!-- First section -->
+	<div class="row">
+		<h2 class="page-header">{ { annonce.antitre } }</h2>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{ { annonce.antitre } }</a></p>
+		<hr />
+		
+
+		<div class="col-md-9">
+		    <a href="http://placehold.it/700x450&text=Modifie%20moi">
+		        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450&text=Modifie%20moi" alt="{ { annonce.antitre } }">
+		    </a>
+			<p>Description :</p>
+			<p>{ { annonce.andescription } }</p> <!-- | truncate(20, false, '...')  a rajouter -->
+		</div>
+
+		<div class="col-md-3">
+			<b>Prix : { { annonce.anprix } } €</b>
+			<div class="clear"></div>
+			<ul>
+				<li role="presentation">GESTION DE VOTRE ANNONCE</li>
+				{% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
+				<li>
+					<a href="#" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
+				</li>
+				<div class="clear"></div>
+				<li>
+					<a href="#" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>{{ 'button_delete_ads' | trans }}</a>
+				</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- /.container -->
+{% endblock %}

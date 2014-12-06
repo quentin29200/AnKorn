@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-	<!-- Page Content -->
-	<div class="container">
+<!-- Page Content -->
+<div class="container">
 
 	<!-- Marketing Icons Section -->
 	<div class="clear"></div>
@@ -14,84 +14,56 @@
 	<!-- First section -->
 	<div class="row">
 		<h2>{{ 'connexion_welcome' | trans }}</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Mon_Espace_title' | trans }}</a></p>
+		<p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Mon_Espace_title' | trans }}</a></p>
 		<!-- /.row -->
 
 		<div class="clear"></div>
 		<!-- Display Content just if the user is connected -->
 		{% if is_granted('ROLE_USER') %}
-			<p>{{ 'connexion_already_connected' | trans }}</p>
-			<ul>
-				<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
-				<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
-				<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
-				<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
-			</ul>
+		<p>{{ 'connexion_already_connected' | trans }}</p>
+		<ul>
+			<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
+		</ul>
 		<!-- If the user is not connnected -->
 		{% else %}
-			<!-- <div class="col-md-4 col-sm-6"> -->
-			<div class="page-header">
-				<p>{{ 'connexion_please_connect_or_suscribe' | trans }}</p>
-				<div class="clear"></div>
-				<div class="container">					
-					<div class="row">
-						   <div class="main">
-							   	{% for type, messages in app.session.flashBag.all %}
-	           						{% for message in messages %}
-						                <div class="{{ type }}">
-						                    {{ message|trans({}, 'FOSUserBundle') }}
-						                </div>
-	            					{% endfor %}
-	        					{% endfor %}
-						        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-						        	<fieldset>
-						        		<legend>{{ 'connexion_title' | trans }}</legend>
-							            <form action="{{ path('fos_user_security_login') }}" name="login" role="form" class="form-horizontal" method="post" accept-charset="utf-8">
-							                <div class="form-group">
-							                	<div class="col-md-8">
-							                		<label for="username">{{ 'connexion_form_id' | trans }} :</label>
-							                		<input name="_username" placeholder="Idenfiant" class="form-control" type="text" id="username"/>
-							                	</div>
-							                </div>
-							                <div class="form-group">
-							                	<div class="col-md-8">
-							                		<label for="password">{{ 'connexion_form_pw' | trans }} :</label>
-							                		<input name="_password" placeholder="Mot de passe" class="form-control" type="password" id="password"/>
-							                	</div>
-							                </div>
-							                <div class="form-group">
-							                	<div class="col-md-offset-0 col-md-8">
-							                		<input type="submit" id="_submit" name="_submit" value="Connexion" class="btn btn-success btn btn-success">
-							                	</div>
-							                </div>
-							                <input type="hidden" id="remember_me" name="_remember_me" value="on">
-							            </form>
-						        	</fieldset>
-						        	{% block fos_user_content %}
-            						{% endblock fos_user_content %}
-						        </div>
-						        <div class="col-md-4 col-sm-6">
-						        	<fieldset style="margin-bottom: -15px;">
-						        		<legend>{{ 'suscribe_title' | trans }}</legend>
-							        	<p>{{ 'suscribe_on_connexion_page' | trans }}</p>
-							        	<a href="{{ path('pa_general_inscription') }}">{{ 'suscribe_go' | trans }}</a>
-						        	</fieldset>
-						        </div>
-						    </div>
+		<!-- <div class="col-md-4 col-sm-6"> -->
+		<div class="page-header">
+			<p>{{ 'connexion_please_connect_or_suscribe' | trans }}</p>
+			<div class="clear"></div>
+			<div class="container">					
+				<div class="row">
+					<div class="main">
+						{% for type, messages in app.session.flashBag.all %}
+						{% for message in messages %}
+						<div class="{{ type }}">
+							{{ message|trans({}, 'FOSUserBundle') }}
+						</div>
+						{% endfor %}
+						{% endfor %}
+						<div class="col-xs-12 col-sm-6 col-sm-offset-1">
+							<fieldset>
+								<legend>{{ 'connexion_title' | trans }}</legend>
+								{% block fos_user_content %}
+								{% endblock fos_user_content %}
+							</fieldset>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<fieldset style="margin-bottom: -15px;">
+								<legend>{{ 'suscribe_title' | trans }}</legend>
+								<p>{{ 'suscribe_on_connexion_page' | trans }}</p>
+								<a href="{{ path('pa_general_inscription') }}">{{ 'suscribe_go' | trans }}</a>
+							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
-		{% endif %}
 		</div>
 	</div>
-	<!-- /.container -->
-	<script>
-	/*$().ready(function() {
-		$("#form_creer_annonce").addClass("form-horizontal");
-		$("#form_creer_annonce").children().addClass( "form-group" );
-		$("label").addClass( "col-sm-2 control-label");
-		$("#form_creer_annonce :input").addClass( "form-control");
-		$("#pa_annoncebundle_annonce_an_titre").wrap('<div class="col-xs-3"></div>');*/
-	</script>
-{% endblock %}
+	{% endif %}
+</div>
+</div>
+<!-- /.container -->
+		{% endblock %}

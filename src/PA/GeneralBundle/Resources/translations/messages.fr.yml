@@ -73,9 +73,24 @@ panier_welcome: "Bienvenue sur la page de votre panier."
 # ==========
 # Mon compte
 # ==========
-mon_compte_welcome: "Bienvenue sur la page de mon compte."
-mon_compte_text_disconnect : "Vous n'êtes pas connecté. Veuillez vous connecter en cliquant sur le bouton ci-dessous !"
-mon_compte_connexion_button: "Je me connecte !"
+mon_compte_welcome: "Bienvenue sur votre espace perso"
+mon_compte_perso_info: "Informations personnelles"
+mon_compte_profile: "Consultation"
+mon_compte_editMode: "Modification"
+mon_compte_username: "Pseudonyme"
+mon_compte_username_help: "Votre pseudonyme est utilisé pour votre identification. Il ne peut être modifié."
+mon_compte_firstname: "Nom"
+mon_compte_lastname: "Prénom"
+mon_compte_email: "Adresse e-mail"
+mon_compte_role: "Rôle"
+mon_compte_civilite: "Civilité"
+mon_compte_tel: "Numéro de téléphone"
+mon_compte_pass1: "Votre mot de passe"
+mon_compte_pass2: "Confirmez votre mot de passe"
+mon_compte_gen_text: "Modifiez ici vos informations personnelles générales."
+mon_compte_pass_text: "Tapez puis confirmez votre mot de passe pour le modifier."
+mon_compte_save_button: "Sauvegarder"
+mon_compte_reset_button: "Réinitialiser"
 
 # =======================
 # Connexion - Deconnexion
@@ -98,12 +113,16 @@ suscribe_go: "Je m'inscris"
 # =================================
 # Interface de gestion (ADMIN ONLY)
 # =================================
+interfaceG_title: "Interface de gestion administrateur"
+interfaceG_user_title: "utilisateurs"
 interfaceG_search_user: "Rechercher les utilisateurs par identifiant :"
 interfaceG_user_id_head: "ID"
 interfaceG_user_username_head: "Nom d'utilisateur"
 interfaceG_user_email_head: "Adresse e-mail"
 interfaceG_user_role_head: "Rôle"
 interfaceG_user_placeHolder: "ID de l'utilisateur"
+interfaceG_user_submitText: "OK"
+interfaceG_ads_title: "Annonces"
 interfaceG_search_ad: "Rechercher les annonces par identifiant :"
 interfaceG_ads_idAds_head: "ID annonce"
 interfaceG_ads_idUser_head: "ID utilisateur"
@@ -112,6 +131,9 @@ interfaceG_ads_titre_head: "Titre"
 interfaceG_ads_prix_head: "Prix"
 interfaceG_ads_placeHolder: "ID de l'annonce"
 interfaceG_table_action: "Actions"
+interfaceG_table_edit_button: "Modifier"
+interfaceG_table_delete_button: "Supprimer"
+interfaceG_table_add_button: "Ajouter"
 
 # =====
 # Liens

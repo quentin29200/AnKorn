@@ -22,8 +22,8 @@
 		{% if is_granted('ROLE_USER') %}
 		<p>{{ 'connexion_already_connected' | trans }}</p>
 		<ul>
-			<li><a href="{{ path('pa_general_offres') }}">{{ 'Offres_title' | trans }}</a></li>
-			<li><a href="{{ path('pa_general_demandes') }}">{{ 'Demandes_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_annonce_afficher_offre') }}">{{ 'Offres_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_annonce_afficher_demande') }}">{{ 'Demandes_title' | trans }}</a></li>
 			<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
 			<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
 		</ul>

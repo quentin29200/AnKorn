@@ -35,6 +35,13 @@ panel_heading_2_content: "Vous ne voulez pas vendre mais plutôt acheter ? Vous 
 panel_heading_3_title: "Un espace client"
 panel_heading_3_content: "Des objets vous plaisent et vous souhaitez les garder de côté pour plus tard ? Rajoutez-les à votre panier et revenez dès que vous voulez !"
 panel_heading_btn: "Ça m'intéresse !"
+index_form_text: "Rechercher une annonce :"
+index_form_pH_text: "Nom de l'annonces"
+index_form_sector: "Secteur :"
+index_form_sector1: "Brest"
+index_form_dept: "Département :"
+index_form_cat: "Catégorie :"
+index_form_spoiler: "Recherche avancée"
 
 # ========
 # Annonces

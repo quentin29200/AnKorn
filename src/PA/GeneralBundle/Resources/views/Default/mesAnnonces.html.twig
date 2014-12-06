@@ -3,33 +3,26 @@
 	<!-- Page Content -->
 	<div class="container">
 
-	<!-- Marketing Icons Section -->
-	<div class="clear"></div>
-	<!-- /.row -->
-
-	<!-- =========== -->
-	<!-- Ads Section -->
-	<!-- =========== -->
-
-	<!-- First section -->
-	<div class="row">
-		<h2>Bienvenue sur la page de mes annonces.</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
-		<!-- /.row -->
-
+		<!-- Spacing section -->
 		<div class="clear"></div>
-		<!-- Display Content just if the user is connected -->
-		{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-		<!-- We check if there are some ads in the database -->
+		<!-- /.clear -->
+
+		<!-- =========== -->
+		<!-- Ads Section -->
+		<!-- =========== -->
+
+		<!-- FIl d'Ariane -->
+		<div class="row">
+			<h2>Bienvenue sur la page de mes annonces.</h2>
+		    <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil_title" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
+
+			<!-- We check if there are some ads in the database -->
 			{% if entities is not empty %}
 				<!-- For all occurrences of ads -->
 				{% for entity in entities %}
-					<!-- ========================================================= -->
-					<!-- { % if entity.anuserid == L ID DE L UTILISATEUR COURANT % } -->
-					<!-- ========================================================= -->
 				    <div class="col-md-4 col-sm-6">
 				        <a href="portfolio-item.html">
-				            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+				            <img class="img-responsive img-portfolio img-hover" src="{{ entity.animage }}" alt="">
 				        </a>
 				    </div>
 				{% endfor %}
@@ -37,11 +30,6 @@
 			{% else %}
 				{{'no_result_annonces' | trans}}
 			{% endif %}
-		<!-- If the user is not connnected -->
-		{% else %}
-			<?php header("Location: {{  path('pa_general_connexion') }}"); ?>
-		{% endif %}
-		</div>
-	</div>
-	<!-- /.container -->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
 {% endblock %}

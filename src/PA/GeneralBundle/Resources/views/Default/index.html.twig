@@ -88,16 +88,92 @@
 	</div>
 	<!-- /.row -->
 
-	<!-- Portfolio Section -->
-	<div class="row">
-		<h3>Utilisateurs</h3>
-			<label for="searchAdsByIdOrName">{{ 'interfaceG_search_ad' | trans }}</label>
-			<div class="input-group">
-				<input id="searchAdsByIdOrName" placeholder="{{ 'interfaceG_ads_placeHolder' | trans }}" type="text" class="form-control" />
-				<span class="input-group-btn">
-			  		<button class="btn btn-default" type="submit">OK</button>
-				</span>
+	<!-- Search Section -->
+	<h3>Utilisateurs</h3>	
+	<form role="form">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Ad name (text) section -->
+				<div class="form-group">
+					<label for="index_form_text">{{ 'index_form_text' | trans }}</label>	
+					<input id="index_form_text" placeholder="{{ 'index_form_pH_text' | trans }}" type="text" class="form-control" />
+				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<button type="button" class="btn btn-primary spoiler-trigger" data-toggle="collapse">{{ 'index_form_spoiler' | trans }}</button>
+				</div>
+				<div class="panel-collapse collapse out">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6">
+								<!-- Department filter (select list) section -->
+								<div class="form-group">
+									<label for="index_form_dept">{{ 'index_form_dept' | trans }}</label>
+									<select class="form-control" id="index_form_dept">
+										<option value="armor">22 .Côtes d'armor</option>
+										<option value="finistere">29. Finistère</option>
+										<option value="ile">35. Ile et Vilaine</option>
+										<option value="morbihan">56. Morbihan</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- Category filter (select list) section -->
+						        <div class="form-group">
+							        <label for="index_form_cat">{{ 'index_form_cat' | trans }}</label>
+						        	<select class="form-control" id="index_form_cat">
+						        		<option value="1">Automobile</option>
+						        	</select>
+						        </div>
+							</div>
+						</div>
+						<div class="row"><br />
+							<div class="form-group">
+								<!-- Sector filter (checkbox) section -->
+								<div class="checkbox">
+									<div class="col-md-2">
+										<label>{{ 'index_form_sector' | trans }}</label>
+									</div>
+									<div class="col-md-7">
+										<label for="index_from_cb_1">
+											<input id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
+										</label>
+										<label for="index_from_cb_1">
+											<input id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
+										</label>
+										<label for="index_from_cb_1">
+											<input id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
+										</label>
+										<label for="index_from_cb_1">
+											<input id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
+										</label>
+										<label for="index_from_cb_1">
+											<input id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12 form-inline">
+		        <!-- Reset and submit buttons section -->
+		        <div class="pull-right">
+					<button type="reset" class="btn btn-default">Réinitialiser</button>
+					<button type="submit" class="btn btn-success">Rechercher !</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Display section -->
+	<div class="row">
 	    <div class="col-lg-12">
 	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
 	    </div>
@@ -132,4 +208,12 @@
 
 	</div>
 	<!-- /.container -->
+
+	<!-- Spoiler code -->
+	<script type="text/javascript">
+	$(".spoiler-trigger").click(function() {
+		$(this).parent().next().collapse('toggle');
+	});
+	</script>
+
 {% endblock %}

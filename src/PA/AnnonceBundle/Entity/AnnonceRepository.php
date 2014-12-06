@@ -73,4 +73,46 @@ class AnnonceRepository extends EntityRepository
         ->getResult()
       ;
   }
+
+  public function searchannonces($page, $nom, $sect, $type, $cat)
+  {
+    $qbnom = '';
+    $qbsect = '';
+    $qbtype = '';
+    $qbcat = '';
+
+    if (!is_null($nom)) {
+           $qbnom = "$qb->expr()->like('u.username', %".$nom."%)"; 
+    }
+
+    if (!empty($sect)) {
+            foreach ($sect as $secteur) {
+                  $qbsect .= ' OR a.an_secteur = ' .$secteur;
+            }
+    }
+
+    if (!is_null($type)) {
+           $qbtype = 'a.an_type = ' .$type; 
+    }
+    if (!is_null($cat)) {
+           $qbcat = 'a.an_categorie = ' .$categorie;
+    }
+
+    $qb = $this->createQueryBuilder('a');
+    $qb
+        ->where('a.an_dateSupression IS NULL')
+        ->andWhere('a.an_publie = true')
+        ->andWhere($qbnom)
+        ->andWhere($qbsect) 
+        ->andWhere($qbtype) 
+        ->andWhere($qbcat)
+        ->orderBy('a.an_datePublication', 'DESC')
+      ;
+
+      $qb->setFirstResult(($page-1) * 21)
+            ->setMaxResults(21);
+ 
+        return new Paginator($q);
+      ;
+  }
 }

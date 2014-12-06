@@ -35,3 +35,7 @@ pa_annonce_afficher_mesannonces:
 pa_annonce_detail_annonce:
     path:     /AMODIFIER
     defaults: { _controller: PAAnnonceBundle:Annonce:afficherDetailAnnonce }
+
+afficher_resultat_annonce:
+    path:  /resultat/{page}
+    defaults: { _controller: PAAnnonceBundle:Annonce:rechercherAnnonce, page: 1 }

@@ -17,10 +17,10 @@ class UserType extends BaseType
         {
          parent::buildForm($builder, $options);
          $builder
-         ->add('us_civilite')
-         ->add('us_nom')
-         ->add('us_prenom')
-         ->add('us_tel')
+         ->add('us_civilite', 'choice', array('empty_value' => '', 'label'=>'Civilité* : ', 'choices'=>array('mme' => 'Mme.', "m" => 'M.')))
+         ->add('us_nom', 'text', array('label'=>'Nom* : '))
+         ->add('us_prenom', 'text', array('label'=>'Prénom* : '))
+         ->add('us_tel', 'text', array('label'=>'Tel* : '))
          ;
      }
      

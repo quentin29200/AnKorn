@@ -42,7 +42,7 @@ class DefaultController extends Controller
     /* --- Page d'inscription --- */
     public function afficheInscriptionAction()
     {
-        return $this->render('PAGeneralBundle:Default:inscription.html.twig');
+       return $this->redirect('/anKorn/web/app_dev.php/register/');
     }
 
     /* --- Page des liens --- */

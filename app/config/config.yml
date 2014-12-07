@@ -77,10 +77,3 @@ fos_user:
     registration:
         form:
             type: pa_userbundle_user
-
-services:
-    PA.registration.form.type:
-        class: PA\UserBundle\Form\UserType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: pa_userbundle_user }

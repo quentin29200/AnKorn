@@ -97,7 +97,7 @@
 		$("select").attr( "class", "form-control" );
 		$("input[type=submit]").attr("class", "btn btn-success");
 		$("input[type=submit]").attr("style", "margin-top:30px; margin-bottom:20px; float:left;");
-		$("input[type=checkbox]").attr("style", "float:left;");
+
 		$("label[for=remember_me]").attr("style", "float:left;");
 
 		$("#fos_user_registration_form_email").attr( "placeholder", "E-mail" );
@@ -108,8 +108,18 @@
 		$("#fos_user_registration_form_us_prenom").attr( "placeholder", "Prénom" );
 		$("#fos_user_registration_form_us_tel").attr( "placeholder", "Téléphone" );
 
+		$("input").wrap('<div class="col-md-10"></div>');
+		$("label").wrap('<div class="col-md-10"></div>');
+		$("select").wrap('<div class="col-md-10"></div>');
+
 		$("#username").attr( "placeholder", "Identifiant" );
 		$("#password").attr( "placeholder", "Mot de passe" );
+
+		$("input[type=checkbox]").unwrap();
+		$("label[for=remember_me]").unwrap();
+
+		$("input[type=checkbox]").wrap('<div class="col-md-3"></div>');
+		$("label[for=remember_me]").wrap('<div class="col-md-6 col-md-pull-2"></div>');
 
 	});
 	</script>

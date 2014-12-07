@@ -88,8 +88,10 @@
 	</div>
 	<!-- /.row -->
 
+	<!-- Spacing section -->
+	<div class="clear"></div>
+
 	<!-- Search Section -->
-	<h3>Utilisateurs</h3>	
 	<form role="form" action="{{ path('afficher_resultat_annonce') }}" method="POST">
 		<div class="row">
 			<div class="col-md-12">
@@ -160,7 +162,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									 <label for="group1">{{ 'index_form_type' | trans }} :</label><br />
+									 <label for="group1">{{ 'index_form_type' | trans }}</label><br />
 									 <input type="radio" name="group1" value="offre"> {{ 'offre' | trans }}
 									 <input type="radio" name="group1" value="demande"> {{ 'demande' | trans }}<br />
 								</div>
@@ -190,8 +192,8 @@
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
 		        <div class="thumbnail">
-			        <a href="{{ annonce.animage }}">
-			            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
+			        <a href="{{ path('pa_annonce_detail_annonce') }}">
+			            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="" width="750px" height="450px" >
 			        </a>
 				    <div class="text-center">
 		        		<h3>{{annonce.antitre}}<br />
@@ -200,7 +202,7 @@
 				        <b>{{ annonce.anprix }} €</b>
 				        <div class="clear"></div>
                         <ul class="list-inline">
-                            <li><a href="#" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a></li>
+                            <li><a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a></li>
                             {% if is_granted('ROLE_ADMIN') or ((is_granted('ROLE_USER') and ( app.user.id == annonce.anuser ))) %}
 	                            	<li><a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a></li>
                             {% endif %}

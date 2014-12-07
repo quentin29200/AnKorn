@@ -1,21 +1,22 @@
 # ==========================================
 # Nom des liens de la barre de menus du haut
 # ==========================================
-Welcome: "Bienvenue sur An Korn"
-Accueil_title: Accueil
+Welcome: "Welcome to An Korn"
+Accueil_title: Home
 Contact_title: Contact
-Offres_title: Offres
-Demandes_title: Demandes
-Mes_annonces_title: "Mes annonces"
-Mon_compte_disconnected_title: "Espace perso"
-Mon_compte_connected_title: "Mon compte"
-Mon_compte_espace_title: "Mon espace"
-Mon_compte_panier_title: "Mon panier"
-Mon_compte_deconnexion_title: "Déconnexion"
-interfaceGestion_title: "Interface de gestion"
-Inscription_title: "Inscription"
-Liens_title: "Liens"
+Offres_title: Offers
+Demandes_title: Desires
+Mes_annonces_title: "My ads"
+Mon_compte_disconnected_title: "Personal space"
+Mon_compte_connected_title: "M account"
+Mon_compte_espace_title: "My personal space"
+Mon_compte_panier_title: "My shopping basket"
+Mon_compte_deconnexion_title: "Logout"
+interfaceGestion_title: "Management"
+Inscription_title: "Register"
+Liens_title: "Links"
 english_version_title: "English"
+francais_version_title: "Français"
 
 # ================
 # Titre des slides

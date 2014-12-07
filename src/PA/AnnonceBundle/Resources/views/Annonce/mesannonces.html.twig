@@ -14,7 +14,7 @@
 
 	<!-- First section -->
 	<div class="row">
-		<h2 class="page-header">Mes annonces</h2>
+		<h2 class="page-header">{{ 'Mes_annonces_title' | trans }}</h2>
 	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a></p>
 		<hr />
 		
@@ -41,7 +41,7 @@
 			{% for annonce in annonces %}
 			    <div class="col-md-4 col-sm-6">
 			        <div class="thumbnail">
-				        <a href="{{ annonce.animage }}">
+				        <a href="{{ path('pa_annonce_detail_annonce') }}">
 				            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="{{ annonce.antitre }}">
 				        </a>
 					    <div class="text-center">
@@ -51,11 +51,11 @@
 					        <div class="clear"></div>
 	                        <ul class="list-inline">
 	                            <li>
-	                            	<a href="#" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
+	                            	<a href="path('pa_annonce_detail_annonce')" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
 	                            </li>
 	                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuser )) %}
 		                        <li>
-		                        	<a href="#" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
+		                        	<a href="path('pa_annonce_detail_annonce')" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
 		                        </li>
 	                            {% endif %}
 	                        </ul>

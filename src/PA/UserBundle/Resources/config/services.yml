@@ -5,3 +5,8 @@ services:
 #    pa_user.example:
 #        class: %pa_user.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    PA.registration.form.type:
+        class: PA\UserBundle\Form\UserType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: pa_userbundle_user }

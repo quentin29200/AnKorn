@@ -7,16 +7,15 @@
 		<!-- Spacing section -->
 		<div class="clear"></div>
 
-		<!-- First section -->
-		{% if is_granted('ROLE_ADMIN') %}
-		<h2>Interface de gestion administrateur</h2>
+		<!-- Display section -->
+		<h2>{{ 'interfaceG_title' | trans }}</h2>
 		<div class="row">
-			<h3>Utilisateurs</h3>
+			<h3>{{ 'interfaceG_user_title' | trans }}</h3>
 			<label for="searchUserByIdOrName">{{ 'interfaceG_search_user' | trans }}</label>
 			<div class="input-group">
 				<input id="searchUserByIdOrName" placeholder="{{ 'interfaceG_user_placeHolder' | trans }}" type="text" class="form-control" />
 				<span class="input-group-btn">
-			  		<button class="btn btn-default" type="submit">OK</button>
+			  		<button class="btn btn-default" type="submit">{{ 'interfaceG_user_submitText' | trans }}</button>
 				</span>
 			</div>
 
@@ -38,14 +37,11 @@
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i> Modifier
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i> Supprimer
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -54,14 +50,11 @@
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i> Modifier
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i> Supprimer
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -70,28 +63,25 @@
 						<td>Bardot</td>
 						<td>super.brigitte@gg.fr</td>
 						<td>Looser</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i> Modifier
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i> Supprimer
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> Ajouter</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
 			</form-group>
 		</div>
 
 		<div class="clear"></div>
 
 		<div class="row">
-			<h3>Annonces</h3>
+			<h3>{{ 'interfaceG_ads_title' | trans }}</h3>
 			<label for="searchAdsByIdOrName">{{ 'interfaceG_search_ad' | trans }}</label>
 			<div class="input-group">
 				<input id="searchAdsByIdOrName" placeholder="{{ 'interfaceG_ads_placeHolder' | trans }}" type="text" class="form-control" />
@@ -120,14 +110,11 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i>
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i>
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -137,14 +124,11 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i>
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i>
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -154,24 +138,20 @@
 						<td>Cat</td>
 						<td>Title</td>
 						<td>15€</td>
-						<td>
+						<td align=center>
 							<p>
-								<button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip">
-									<i class="fa fa-gear"></i>
-								</button>
-								<button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="right" rel="tooltip">
-									<i class="fa fa-times"></i>
-								</button>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="#" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> Ajouter</a>
+				<a href="#" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
 			</form-group>
 		</div>
-		{% endif %}
 
 	</div>	<!-- /.container -->
 {% endblock %}

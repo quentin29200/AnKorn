@@ -24,7 +24,7 @@
 		<ul>
 			<li><a href="{{ path('pa_annonce_afficher_offre') }}">{{ 'Offres_title' | trans }}</a></li>
 			<li><a href="{{ path('pa_annonce_afficher_demande') }}">{{ 'Demandes_title' | trans }}</a></li>
-			<li><a href="{{ path('pa_general_mes_annonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
+			<li><a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_title' | trans }}</a></li>
 			<li><a href="{{ path('pa_general_deconnexion') }}">{{ 'deconnexion_title' | trans }}</a></li>
 		</ul>
 		<!-- If the user is not connnected -->
@@ -43,27 +43,84 @@
 						</div>
 						{% endfor %}
 						{% endfor %}
+
+						{% if app.request.get('_route') == 'fos_user_security_login' %}
 						<div class="col-xs-12 col-sm-6 col-sm-offset-1">
+							<div class="col-md-8">
 							<fieldset>
-								<legend>{{ 'connexion_title' | trans }}</legend>
+								<legend>{{ 'connexion_title' | trans }}</legend>					
+								{% endif %}
+
+								{% if app.request.get('_route') == 'fos_user_registration_register' %}
+								<div class="col-md-4 col-sm-6">
+									<fieldset style="margin-bottom: -15px;">
+										<legend>{{ 'suscribe_title' | trans }}</legend>
+								{% endif %}
+
+
 								{% block fos_user_content %}
 								{% endblock fos_user_content %}
-							</fieldset>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<fieldset style="margin-bottom: -15px;">
-								<legend>{{ 'suscribe_title' | trans }}</legend>
-								<p>{{ 'suscribe_on_connexion_page' | trans }}</p>
-								<a href="{{ path('pa_general_inscription') }}">{{ 'suscribe_go' | trans }}</a>
+
+								{% if app.request.get('_route') == 'fos_user_security_login' %}
+									</fieldset>
+								</div>
+							</div>
+								{% endif %}
+
+
+
+								{% if app.request.get('_route') == 'fos_user_security_login' %}
+								<div class="col-md-4 col-sm-6">
+									<fieldset style="margin-bottom: -15px;">
+										<legend>{{ 'suscribe_title' | trans }}</legend>
+										<p>{{ 'suscribe_on_connexion_page' | trans }}</p>
+										<a href="{{ path('pa_general_inscription') }}">{{ 'suscribe_go' | trans }}</a>
+									</fieldset>
+								</div>
+								{% endif %}
+
 							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</div>
-	{% endif %}
-</div>
-</div>
-<!-- /.container -->
-		{% endblock %}
+	<!-- /.container -->
+
+	<script>
+	$( document ).ready(function() {
+		$("input[type=text]").attr( "class", "form-control" );
+		$("input[type=password]").attr( "class", "form-control" );
+		$("input[type=email]").attr( "class", "form-control" );
+		$("select").attr( "class", "form-control" );
+		$("input[type=submit]").attr("class", "btn btn-success");
+		$("input[type=submit]").attr("style", "margin-top:30px; margin-bottom:20px; float:left;");
+
+		$("label[for=remember_me]").attr("style", "float:left;");
+
+		$("#fos_user_registration_form_email").attr( "placeholder", "E-mail" );
+		$("#fos_user_registration_form_username").attr( "placeholder", "Identifiant" );
+		$("#fos_user_registration_form_plainPassword_first").attr( "placeholder", "Mot de passe" );
+		$("#fos_user_registration_form_plainPassword_second").attr( "placeholder", "Confirmation" );
+		$("#fos_user_registration_form_us_nom").attr( "placeholder", "Nom" );
+		$("#fos_user_registration_form_us_prenom").attr( "placeholder", "Prénom" );
+		$("#fos_user_registration_form_us_tel").attr( "placeholder", "Téléphone" );
+
+		$("input").wrap('<div class="col-md-10"></div>');
+		$("label").wrap('<div class="col-md-10"></div>');
+		$("select").wrap('<div class="col-md-10"></div>');
+
+		$("#username").attr( "placeholder", "Identifiant" );
+		$("#password").attr( "placeholder", "Mot de passe" );
+
+		$("input[type=checkbox]").unwrap();
+		$("label[for=remember_me]").unwrap();
+
+		$("input[type=checkbox]").wrap('<div class="col-md-3"></div>');
+		$("label[for=remember_me]").wrap('<div class="col-md-6 col-md-pull-2"></div>');
+
+	});
+	</script>
+	{% endblock %}

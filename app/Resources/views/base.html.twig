@@ -79,6 +79,9 @@
                             <a href="{{ path('pa_general_connexion') }}">{{'Mon_compte_disconnected_title' | trans}}</a>
                         </li>
                         {% endif %}
+                        <li>
+                            <a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">{{ 'english_version_title' | trans }}</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

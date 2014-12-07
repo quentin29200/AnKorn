@@ -96,7 +96,7 @@ class Annonce
     private $an_prix;
 
     /**
-     * @var array
+     * @var text
      *
      * @ORM\Column(name="an_type", type="text")
      */
@@ -110,9 +110,9 @@ class Annonce
     private $an_departement;
 
     /**
-     * @var array
+     * @var text
      *
-     * @ORM\Column(name="an_secteur", type="array")
+     * @ORM\Column(name="an_secteur", type="text")
      */
     private $an_secteur;
 

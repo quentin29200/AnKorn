@@ -3,6 +3,7 @@
 namespace PA\AnnonceBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * AnnonceRepository
@@ -81,38 +82,41 @@ class AnnonceRepository extends EntityRepository
     $qbtype = '';
     $qbcat = '';
 
+    $qbtotal = 'a.an_dateSupression IS NULL AND a.an_publie = true';
+
     if (!is_null($nom)) {
-           $qbnom = "$qb->expr()->like('u.username', %".$nom."%)"; 
+           $qbtotal .= " AND a.an_titre LIKE '%".$nom."%'";
     }
 
     if (!empty($sect)) {
+            $first = true;
             foreach ($sect as $secteur) {
-                  $qbsect .= ' OR a.an_secteur = ' .$secteur;
+                if ($first) {
+                    $qbtotal .= ' AND ';
+                    $first = false;
+                } else {
+                     $qbtotal .= ' OR ';
+                }
+                   $qbtotal .= " a.an_secteur = '" .$secteur."'";
             }
     }
 
     if (!is_null($type)) {
-           $qbtype = 'a.an_type = ' .$type; 
+           $qbtotal .= " AND a.an_type = '" .$type."'"; 
     }
     if (!is_null($cat)) {
-           $qbcat = 'a.an_categorie = ' .$categorie;
+           $qbtotal .= ' AND a.an_categorie = ' .$cat;
     }
 
     $qb = $this->createQueryBuilder('a');
     $qb
-        ->where('a.an_dateSupression IS NULL')
-        ->andWhere('a.an_publie = true')
-        ->andWhere($qbnom)
-        ->andWhere($qbsect) 
-        ->andWhere($qbtype) 
-        ->andWhere($qbcat)
+        ->select('a')
+        ->where($qbtotal)
         ->orderBy('a.an_datePublication', 'DESC')
+        ->setFirstResult(($page-1) * 21)
+        ->setMaxResults(21)
       ;
-
-      $qb->setFirstResult(($page-1) * 21)
-            ->setMaxResults(21);
  
-        return new Paginator($q);
-      ;
+    return new Paginator($qb);
   }
 }

@@ -19,7 +19,7 @@
 	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
 	        <hr />
 	    </div>
-	    
+	    {{ include('PAGeneralBundle:Default:rechercher.html.twig') }}
 	    {% if annonces is not empty %}
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
@@ -49,7 +49,7 @@
 	    {% else %}
 	    {{'no_result_annonces' | trans}}
 	    {% endif %}
-	    {% include 'AnnonceBundle:Default:pagination.html.twig' %}
+	   
 	</div>
 	<!-- /.row -->
 

@@ -37,5 +37,27 @@ pa_annonce_detail_annonce:
     defaults: { _controller: PAAnnonceBundle:Annonce:afficherDetailAnnonce }
 
 afficher_resultat_annonce:
-    path:  /resultat/{page}
-    defaults: { _controller: PAAnnonceBundle:Annonce:rechercherAnnonce, page: 1 }
+    path: /resultat/{nomSeparator}{nom}{secteursSeparator}{secteurs}{typeSeparator}{type}{catSeparator}{cat}{pageSeparator}{page}
+    defaults:
+        _controller: PAAnnonceBundle:Annonce:rechercherAnnonce
+        nomSeparator:
+        nom:
+        secteursSeparator:
+        secteurs:
+        typeSeparator:
+        type:
+        catSeparator:
+        cat:
+        pageSeparator:
+        page: 1
+    requirements:
+        nomSeparator: /?
+        nom: ([^/]+)?
+        secteursSeparator: /?
+        secteurs: ([^/]+)?
+        typeSeparator: /?
+        type: ([^/]+)?
+        catSeparator: /?
+        cat: ([^/]+)?
+        pageSeparator: /?
+        page:  (\d+)?

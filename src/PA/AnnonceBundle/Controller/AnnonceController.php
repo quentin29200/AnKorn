@@ -110,7 +110,7 @@ class AnnonceController extends Controller
               $cat = null;
               // Récupération des données du formulaire de recherche
               if (isset($_POST['nom'])) {
-                  $nom = $_POST['nom']; 
+                  $nom = $_POST['nom'];
               }
               if (isset($_POST['sect']) && !empty($_POST['sect'])) {
                 foreach ($_POST['sect'] as $sect) {
@@ -125,27 +125,31 @@ class AnnonceController extends Controller
                   $cat = $_POST['cat']; 
               }
           }
-              $em = $this->getDoctrine()->getManager(); 
 
-              // Récupération des annonces
-              $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->searchannonces($page, $nom, $secteurs, $type, $cat);
-              $nombreannonces = count($annonces);
+          // On compte le nombre d'annonces à récupérer en fonction des paramètres
+          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->count(array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
 
-              // Pagination
-              /*$pagination = array(
-                  'page' => $page,
-                  'route' => 'afficher_resultat_annonce',
-                  'pages_count' => ceil($nombreannonces / 21),
-                  'route_params' => array('nom' => $nom, 'secteurs[]' => $secteurs, 'type' => $type, 'cat'=> $cat)
-              );*/
+          // Récupération des annonces
+          $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
+
+          /*  ON VA PASSER LES OPTIONS DE RECHERCHE EN SESSION CA SERA PLUS SIMPLE */
 
 
-              if ($annonces != null) {
-                 return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces/*,'pagination'=> $pagination*/));
-              } else {
-                 $request->getSession()->getFlashBag()->add('warning','Pas d\'annonces trouvées.');
-                 return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces/*,'pagination'=> $pagination*/));
-              }
+          // Pagination
+          $pagination = array(
+              'page' => $page,
+              'route' => 'afficher_resultat_annonce',
+              'pages_count' => ceil($nbannonces / 21),
+              'route_params' => array('nom' => $nom, 'secteurs[]' => $secteurs, 'type' => $type, 'cat'=> $cat, 'page'=> $page)
+          );
+
+
+          if ($annonces != null) {
+             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination));
+          } else {
+             $request->getSession()->getFlashBag()->add('warning','Pas d\'annonces trouvées.');
+             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination));
+          }
     }
 
   	public function modifierAnnonceAction($id, Request $request)

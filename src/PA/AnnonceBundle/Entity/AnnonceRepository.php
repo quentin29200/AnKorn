@@ -75,7 +75,57 @@ class AnnonceRepository extends EntityRepository
       ;
   }
 
-  public function searchannonces($page, $nom, $sect, $type, $cat)
+  /**
+     * Compte le nombre de lignes 
+     * @param array $options
+     * @return integer
+     */
+  public function count(array $options = null) {
+        $qb = $this->createQueryBuilder($this->_entityName);
+        $qb->select($qb->expr()->count($this->_entityName));
+        if ($options != null) {
+            foreach ($options as $option => $valeur) {
+                if (!is_null($valeur)) {
+                  if ($option == "an_titre") {
+                    $qb->andWhere($this->_entityName . '.' . $option . " LIKE '%" . $valeur . "%'");
+                  } else if ($option == "an_secteur") {
+                      foreach ($valeur as $secteur) {
+                         $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $secteur);
+                      }
+                  } else {
+                    $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $valeur);
+                  }
+                }
+            }
+        }
+        return $qb->getQuery()->getSingleScalarResult();
+  }
+
+  public function pagination($maxResults, $page = 1, $sort = null, $order = null,array $options = null) {
+        $qb = $this->createQueryBuilder($this->_entityName);
+        if ($options != null) {
+            foreach ($options as $option => $valeur) {
+                if (!is_null($valeur)) {
+                  if ($option == "an_titre") {
+                    $qb->andWhere($this->_entityName . '.' . $option . " LIKE '%" . $valeur . "%'");
+                  } else if ($option == "an_secteur") {
+                      foreach ($valeur as $secteur) {
+                         $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $secteur);
+                      }
+                  } else {
+                    $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $valeur);
+                  }
+                }
+            }
+        } 
+        if ($sort != null) $qb->orderBy($this->_entityName . '.' . $sort, $order);
+        $query = $qb->getQuery();
+        $query->setFirstResult(($page - 1) * $maxResults)
+                ->setMaxResults($maxResults);
+        return $query->getResult();
+  }
+
+  /*public function searchannonces($page, $nom, $sect, $type, $cat)
   {
     $qbnom = '';
     $qbsect = '';
@@ -118,5 +168,5 @@ class AnnonceRepository extends EntityRepository
       ;
  
     return new Paginator($qb);
-  }
+  }*/
 }

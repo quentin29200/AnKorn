@@ -22,11 +22,11 @@ pa_annonce_ajoutercategorie:
 
 pa_annonce_afficher_offre:
     path:     /offres
-    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesOffre }
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesOffre, page: 1  }
 
 pa_annonce_afficher_demande:
     path:     /demandes
-    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesDemande }
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherAnnoncesDemande, page: 1 }
 
 pa_annonce_afficher_mesannonces:
     path:     /espacemembre/mes-annonces
@@ -37,27 +37,5 @@ pa_annonce_detail_annonce:
     defaults: { _controller: PAAnnonceBundle:Annonce:afficherDetailAnnonce }
 
 afficher_resultat_annonce:
-    path: /resultat/{nomSeparator}{nom}{secteursSeparator}{secteurs}{typeSeparator}{type}{catSeparator}{cat}{pageSeparator}{page}
-    defaults:
-        _controller: PAAnnonceBundle:Annonce:rechercherAnnonce
-        nomSeparator:
-        nom:
-        secteursSeparator:
-        secteurs:
-        typeSeparator:
-        type:
-        catSeparator:
-        cat:
-        pageSeparator:
-        page: 1
-    requirements:
-        nomSeparator: /?
-        nom: ([^/]+)?
-        secteursSeparator: /?
-        secteurs: ([^/]+)?
-        typeSeparator: /?
-        type: ([^/]+)?
-        catSeparator: /?
-        cat: ([^/]+)?
-        pageSeparator: /?
-        page:  (\d+)?
+    path: /resultat/{page}
+    defaults: { _controller: PAAnnonceBundle:Annonce:rechercherAnnonce, page: 1 }

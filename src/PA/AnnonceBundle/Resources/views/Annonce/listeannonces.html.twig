@@ -45,7 +45,6 @@
 				    </div>
 				</div>
 			</div>
-		{{ include('PAAnnonceBundle:Annonce:pagination.html.twig') }}
 		{% endfor %}
 	    {% else %}
 	    {{'no_result_annonces' | trans}}
@@ -53,7 +52,9 @@
 	   
 	</div>
 	<!-- /.row -->
-
+	<div class="row">
+		{{ include('PAAnnonceBundle:Annonce:pagination.html.twig') }}
+	</div>
 	</div>
 	<!-- /.container -->
 {% endblock %}

@@ -1,6 +1,6 @@
 pa_general_accueil:
     path:     /
-    defaults: { _controller: PAGeneralBundle:Default:afficherIndex }
+    defaults: { _controller: PAGeneralBundle:Default:afficherIndex, page: 1 }
 
 pa_general_mon_compte:
     path:     /mon-compte/

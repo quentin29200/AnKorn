@@ -5,6 +5,7 @@ namespace PA\AnnonceBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use PA\AnnonceBundle\Entity\Annonce;
 use PA\AnnonceBundle\Form\AnnonceType;
@@ -97,11 +98,10 @@ class AnnonceController extends Controller
   	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
   	}
 
-    public function rechercherAnnonceAction($page, $nom, $secteurs, $type, $cat, Request $request)
+    public function rechercherAnnonceAction($page, Request $request)
     {      
-         
-          $i = 0;
-        
+          $session = $request->getSession();
+          $i = 0;        
 
           if($request->getMethod() == 'POST') {
               $secteurs = array();
@@ -124,23 +124,53 @@ class AnnonceController extends Controller
               if (isset($_POST['cat'])) {
                   $cat = $_POST['cat']; 
               }
+
+              /*  Passage en session des paramètres de recherche */
+              $session->clear();
+              $session->set('nom', $nom);
+              $session->set('secteurs', $secteurs);
+              $session->set('type', $type);
+              $session->set('cat', $cat);
+
+          } else {
+              
+              if ($session->has('nom')) {
+                $nom =  $session->get('nom');
+              } else {
+                $nom = null;
+              }
+              if ($session->has('secteurs')) {
+                $secteurs =  $session->get('secteurs');
+              } else {
+                $secteurs = null;
+              }
+              if ($session->has('type')) {
+                $type =  $session->get('type');
+              } else {
+                $type = null;
+              }
+              if ($session->has('cat')) {
+                $cat =  $session->get('cat');
+              } else {
+                $cat = null;
+              }
+
           }
 
           // On compte le nombre d'annonces à récupérer en fonction des paramètres
-          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->count(array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
+          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->countann(array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
+
 
           // Récupération des annonces
           $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
 
-          /*  ON VA PASSER LES OPTIONS DE RECHERCHE EN SESSION CA SERA PLUS SIMPLE */
-
-
+         
+         
           // Pagination
           $pagination = array(
               'page' => $page,
               'route' => 'afficher_resultat_annonce',
-              'pages_count' => ceil($nbannonces / 21),
-              'route_params' => array('nom' => $nom, 'secteurs[]' => $secteurs, 'type' => $type, 'cat'=> $cat, 'page'=> $page)
+              'pages_count' => ceil($nbannonces[1] / 21)
           );
 
 
@@ -184,7 +214,7 @@ class AnnonceController extends Controller
 
   	public function afficherAnnonceAction($annonce)
   	{
-  	        return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
+            return $this->render('PAAnnonceBundle:Annonce:index.html.twig');
   	}
 
     public function afficherMesAnnoncesAction()
@@ -198,19 +228,51 @@ class AnnonceController extends Controller
         return $this->render('PAAnnonceBundle:Annonce:mesannonces.html.twig', array('annonces'=> $annonces));
     }
 
-  	public function afficherAnnoncesOffreAction()
+  	public function afficherAnnoncesOffreAction($page, Request $request)
   	{
-        $em = $this->getDoctrine()->getManager();
-        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannoncesoffre();
-        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces));
+        $session = $request->getSession();
+        $session->clear();
+        $session->set('type', "offre");
+
+        // On compte le nombre d'annonces à récupérer en fonction des paramètres
+          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->countann(array("an_type"=>"offre")); 
+
+        // Récupération des annonces
+          $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_type"=>"offre")); 
+
+        // Pagination
+          $pagination = array(
+              'page' => $page,
+              'route' => 'afficher_resultat_annonce',
+              'pages_count' => ceil($nbannonces[1] / 21)
+          );
+
+        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination));
   	}
 
-    public function afficherAnnoncesDemandeAction()
+    public function afficherAnnoncesDemandeAction($page, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannoncesdemande();
-        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces));
+        $session = $request->getSession();
+        $session->clear();
+        $session->set('type', "demande");
+
+        // On compte le nombre d'annonces à récupérer en fonction des paramètres
+          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->countann(array("an_type"=>"demande")); 
+
+        // Récupération des annonces
+          $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_type"=>"demande")); 
+
+        // Pagination
+          $pagination = array(
+              'page' => $page,
+              'route' => 'afficher_resultat_annonce',
+              'pages_count' => ceil($nbannonces[1] / 21)
+          );
+          
+        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination));
     }
+      
+
       /* -- Vue autoremplie avec les donnees de l'annonce --- */
       /* ================================================================================ */
       /* ================================================================================ */

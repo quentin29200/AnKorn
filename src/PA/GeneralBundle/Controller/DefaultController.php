@@ -3,16 +3,32 @@
 namespace PA\GeneralBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
 
     /* -- Page d index, d accueil --- */
-    public function afficherIndexAction()
+    public function afficherIndexAction($page, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $annonces = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
-        return $this->render('PAGeneralBundle:Default:index.html.twig', array('annonces'=>$annonces));
+         $session = $request->getSession();
+         $session->clear();
+        // On compte le nombre d'annonces à récupérer en fonction des paramètres
+          $nbannonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->countann(); 
+
+        // Récupération des annonces
+          $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC"); 
+    
+        // Pagination
+          $pagination = array(
+              'page' => $page,
+              'route' => 'afficher_resultat_annonce',
+              'pages_count' => ceil($nbannonces[1] / 21)
+          );
+
+        return $this->render('PAGeneralBundle:Default:index.html.twig', array('annonces'=>$annonces, 'pagination'=>$pagination));
     }
 
     /* -- Page de mon compte --- */

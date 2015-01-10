@@ -80,45 +80,49 @@ class AnnonceRepository extends EntityRepository
      * @param array $options
      * @return integer
      */
-  public function count(array $options = null) {
-        $qb = $this->createQueryBuilder($this->_entityName);
-        $qb->select($qb->expr()->count($this->_entityName));
+  public function countann(array $options = null) {
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('count(a)');
         if ($options != null) {
             foreach ($options as $option => $valeur) {
-                if (!is_null($valeur)) {
+                if (!empty($valeur)) {
                   if ($option == "an_titre") {
-                    $qb->andWhere($this->_entityName . '.' . $option . " LIKE '%" . $valeur . "%'");
+                    $qb->andWhere("a.". $option . " LIKE '%" . $valeur . "%'");
                   } else if ($option == "an_secteur") {
                       foreach ($valeur as $secteur) {
-                         $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $secteur);
+                         $qb->andWhere("a.". $option . ' = ' . $secteur);
                       }
+                  } else if ($option == "an_type") {
+                    $qb->andWhere("a.". $option . " = '" . $valeur . "'"); 
                   } else {
-                    $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $valeur);
+                    $qb->andWhere("a.". $option . ' = ' . $valeur );
                   }
                 }
             }
         }
-        return $qb->getQuery()->getSingleScalarResult();
+        return $qb->getQuery()->getSingleResult();
   }
 
   public function pagination($maxResults, $page = 1, $sort = null, $order = null,array $options = null) {
-        $qb = $this->createQueryBuilder($this->_entityName);
+        $qb = $this->createQueryBuilder('a');
         if ($options != null) {
             foreach ($options as $option => $valeur) {
-                if (!is_null($valeur)) {
+                if (!empty($valeur)) {
                   if ($option == "an_titre") {
-                    $qb->andWhere($this->_entityName . '.' . $option . " LIKE '%" . $valeur . "%'");
+                    $qb->andWhere("a.". $option . " LIKE '%" . $valeur . "%'");
                   } else if ($option == "an_secteur") {
                       foreach ($valeur as $secteur) {
-                         $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $secteur);
+                         $qb->andWhere("a.". $option . ' = ' . $secteur);
                       }
+                  } else if ($option == "an_type") {
+                    $qb->andWhere("a.". $option . " = '" . $valeur . "'"); 
                   } else {
-                    $qb->andWhere($this->_entityName . '.' . $option . ' = ' . $valeur);
+                    $qb->andWhere("a.". $option . ' = ' . $valeur );
                   }
                 }
             }
-        } 
-        if ($sort != null) $qb->orderBy($this->_entityName . '.' . $sort, $order);
+        }
+        if ($sort != null) $qb->orderBy("a.". $sort, $order);
         $query = $qb->getQuery();
         $query->setFirstResult(($page - 1) * $maxResults)
                 ->setMaxResults($maxResults);

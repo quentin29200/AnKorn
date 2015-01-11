@@ -1,7 +1,9 @@
 parameters:
-#    pa_general.example.class: PA\GeneralBundle\Example
+    pa_general.twig.pa_general_extension: PA\GeneralBundle\Twig\PAExtension
 
+# src/PA/GeneralBundle/Resources/config/services.yml
 services:
-#    pa_general.example:
-#        class: %pa_general.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    pa_general.twig.pa_general_extension:
+        class: PA\GeneralBundle\Twig\PAExtension
+        tags:
+            - { name: twig.extension }

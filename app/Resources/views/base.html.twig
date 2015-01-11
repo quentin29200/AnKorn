@@ -82,6 +82,11 @@
                         <li>
                             <a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">{{ 'english_version_title' | trans }}</a>
                         </li>
+                        <li>
+                            <a><form role="form" action="{{ path('afficher_resultat_annonce') }}" method="post" class=""> 
+                                <input id="index_form_text" name="nom" placeholder="{{ 'rechercher_title' | trans }}" type="text" class="form-control" />
+                            </form></a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -97,6 +102,7 @@
                     <div class="col-sm-4">
                         <p><b>Administration</b></p>
                         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            <p><a href="{{ path('pa_general_interface') }}">{{ 'interfaceGestion_title' | trans }}</a></p>
                             <p><a href="{{ path('pa_general_deconnexion') }}">{{ 'footer_deconnexion_title' | trans }}</a></p>
                         {% else %}
                             <p><a href="{{ path('pa_general_connexion') }}">{{ 'footer_connexion_title' | trans }}</a></p>

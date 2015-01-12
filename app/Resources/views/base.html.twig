@@ -33,6 +33,11 @@
                     </button>
                     <a class="navbar-brand" href="{{ path('pa_general_accueil') }}">An Korn</a>
                 </div>
+                <form role="form"action="{{ path('afficher_resultat_annonce') }}" method="post">
+                    <div class="col-md-3" style="margin-top: 0.75%;"> 
+                        <input id="index_form_text" name="nom" placeholder="{{ 'index_form_pH_text' | trans }}" type="text" class="form-control" />
+                    </div>
+                </form>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -79,14 +84,6 @@
                             <a href="{{ path('pa_general_connexion') }}">{{'Mon_compte_disconnected_title' | trans}}</a>
                         </li>
                         {% endif %}
-                        <li>
-                            <a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">{{ 'english_version_title' | trans }}</a>
-                        </li>
-                        <li>
-                            <a><form role="form" action="{{ path('afficher_resultat_annonce') }}" method="post" class=""> 
-                                <input id="index_form_text" name="nom" placeholder="{{ 'rechercher_title' | trans }}" type="text" class="form-control" />
-                            </form></a>
-                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -102,7 +99,9 @@
                     <div class="col-sm-4">
                         <p><b>Administration</b></p>
                         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if is_granted('ROLE_ADMIN') %}
                             <p><a href="{{ path('pa_general_interface') }}">{{ 'interfaceGestion_title' | trans }}</a></p>
+                            {% endif %}
                             <p><a href="{{ path('pa_general_deconnexion') }}">{{ 'footer_deconnexion_title' | trans }}</a></p>
                         {% else %}
                             <p><a href="{{ path('pa_general_connexion') }}">{{ 'footer_connexion_title' | trans }}</a></p>

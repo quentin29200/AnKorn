@@ -29,7 +29,7 @@
 			        </a>
 				    <div class="text-center">
 		        		<h4>{{annonce.antitre}}</h4>
-				        <p>{{ annonce.andescription }}</p> <!-- | truncate(20, false, '...')  a rajouter -->
+				        <p>{{ annonce.andescription | truncate ( 40 ) }}</p>
 				        <b>{{ annonce.anprix }} €</b>
 				        <div class="clear"></div>
                         <ul class="list-inline">

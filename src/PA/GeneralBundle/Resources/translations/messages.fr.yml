@@ -55,6 +55,7 @@ Creer_annonce_title: "Création d'une annonce"
 button_voir_detail: "Voir détail"
 button_edit_ads: "Modifier l'annonce"
 bouton_add_ads: "Ajouter une annonce"
+button_delete_ads: "Supprimer l'annonce"
 
 # ======
 # Offres

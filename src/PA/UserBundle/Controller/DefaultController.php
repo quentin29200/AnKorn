@@ -27,7 +27,7 @@ class DefaultController extends Controller
         // Récupération de l'user
         $user = $em->getRepository('PAUserBundle:User')->find($userid);
         
-        return $this->render('PAUserBundle:User:monCompte.html.twig', array('user' => $user));
+        return $this->render('PAUserBundle:Default:monCompte.html.twig', array('user' => $user));
         	
     }
 }

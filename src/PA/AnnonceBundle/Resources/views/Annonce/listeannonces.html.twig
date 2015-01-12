@@ -16,7 +16,7 @@
 	<div class="row">
 	    <div class="col-lg-12">
 	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
-	        <p>{{ 'fil_ariane_text' | trans }}<a title="Accueil" href="index.php">{{ 'Accueil_title' | trans }}</a></p>
+	        <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('afficher_resultat_annonce') }}">{{ 'Resultats_title' | trans }}</a></p>
 	        <hr />
 	    </div>
 	    {{ include('PAGeneralBundle:Default:rechercher.html.twig') }}

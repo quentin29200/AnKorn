@@ -1,4 +1,4 @@
-{% block title %}{ { annonce.antitre } } | An Korn{% endblock %}
+{% block title %}{{ annonce.antitre }} | An Korn{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %}
 	<!-- Page Content -->
@@ -16,7 +16,7 @@
 	<div class="row">
 		{% if annonce is not empty %}
 		<h2 class="page-header">{{ annonce.antitre }}</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{ { annonce.antitre } }</a></p>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ annonce.antitre }}</a></p>
 		<hr />
 		
 		
@@ -31,18 +31,11 @@
 		<div class="col-md-3">
 			<b>Prix : {{ annonce.anprix }} €</b>
 			<div class="clear"></div>
-			<ul>
-				<li role="presentation">GESTION DE VOTRE ANNONCE</li>
-				{% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuserid )) %}
-				<li>
-					<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
-				</li>
-				<div class="clear"></div>
-				<li>
-					<a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>{{ 'button_delete_ads' | trans }}</a>
-				</li>
-				{% endif %}
-			</ul>
+			{% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user.id == annonce.anuserid )) %}
+			<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
+			<div class="clear"></div>
+			<a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>{{ 'button_delete_ads' | trans }}</a>
+			{% endif %}
 		</div>
 	    {% else %}
 	    {{'no_result_annonces' | trans}}

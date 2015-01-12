@@ -9,6 +9,7 @@ Offres_title: Offres
 Demandes_title: Demandes
 Mes_annonces_title: "Mes annonces"
 Mon_compte_disconnected_title: "Espace perso"
+Mon_Espace_title: "Connexion"
 Mon_compte_connected_title: "Mon compte"
 Mon_compte_espace_title: "Mon espace"
 Mon_compte_panier_title: "Mon panier"
@@ -17,7 +18,8 @@ interfaceGestion_title: "Interface de gestion"
 Inscription_title: "Inscription"
 Liens_title: "Liens"
 english_version_title: "English"
-rechercher_title: "Rechercher"
+Rechercher_title: "Rechercher"
+Resultats_title: "Page des résultats de la recherche"
 
 # ================
 # Titre des slides

@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="clear"></div>
-			<h3>Liste des administrateurs</h3>
+
 			<table class="table table-hover table-bordered table-condensed">
 				<thead>
 					<tr class="info">
@@ -32,29 +32,49 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% if users is not empty %}
-	    			{% for user in users %}
 					<tr>
-						<td>{{user.username}}</td>
-						<td>{{user.username_canonical}}</td>
-						<td>{{user.email}}</td>
-						<td>{% for role in user.roles %}{{role}}{% endfor %}</td>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Protectrice</td>
 						<td align=center>
 							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
-					{% endfor %}
-				    {% else %}
-				    {{'no_result' | trans}}
-				    {% endif %}
+					<tr>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Protectrice</td>
+						<td align=center>
+							<p>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Brigitte</td>
+						<td>Bardot</td>
+						<td>super.brigitte@gg.fr</td>
+						<td>Protectrice</td>
+						<td align=center>
+							<p>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
+							</p>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" title="{{ 'interfaceG_table_title_add_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
 			</form-group>
 		</div>
 
@@ -92,9 +112,9 @@
 						<td>15€</td>
 						<td align=center>
 							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -106,9 +126,9 @@
 						<td>15€</td>
 						<td align=center>
 							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
@@ -120,16 +140,16 @@
 						<td>15€</td>
 						<td align=center>
 							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="{{ 'interfaceG_table_detail_button' | trans }}" role="button"><i class="fa fa-fw fa-info"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="{{ 'interfaceG_table_edit_button' | trans }}" role="button"><i class="fa fa-fw fa-gear"></i></a>
+								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="{{ 'interfaceG_table_delete_button' | trans }}" role="button"><i class="fa fa-fw fa-times"></i></a>
 							</p>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="#" class="btn btn-success btn-sm active" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" title="{{ 'interfaceG_table_title_add_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
 			</form-group>
 		</div>
 

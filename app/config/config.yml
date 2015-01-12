@@ -77,3 +77,8 @@ fos_user:
     registration:
         form:
             type: pa_userbundle_user
+
+# Redimensionnement image annonces
+#thumbnail_filter:
+#     type:    thumbnail
+#     options: { size: [750, 450], mode: outbound }

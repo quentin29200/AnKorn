@@ -16,6 +16,7 @@ interfaceGestion_title: "Interface de gestion"
 Inscription_title: "Inscription"
 Liens_title: "Liens"
 english_version_title: "English"
+rechercher_title: "Rechercher"
 
 # ================
 # Titre des slides
@@ -54,6 +55,7 @@ Creer_annonce_title: "Création d'une annonce"
 button_voir_detail: "Voir détail"
 button_edit_ads: "Modifier l'annonce"
 bouton_add_ads: "Ajouter une annonce"
+button_delete_ads: "Supprimer l'annonce"
 
 # ======
 # Offres
@@ -133,8 +135,10 @@ interfaceG_ads_titre_head: "Titre"
 interfaceG_ads_prix_head: "Prix"
 interfaceG_ads_placeHolder: "ID de l'annonce"
 interfaceG_table_action: "Actions"
-interfaceG_table_edit_button: "Modifier"
-interfaceG_table_delete_button: "Supprimer"
+interfaceG_table_detail_button: "Voir le détail de l'annonce"
+interfaceG_table_edit_button: "Modifier l'annonce"
+interfaceG_table_delete_button: "Supprimer l'annonce"
+interfaceG_table_title_add_button: "Ajouter une nouvelle annonce"
 interfaceG_table_add_button: "Ajouter"
 
 # =====

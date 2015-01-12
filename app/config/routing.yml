@@ -10,6 +10,10 @@ pa_panier:
     resource: "@PAPanierBundle/Resources/config/routing.yml"
     prefix:   /panier/
 
+pa_user:
+    resource: "@PAUserBundle/Resources/config/routing.yml"
+    prefix:   /user/
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix: /

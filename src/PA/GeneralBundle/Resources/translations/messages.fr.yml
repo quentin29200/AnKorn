@@ -2,6 +2,7 @@
 # Nom des liens de la barre de menus du haut
 # ==========================================
 Welcome: "Bienvenue sur An Korn"
+Recherche_title: "Rechercher et appuyer sur Entrée pour valider !"
 Accueil_title: Accueil
 Contact_title: Contact
 Offres_title: Offres
@@ -38,7 +39,7 @@ panel_heading_3_title: "Un espace client"
 panel_heading_3_content: "Des objets vous plaisent et vous souhaitez les garder de côté pour plus tard ? Rajoutez-les à votre panier et revenez dès que vous voulez !"
 panel_heading_btn: "Ça m'intéresse !"
 index_form_text: "Rechercher une annonce :"
-index_form_pH_text: "Nom de l'annonces"
+index_form_pH_text: "Nom de l'annonce"
 index_form_sector: "Secteur :"
 index_form_sector1: "Brest"
 index_form_dept: "Département :"

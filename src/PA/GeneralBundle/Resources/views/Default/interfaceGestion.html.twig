@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="clear"></div>
-
+			<h3>Liste des administrateurs</h3>
 			<table class="table table-hover table-bordered table-condensed">
 				<thead>
 					<tr class="info">
@@ -32,11 +32,13 @@
 					</tr>
 				</thead>
 				<tbody>
+					{% if users is not empty %}
+	    			{% for user in users %}
 					<tr>
-						<td>Brigitte</td>
-						<td>Bardot</td>
-						<td>super.brigitte@gg.fr</td>
-						<td>Looser</td>
+						<td>{{user.username}}</td>
+						<td>{{user.username_canonical}}</td>
+						<td>{{user.email}}</td>
+						<td>{% for role in user.roles %}{{role}}{% endfor %}</td>
 						<td align=center>
 							<p>
 								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
@@ -45,32 +47,10 @@
 							</p>
 						</td>
 					</tr>
-					<tr>
-						<td>Brigitte</td>
-						<td>Bardot</td>
-						<td>super.brigitte@gg.fr</td>
-						<td>Looser</td>
-						<td align=center>
-							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>Brigitte</td>
-						<td>Bardot</td>
-						<td>super.brigitte@gg.fr</td>
-						<td>Looser</td>
-						<td align=center>
-							<p>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-info" title="Voir détail" role="button"><i class="fa fa-fw fa-info"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-primary" title="Modifier l'annonce" role="button"><i class="fa fa-fw fa-gear"></i></a>
-								<a href="{{ path('pa_annonce_detail_annonce') }}" class="btn btn-sm btn-danger" title="Supprimer l'annonce" role="button"><i class="fa fa-fw fa-times"></i></a>
-							</p>
-						</td>
-					</tr>
+					{% endfor %}
+				    {% else %}
+				    {{'no_result' | trans}}
+				    {% endif %}
 				</tbody>
 			</table>
 			<form-group class="pull-right">

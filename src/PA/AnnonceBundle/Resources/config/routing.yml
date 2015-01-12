@@ -33,8 +33,8 @@ pa_annonce_afficher_mesannonces:
     defaults: { _controller: PAAnnonceBundle:Annonce:afficherMesAnnonces }
 
 pa_annonce_detail_annonce:
-    path:     /detail/
-    defaults: { _controller: PAAnnonceBundle:Annonce:afficherDetailAnnonce }
+    path:     /detail/{id}
+    defaults: { _controller: PAAnnonceBundle:Annonce:afficherDetailAnnonce, id:2 }
 
 afficher_resultat_annonce:
     path: /resultat/{page}

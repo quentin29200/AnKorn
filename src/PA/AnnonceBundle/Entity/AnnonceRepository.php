@@ -60,18 +60,18 @@ class AnnonceRepository extends EntityRepository
       ;
   }
 
-  public function recupannonces()
+  public function recupannonce($id)
   {
     $qb = $this->createQueryBuilder('a');
     $qb
         ->where('a.an_dateSupression IS NULL')
-        ->andWhere('a.an_publie = true')
-        ->orderBy('a.an_datePublication', 'DESC')
+        ->andWhere('a.an_id = :annonceid')
+        ->setParameter('annonceid', $id)
       ;
 
       return $qb
         ->getQuery()
-        ->getResult()
+        ->getSingleResult()
       ;
   }
 

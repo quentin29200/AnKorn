@@ -279,10 +279,10 @@ class AnnonceController extends Controller
       /* --- A MODIFIER ! JE NE DOIS RECUPERER QUE L'ANNONCE QUI APPARTIENT AU BOUTON --- */
       /* ================================================================================ */
       /* ================================================================================ */
-    public function afficherDetailAnnonceAction()
+    public function afficherDetailAnnonceAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $annonce = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonces();
+        $annonce = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonce($id);
         return $this->render('PAAnnonceBundle:Annonce:detailAnnonce.html.twig', array('annonce'=>$annonce));
     }
 }

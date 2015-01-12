@@ -76,11 +76,8 @@ class DefaultController extends Controller
     /* --- Page de l'interface administrateur --- */
     public function afficheInterfaceAction()
     {
-   
-        $admins = $this->getDoctrine()->getRepository("PAUserBundle:User")->recupadmins();
-
         // On affiche l'interface de gestion
-        return $this->render('PAGeneralBundle:Default:interfaceGestion.html.twig', array('users'=> $admins));
+        return $this->render('PAGeneralBundle:Default:interfaceGestion.html.twig');
     }
 
 }

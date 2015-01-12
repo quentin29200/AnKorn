@@ -65,9 +65,8 @@ class AnnonceRepository extends EntityRepository
     $qb = $this->createQueryBuilder('a');
     $qb
         ->where('a.an_dateSupression IS NULL')
-        ->andWhere('a.id = :anid')
-        ->setParameter('anid', $id)
-        ->orderBy('a.an_datePublication', 'DESC')
+        ->andWhere('a.an_id = :annonceid')
+        ->setParameter('annonceid', $id)
       ;
 
       return $qb
@@ -75,7 +74,6 @@ class AnnonceRepository extends EntityRepository
         ->getSingleResult()
       ;
   }
-
 
   /**
      * Compte le nombre de lignes 

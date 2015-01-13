@@ -38,6 +38,20 @@
 	        <hr />
 	    </div>
 	    {{ include('PAGeneralBundle:Default:rechercher.html.twig') }}
+	    <!-- Gestion des message flash -->
+		{% for type, messages in app.session.flashBag.all %}
+			{% for message in messages %}
+				{% if type == 'info' %}
+	                <div class="alert alert-success">
+	                    {{ message }}
+	                </div>
+	            {% else %}
+	            	<div class="alert alert-warning">
+	                    {{ message }}
+	                </div>
+	            {% endif %}
+			{% endfor %}
+		{% endfor %}
 	    {% if annonces is not empty %}
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">

@@ -53,22 +53,8 @@
 									<div class="col-md-2">
 										<label>{{ 'index_form_sector' | trans }}</label>
 									</div>
-									<div class="col-md-7">
-										<label for="index_from_cb_1">
-											<input name="sect[]" id="index_from_cb_1" value="Brest" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
-										</label>
-										<label for="index_from_cb_1">
-											<input name="sect[]" id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
-										</label>
-										<label for="index_from_cb_1">
-											<input name="sect[]" id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
-										</label>
-										<label for="index_from_cb_1">
-											<input name="sect[]" id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
-										</label>
-										<label for="index_from_cb_1">
-											<input name="sect[]" id="index_from_cb_1" type="checkbox" /> {{ 'index_form_sector1' | trans }} 
-										</label>
+									<div class="col-md-7" id="form_search_dept">
+										
 									</div>
 								</div>
 							</div>
@@ -99,4 +85,20 @@
 	$(".spoiler-trigger").click(function() {
 		$(this).parent().next().collapse('toggle');
 	});
+	$("#index_form_dept").on('change', function() {
+		var val = $(this).val(); // On récupère le département
+ 		$("#form_search_dept").empty(); // On vide la liste des secteurs
+        if(val != '') {             
+            $.ajax({
+                type: "POST",
+           		url: "{{ path('pa_annonce_secteur') }}", 
+            	data: {'depart': val}, // On envoie au controleur le paramètre département
+                success: function(json) { 
+                    $.each(json, function(index, value) { //On affiche dans la liste la réponse du controleur (JSON)
+                        $("#form_search_dept").append('<label for="index_from_cb_1"><input name="sect[]" value="'+ index +'" type="checkbox" />'+ value +' </label><br/>');
+                    });
+                }
+            });
+        }
+    });
 </script>

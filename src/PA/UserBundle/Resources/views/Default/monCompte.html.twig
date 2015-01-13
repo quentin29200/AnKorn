@@ -20,7 +20,20 @@
 	</div>
 
 	<div class="clear"></div>
-
+	<!-- Gestion des message flash -->
+	{% for type, messages in app.session.flashBag.all %}
+		{% for message in messages %}
+			{% if type == 'info' %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% else %}
+            	<div class="alert alert-warning">
+                    {{ message }}
+                </div>
+            {% endif %}
+		{% endfor %}
+	{% endfor %}
 	<div class="widget">
 		<div class="widget-header">
 			<h3>{{ 'mon_compte_perso_info' | trans }}</h3>

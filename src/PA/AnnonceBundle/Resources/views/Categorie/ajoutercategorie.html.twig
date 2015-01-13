@@ -13,7 +13,7 @@
 
 	<!-- First section -->
 	<div class="row">
-		<h2>Créer une nouvelle categorie</h2>
+		<h2>{{ 'cat_ajouter' | trans }}</h2>
 		<form action="{{path('pa_annonce_ajoutercategorie')}}" id="form_creer_categorie" method="post" {{ form_enctype(form) }}>
 			{{ form_rest(form) }}
 			<div class="form-group">

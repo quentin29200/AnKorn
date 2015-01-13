@@ -1,4 +1,13 @@
-{% block title %}Annonces | An Korn{% endblock %}
+{% block title %}
+	{% set foo = app.request.uri|split('/') %}
+	{% if foo[7] == "offres" %}
+		Offres | An Korn
+	{% elseif foo[7] == "demandes" %}
+		Demandes | An Korn
+	{% else %}
+		Annonces | An Korn
+	{% endif %}
+{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %} 
 	<!-- Page Content -->
@@ -15,8 +24,17 @@
 	<!-- Portfolio Section -->
 	<div class="row">
 	    <div class="col-lg-12">
-	        <h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
-	        <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('afficher_resultat_annonce') }}">{{ 'Resultats_title' | trans }}</a></p>
+			{% set foo = app.request.uri|split('/') %}
+			{% if foo[7] == "offres" %}
+	        	<h2 class="page-header">{{ 'annonces_portofolio_offres_title' | trans }}</h2>
+	        	<p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_offre') }}">{{ 'annonces_portofolio_offres_title' | trans }}</a></p>
+			{% elseif foo[7] == "demandes" %}
+	        	<h2 class="page-header">{{ 'annonces_portofolio_demandes_title' | trans }}</h2>
+	        	<p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_demande') }}">{{ 'annonces_portofolio_demandes_title' | trans }}</a></p>
+			{% else %}
+	        	<h2 class="page-header">{{'annonces_portfolio_title' | trans }}</h2>
+	        	<p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('afficher_resultat_annonce') }}">{{ 'Resultats_title' | trans }}</a></p>
+			{% endif %}
 	        <hr />
 	    </div>
 	    {{ include('PAGeneralBundle:Default:rechercher.html.twig') }}
@@ -38,7 +56,7 @@
                             </li>
                             {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user == annonce.anuser )) %}
 	                        <li>
-	                        	<a href="{{ path('pa_annonce_edit_annonce') }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
+	                        	<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
 	                        </li>
                             {% endif %}
                         </ul>

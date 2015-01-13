@@ -5,9 +5,11 @@ Welcome: "Bienvenue sur An Korn"
 Recherche_title: "Rechercher et appuyer sur Entrée pour valider !"
 Accueil_title: Accueil
 Contact_title: Contact
-Offres_title: Offres
-Demandes_title: Demandes
+Offres_navbarTitle: Offres
+Demandes_navbarTitle: Demandes
 Mes_annonces_title: "Mes annonces"
+Mes_annonces_voir_title: "Voir mes annonces"
+Mes_annonces_addAds_title: "Ajouter une annonce"
 Mon_compte_disconnected_title: "Espace perso"
 Mon_Espace_title: "Connexion"
 Mon_compte_connected_title: "Mon compte"
@@ -53,6 +55,8 @@ index_form_spoiler: "Recherche avancée"
 # Annonces
 # ========
 annonces_portfolio_title: "Les annonces"
+annonces_portofolio_offres_title: "Annonces d'offres"
+annonces_portofolio_demandes_title: "Annonces de demandes"
 no_result_annonces: "Aucun résultat."
 Creer_annonce_title: "Création d'une annonce"
 button_voir_detail: "Voir détail"
@@ -63,12 +67,14 @@ button_delete_ads: "Supprimer l'annonce"
 # ======
 # Offres
 # ======
+Offres_title: "Offre"
 h2_offres_title: "Les offres"
 no_result_offres: "Aucune offre disponible."
 
 # ========
 # Demandes
 # ========
+Demandes_title: "Demande"
 h2_demandes_title: "Les demandes"
 no_result_demandes: "Aucune demande disponible."
 
@@ -103,6 +109,11 @@ mon_compte_pass_text: "Tapez puis confirmez votre mot de passe pour le modifier.
 mon_compte_save_button: "Sauvegarder"
 mon_compte_reset_button: "Réinitialiser"
 
+# ==========
+# Catégories
+# ==========
+cat_ajouter: "Créer une nouvelle catégorie"
+
 # =======================
 # Connexion - Deconnexion
 # =======================
@@ -125,7 +136,7 @@ suscribe_go: "Je m'inscris"
 # Interface de gestion (ADMIN ONLY)
 # =================================
 interfaceG_title: "Interface de gestion administrateur"
-interfaceG_user_title: "utilisateurs"
+interfaceG_user_title: "Utilisateurs"
 interfaceG_search_user: "Rechercher les utilisateurs par identifiant :"
 interfaceG_user_id_head: "ID"
 interfaceG_user_username_head: "Nom d'utilisateur"
@@ -145,7 +156,9 @@ interfaceG_table_action: "Actions"
 interfaceG_table_detail_button: "Voir le détail de l'annonce"
 interfaceG_table_edit_button: "Modifier l'annonce"
 interfaceG_table_delete_button: "Supprimer l'annonce"
-interfaceG_table_title_add_button: "Ajouter une nouvelle annonce"
+interfaceG_table_title_addUser_button: "Ajouter un nouvel utilisateur"
+interfaceG_table_title_addAds_button: "Ajouter une nouvelle annonce"
+interfaceG_table_title_cat_button: "Ajouter une nouvelle catégorie"
 interfaceG_table_add_button: "Ajouter"
 
 # =====

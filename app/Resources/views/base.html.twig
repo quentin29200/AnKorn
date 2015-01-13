@@ -41,19 +41,42 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <!-- ========================= -->
+                        <!-- Item de la page d'accueil -->
+                        <!-- ========================= -->
                         <li>
                             <a href="{{ path('pa_general_accueil') }}">{{'Accueil_title'|trans}}</a>
                         </li>
+                        <!-- ========================== -->
+                        <!-- Item des annonces d'offres -->
+                        <!-- ========================== -->
                         <li>
-                            <a href="{{ path('pa_annonce_afficher_offre') }}">{{'Offres_title'|trans}}</a>
+                            <a href="{{ path('pa_annonce_afficher_offre') }}">{{'Offres_navbarTitle'|trans}}</a>
                         </li>
+                        <!-- ============================= -->
+                        <!-- Item des annonces de demandes -->
+                        <!-- ============================= -->
                         <li>
-                            <a href="{{ path('pa_annonce_afficher_demande') }}">{{'Demandes_title'|trans}}</a>
+                            <a href="{{ path('pa_annonce_afficher_demande') }}">{{'Demandes_navbarTitle'|trans}}</a>
                         </li>
+                        <!-- ========================================== -->
+                        <!-- Item de mes annonces et d'ajout d'annonces -->
+                        <!-- ========================================== -->
                         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                        <li>
-                            <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{'Mes_annonces_title'|trans}}</a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">{{'Mes_annonces_title'|trans}} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('pa_annonce_afficher_mesannonces') }}">{{ 'Mes_annonces_voir_title' | trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('pa_annonce_ajouter') }}">{{ 'Mes_annonces_addAds_title' | trans }}</a>
+                                </li>
+                            </ul>
                         </li>
+                        <!-- =================================================== -->
+                        <!-- Item de connexion et d'interface avec l'utilisateur -->
+                        <!-- =================================================== -->
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">{{ 'Mon_compte_connected_title'|trans}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">

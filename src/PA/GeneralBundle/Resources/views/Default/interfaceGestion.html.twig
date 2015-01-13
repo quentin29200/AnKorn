@@ -10,6 +10,11 @@
 		<!-- Display section -->
 		<h2>{{ 'interfaceG_title' | trans }}</h2>
 		<div class="row">
+			<form-group class="pull-right">
+				<a href="{{ path('pa_annonce_ajoutercategorie') }}" class="btn btn-primary btn-sm active" title="{{ 'interfaceG_table_title_cat_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_title_cat_button' | trans }}</a>
+			</form-group>
+		</div>
+		<div class="row">
 			<h3>{{ 'interfaceG_user_title' | trans }}</h3>
 			<label for="searchUserByIdOrName">{{ 'interfaceG_search_user' | trans }}</label>
 			<div class="input-group">
@@ -74,7 +79,7 @@
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" title="{{ 'interfaceG_table_title_add_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-primary btn-sm active" title="{{ 'interfaceG_table_title_addUser_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_title_addUser_button' | trans }}</a>
 			</form-group>
 		</div>
 
@@ -149,7 +154,7 @@
 				</tbody>
 			</table>
 			<form-group class="pull-right">
-				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-success btn-sm active" title="{{ 'interfaceG_table_title_add_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_add_button' | trans }}</a>
+				<a href="{{ path('pa_annonce_ajouter') }}" class="btn btn-primary btn-sm active" title="{{ 'interfaceG_table_title_addAds_button' | trans }}" role="button"><i class="fa fa-plus"></i> {{ 'interfaceG_table_title_addAds_button' | trans }}</a>
 			</form-group>
 		</div>
 

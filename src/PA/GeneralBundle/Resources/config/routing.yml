@@ -2,10 +2,9 @@ pa_general_accueil:
     path:     /
     defaults: { _controller: PAGeneralBundle:Default:afficherIndex, page: 1 }
 
-pa_general_mon_compte:
+pa_user_mon_compte:
     path:     /mon-compte/
-    defaults: { _controller: PAGeneralBundle:Default:afficherMonCompte }
-
+    defaults: { _controller: PAUserBundle:Default:modifierUser }
 
 pa_general_mon_panier:
     path:     /mon-panier/

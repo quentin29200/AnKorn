@@ -1,4 +1,4 @@
-{% block title %}{{ 'Mon_compte_connected_title' | trans }} | An Korn{% endblock %}
+{% block title %}{{ 'Mon_compte_connected_title' | trans }}{% endblock %}
 {% extends "::base.html.twig" %}
 {% block body %}
 	<!-- Page Content -->
@@ -16,7 +16,7 @@
 	<!-- First section -->
 	<div class="row">
 		<h2>{{ 'mon_compte_welcome' | trans }}</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_user_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a></p>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a></p>
 	</div>
 
 	<div class="clear"></div>
@@ -47,7 +47,7 @@
 									<div class="control-group">											
 										<label class="control-label" for="username">{{ 'mon_compte_username' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control disabled" id="username" placeHolder="{{ user.username }}" disabled>
+											<input type="text" class="form-control disabled" id="username" placeHolder="{{ 'mon_compte_username' | trans }}" disabled>
 											<p class="help-block">{{ 'mon_compte_username_help' | trans }}</p>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
@@ -56,61 +56,45 @@
 									<div class="control-group">											
 										<label class="control-label" for="tel">{{ 'mon_compte_tel' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="tel" placeHolder="{{ user.ustel }}" disabled>
+											<input type="text" class="form-control" id="tel" placeHolder="{{ 'mon_compte_tel' | trans }}" disabled>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
 							</div>
 							<div class="row">
-								<!-- =================== -->
-								<!-- Affichage du prenom -->
-								<!-- =================== -->
 								<div class="col-md-6">
 									<div class="control-group">											
 										<label class="control-label" for="firstname">{{ 'mon_compte_firstname' | trans }}</label>
 										<div class="controls">
-												<input type="text" class="form-control" id="firstname" placeHolder="{{ user.usprenom }}" disabled>
+												<input type="text" class="form-control" id="firstname" placeHolder="{{ 'mon_compte_firstname' | trans }}" disabled>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
-								<!-- ======================== -->
-								<!-- Affichage de la civilite -->
-								<!-- ======================== -->
 								<div class="col-md-6">
 									<div class="control-group">											
 										<label class="control-label" for="civilite">{{ 'mon_compte_civilite' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="civilite" placeHolder="{{ user.uscivilite }}" disabled>
+											<input type="text" class="form-control" id="civilite" placeHolder="{{ 'mon_compte_civilite' | trans }}" disabled>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
 							</div>
-							<!-- ================= -->
-							<!-- Affichage du role -->
-							<!-- ================= -->
 							<div class="row">
 								<div class="col-md-6">
 									<div class="control-group">											
 										<label class="control-label" for="role">{{ 'mon_compte_role' | trans }}</label>
 										<div class="controls">
-											{% if user.roles[0] == "ROLE_ADMIN" %}
-											<input type="text" class="form-control" id="role" placeHolder="Administrateur" disabled>
-											{% elseif user.roles[0] == "ROLE_USER" %}
-											<input type="text" class="form-control" id="role" placeHolder="Utilisateur" disabled>
-											{% endif %}
+											<input type="text" class="form-control" id="role" placeHolder="{{ 'mon_compte_role' | trans }}" disabled>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
 							</div>
-							<!-- ===================== -->
-							<!-- Affichage de l'e-mail -->
-							<!-- ===================== -->
 							<div class="row">
 								<div class="col-md-6">
 									<div class="control-group">											
 										<label class="control-label" for="email">{{ 'mon_compte_email' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="email" placeHolder="{{ user.email }}" disabled>
+											<input type="text" class="form-control" id="email" placeHolder="{{ 'mon_compte_email' | trans }}" disabled>
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
@@ -122,14 +106,6 @@
 						 ===================================================================== -->
 					<div class="tab-pane" id="2">
 						<form id="edit-profile2" class="form-horizontal">
-							<div class="row">
-								<div class="col-md-12">
-									<p class="bg-danger text-center text-warning">
-										<b>{{ 'mon_compte_editMode_warning' | trans }}</b><br />
-  										<a href="mailto:nicolas.gigou@gmail.com">{{ 'mon_compte_editMode_warning_email' | trans }}</a>
-									<p>
-								</div>
-							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<p>{{ 'mon_compte_gen_text' | trans }}</p>
@@ -146,7 +122,7 @@
 									<div class="control-group">
 										<label class="control-label" for="accountpassword">{{ 'mon_compte_pass1' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="accountpassword" placeHolder="{{ 'mon_compte_pass1' | trans }}" disabled>
+											<input type="text" class="form-control" id="accountpassword" placeHolder="{{ 'mon_compte_pass1' | trans }}" readonly>
 										</div> <!-- /controls -->	
 									</div><!-- /control-group -->
 								</div>
@@ -156,7 +132,7 @@
 									<div class="control-group">											
 										<label class="control-label" for="firstname">{{ 'mon_compte_firstname' | trans }}</label>
 										<div class="controls">
-												<input type="text" class="form-control" id="firstname" placeHolder="{{ 'mon_compte_firstname' | trans }}" disabled>
+												<input type="text" class="form-control" id="firstname" placeHolder="{{ 'mon_compte_firstname' | trans }}">
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
@@ -164,7 +140,7 @@
 									<div class="control-group">											
 										<label class="control-label" for="lastname">{{ 'mon_compte_lastname' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="lastname" placeHolder="{{ 'mon_compte_lastname' | trans }}" disabled>
+											<input type="text" class="form-control" id="lastname" placeHolder="{{ 'mon_compte_lastname' | trans }}">
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
@@ -172,7 +148,7 @@
 									<div class="control-group">
 										<label class="control-label" for="accountpassword">{{ 'mon_compte_pass2' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="accountpassword" placeHolder="{{ 'mon_compte_pass2' | trans }}" disabled>
+											<input type="text" class="form-control" id="accountpassword" placeHolder="{{ 'mon_compte_pass2' | trans }}">
 										</div> <!-- /controls -->	
 									</div><!-- /control-group -->
 								</div>
@@ -182,14 +158,14 @@
 									<div class="control-group">											
 										<label class="control-label" for="email">{{ 'mon_compte_email' | trans }}</label>
 										<div class="controls">
-											<input type="text" class="form-control" id="email" placeHolder="{{ 'mon_compte_email' | trans }}" disabled>
+											<input type="text" class="form-control" id="email" placeHolder="{{ 'mon_compte_email' | trans }}">
 										</div> <!-- /controls -->				
 									</div> <!-- /control-group -->
 								</div>
 								<div class="col-md-6">
 									<div class="control-group">
 										<label for="mon_compte_form_civilite">{{ 'mon_compte_civilite' | trans }}</label>
-										<select class="form-control" id="mon_compte_form_civilite" disabled>
+										<select class="form-control" id="mon_compte_form_civilite">
 											<option value="homme">Homme</option>
 											<option value="femme">Femme</option>
 										</select>

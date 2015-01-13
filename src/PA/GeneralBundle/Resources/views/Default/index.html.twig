@@ -81,7 +81,7 @@
 	            </div>
 	            <div class="panel-body">
 	                <p>{{'panel_heading_3_content' | trans}}</p>
-	                <a href="{{ path('pa_general_mon_compte') }}" class="btn btn-default">{{ 'panel_heading_btn' | trans }}</a>
+	                <a href="{{ path('pa_user_mon_compte') }}" class="btn btn-default">{{ 'panel_heading_btn' | trans }}</a>
 	            </div>
 	        </div>
 	    </div>
@@ -115,7 +115,7 @@
 				        <div class="clear"></div>
                         <ul class="list-inline">
                             <li><a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a></li>
-                            {% if is_granted('ROLE_ADMIN') or ((is_granted('ROLE_USER') and ( app.user.id == annonce.anuser ))) %}
+                            {% if is_granted('ROLE_ADMIN') or ((is_granted('ROLE_USER') and ( app.user == annonce.anuser ))) %}
 	                           	<li><a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a></li>
                             {% endif %}
                         </ul>

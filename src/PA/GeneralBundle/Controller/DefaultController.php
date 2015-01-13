@@ -20,7 +20,10 @@ class DefaultController extends Controller
 
         // Récupération des annonces
           $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC"); 
-    
+        
+        // Récupération des catégories
+        $categories = $this->getDoctrine()->getRepository('PAAnnonceBundle:Categorie')->findAll();
+
         // Pagination
           $pagination = array(
               'page' => $page,
@@ -28,7 +31,7 @@ class DefaultController extends Controller
               'pages_count' => ceil($nbannonces[1] / 21)
           );
 
-        return $this->render('PAGeneralBundle:Default:index.html.twig', array('annonces'=>$annonces, 'pagination'=>$pagination));
+        return $this->render('PAGeneralBundle:Default:index.html.twig', array('annonces'=>$annonces, 'pagination'=>$pagination, 'categories'=> $categories));
     }
 
     /* -- Page de mon compte --- */

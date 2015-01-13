@@ -164,7 +164,8 @@ class AnnonceController extends Controller
           // Récupération des annonces
           $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_titre"=>$nom,"an_secteur"=>$secteurs, "an_type"=>$type, "an_categorie"=>$cat)); 
 
-         
+         // Récupération des catégories
+          $categories = $this->affichercategorie();
          
           // Pagination
           $pagination = array(
@@ -175,10 +176,10 @@ class AnnonceController extends Controller
 
 
           if ($annonces != null) {
-             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination));
+             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination, 'categories'=> $categories));
           } else {
              $request->getSession()->getFlashBag()->add('warning','Pas d\'annonces trouvées.');
-             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination));
+             return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig', array('annonces'=> $annonces, 'pagination'=>$pagination, 'categories'=> $categories));
           }
     }
 
@@ -240,6 +241,9 @@ class AnnonceController extends Controller
         // Récupération des annonces
           $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_type"=>"offre")); 
 
+        // Récupération des catégories
+          $categories = $this->affichercategorie();
+
         // Pagination
           $pagination = array(
               'page' => $page,
@@ -247,7 +251,7 @@ class AnnonceController extends Controller
               'pages_count' => ceil($nbannonces[1] / 21)
           );
 
-        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination));
+        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination, 'categories'=> $categories));
   	}
 
     public function afficherAnnoncesDemandeAction($page, Request $request)
@@ -262,6 +266,10 @@ class AnnonceController extends Controller
         // Récupération des annonces
           $annonces = $this->getDoctrine()->getRepository("PAAnnonceBundle:Annonce")->pagination(21, $page, "an_datePublication", "ASC",array("an_type"=>"demande")); 
 
+        // Récupération des catégories
+          $categories = $this->affichercategorie();
+
+
         // Pagination
           $pagination = array(
               'page' => $page,
@@ -269,7 +277,7 @@ class AnnonceController extends Controller
               'pages_count' => ceil($nbannonces[1] / 21)
           );
           
-        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination));
+        return $this->render('PAAnnonceBundle:Annonce:listeannonces.html.twig',array('annonces'=> $annonces, 'pagination'=>$pagination, 'categories'=> $categories));
     }
       
 
@@ -284,5 +292,12 @@ class AnnonceController extends Controller
         $em = $this->getDoctrine()->getManager();
         $annonce = $em->getRepository('PAAnnonceBundle:Annonce')->recupannonce($id);
         return $this->render('PAAnnonceBundle:Annonce:detailAnnonce.html.twig', array('annonce'=>$annonce));
+    }
+
+    public function affichercategorie()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('PAAnnonceBundle:Categorie')->findAll();
+        return $categories;
     }
 }

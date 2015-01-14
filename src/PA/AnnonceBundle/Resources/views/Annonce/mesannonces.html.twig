@@ -49,16 +49,33 @@
 					        <p>{{ annonce.andescription | truncate ( 40 ) }}</p>
 					        <b>{{ annonce.anprix }} €</b>
 					        <div class="clear"></div>
-	                        <ul class="list-inline">
-	                            <li>
-	                            	<a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
-	                            </li>
-	                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user == annonce.anuser )) %}
-		                        <li>
-		                        	<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
-		                        </li>
-	                            {% endif %}
-	                        </ul>
+                        <ul class="list-inline">
+                        	<!-- ====================================== -->
+                        	<!-- Bouton "Voir les détails de l'annonce" -->
+                        	<!-- ====================================== -->
+                            <li>
+                            	<a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-primary" role="button"><i class="fa fa-fw fa-info"></i>{{ 'button_voir_detail' | trans }}</a>
+                            </li>
+                        	<!-- ==================================================== -->
+                            <!-- Bouton "Ajouter l'annonce au panier de l'utilisateur -->
+                        	<!-- ==================================================== -->
+                            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            <li>
+                            	<p>L'item en dessous sera a modifié par un bouton de suppression. La route correspond à l'ajout de l'annonce au panier, pas à sa suppression.</p>
+                            </li>
+                            <li>
+                            	<a href="{{ path('pa_panier_ajouterannonce', {'id': annonce.anid}) }}" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>Supprimer</a>
+                            </li>
+                            {% endif %}
+                        	<!-- ===================================================================================== -->
+                            <!-- Bouton "Modifier l'annonce sélectionnée si je suis admin ou le créateur de l'annonce" -->
+                        	<!-- ===================================================================================== -->
+                            {% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user == annonce.anuser )) %}
+	                        <li>
+	                        	<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
+	                        </li>
+                            {% endif %}
+                        </ul>
 					    </div>
 					</div>
 				</div>

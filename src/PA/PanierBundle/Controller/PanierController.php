@@ -3,6 +3,7 @@
 namespace PA\PanierBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 use PA\AnnonceBundle\Entity\Annonce;
 use PA\PanierBundle\Entity\Panier;
@@ -29,7 +30,7 @@ class PanierController extends Controller
 
     }
 
-    public function ajouterAnnonceAction($id) {
+    public function ajouterAnnonceAction(Request $request, $id) {
     	/* EntityManager */
     	$em = $this->getDoctrine()->getManager();
 
@@ -43,14 +44,25 @@ class PanierController extends Controller
 
     	/* On met à jour la BDD */
     	$em->flush();
-    	return $this->render('PAGeneralBundle:Default:vide.html.twig');
+        $request->getSession()->getFlashBag()->add('info','Annonce ajoutée au panier');
+    	return $this->render('PAPanierBundle:Panier:index.html.twig', array('panier' => $monpanier));
     }
 
-    public function retirerAnnonceAction($id) {
-    	
-    }
+    public function retirerAnnonceAction(Request $request, $id) {
+    	/* EntityManager */
+        $em = $this->getDoctrine()->getManager();
 
-    public function viderPanierAction($id) {
-    	
+        /* Récupération des informations */
+        $utilisateur = $this->container->get('security.context')->getToken()->getUser()->getId();
+        $annonce = $em->getRepository('PAAnnonceBundle:Annonce')->find($id);
+        $monpanier = $em->getRepository('PAPanierBundle:Panier')->recupmonpanier($utilisateur);
+
+        /* On ajoute l'annonce dans le pannier */
+        $monpanier->removePaAnnonce($annonce);
+
+        /* On met à jour la BDD */
+        $em->flush();
+        $request->getSession()->getFlashBag()->add('info','Annonce retirée du panier');
+        return $this->render('PAPanierBundle:Panier:index.html.twig', array('panier' => $monpanier));
     }
 }

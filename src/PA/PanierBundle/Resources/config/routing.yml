@@ -4,6 +4,10 @@ pa_panier_ajouterannonce:
     path:     /espacemembre/ajouterannonce/{id}
     defaults: { _controller: PAPanierBundle:Panier:ajouterAnnonce }
 
+pa_panier_retirerannonce:
+    path:     /espacemembre/retirerannonce/{id}
+    defaults: { _controller: PAPanierBundle:Panier:retirerAnnonce }
+
 pa_panier_afficher:
     path:     /espacemembre/monpanier
     defaults: { _controller: PAPanierBundle:Panier:afficherPanier }

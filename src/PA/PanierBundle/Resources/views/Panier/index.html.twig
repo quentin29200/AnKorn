@@ -15,7 +15,21 @@
 	<!-- First section -->
 	<div class="row">
 		<h2>{{ 'panier_welcome' | trans }}</h2>
-	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a> >> <a href="{{ path('pa_general_mon_panier') }}">{{ 'Mon_compte_panier_title' | trans }}</a></p>
+	    <p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="{{ path('pa_general_accueil') }}">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_user_mon_compte') }}">{{ 'Mon_compte_connected_title' | trans }}</a> >> <a href="{{ path('pa_panier_afficher') }}">{{ 'Mon_compte_panier_title' | trans }}</a></p>
+	     <!-- Gestion des message flash -->
+		{% for type, messages in app.session.flashBag.all %}
+			{% for message in messages %}
+				{% if type == 'info' %}
+	                <div class="alert alert-success">
+	                    {{ message }}
+	                </div>
+	            {% else %}
+	            	<div class="alert alert-warning">
+	                    {{ message }}
+	                </div>
+	            {% endif %}
+			{% endfor %}
+		{% endfor %}
 	    {% if panier is not empty %}
 			<p>Contenu de mon panier :</p>
 		    {% for annonce in panier.paannonces %}

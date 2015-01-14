@@ -74,7 +74,7 @@
                         	<!-- ==================================================== -->
                             <!-- Bouton "Ajouter l'annonce au panier de l'utilisateur -->
                         	<!-- ==================================================== -->
-                            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') and ( app.user != annonce.anuser )) %}
+                            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') and ( app.user != annonce.anuser ) %}
 	                            {% if annonce.antype == "offre" %}
 	                            <li>
 	                            	<a href="{{ path('pa_panier_ajouterannonce', {'id': annonce.anid}) }}" class="btn btn-success" role="button"><i class="fa fa-fw fa-plus"></i>{{ 'button_addAds_to_pan' | trans }}</a>

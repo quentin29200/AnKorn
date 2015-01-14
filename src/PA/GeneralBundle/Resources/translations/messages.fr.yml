@@ -83,6 +83,7 @@ no_result_demandes: "Aucune demande disponible."
 # Panier
 # ======
 panier_welcome: "Bienvenue sur la page de votre panier."
+panier_button_delete: "Supprimer"
 
 # ==========
 # Mon compte

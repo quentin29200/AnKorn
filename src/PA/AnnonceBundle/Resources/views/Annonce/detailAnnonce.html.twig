@@ -32,7 +32,7 @@
 			{% if is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and ( app.user == annonce.anuser )) %}
 			<a href="{{ path('pa_annonce_modifier', {'id': annonce.anid}) }}" class="btn btn-warning" role="button"><i class="fa fa-fw fa-gear"></i>{{ 'button_edit_ads' | trans }}</a>
 			<div class="clear"></div>
-			<a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>{{ 'button_delete_ads' | trans }}</a>
+			<a href="{{ path('pa_annonce_supprimer', {'id': annonce.anid}) }}" class="btn btn-danger" role="button"><i class="fa fa-fw fa-times"></i>{{ 'button_delete_ads' | trans }}</a>
 			{% endif %}
 			<h5><b>Contact : {{ annonce.anuser.email }}</b></h5>
 		</div>

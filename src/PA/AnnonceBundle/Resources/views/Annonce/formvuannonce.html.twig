@@ -28,6 +28,9 @@
 		{% else %}
 			{{ 'Modifier_annonce_title' | trans }}
 		{% endif %}</a></p>
+		<div class="alert alert-warning">
+	         <p>Secteur non opérationnel, veuillez ne pas choisir un département et sélectionner "Veuillez choisir un département" dans le champs secteur</p>
+	    </div>
 		<form action="{{route}}" id="form_creer_annonce" method="post" {{ form_enctype(form) }}>
 			{{ form_rest(form) }}
 			<div class="form-group">

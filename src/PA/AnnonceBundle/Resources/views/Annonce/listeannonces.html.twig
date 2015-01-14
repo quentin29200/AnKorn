@@ -1,8 +1,8 @@
 {% block title %}
 	{% set foo = app.request.uri|split('/') %}
-	{% if foo[7] == "offres" %}
+	{% if foo[4] == "offres" %}
 		Offres | An Korn
-	{% elseif foo[7] == "demandes" %}
+	{% elseif foo[4] == "demandes" %}
 		Demandes | An Korn
 	{% else %}
 		Annonces | An Korn
@@ -25,10 +25,10 @@
 	<div class="row">
 	    <div class="col-lg-12">
 			{% set foo = app.request.uri|split('/') %}
-			{% if foo[7] == "offres" %}
+			{% if foo[4] == "offres" %}
 	        	<h2 class="page-header">{{ 'annonces_portofolio_offres_title' | trans }}</h2>
 	        	<p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_offre') }}">{{ 'annonces_portofolio_offres_title' | trans }}</a></p>
-			{% elseif foo[7] == "demandes" %}
+			{% elseif foo[4] == "demandes" %}
 	        	<h2 class="page-header">{{ 'annonces_portofolio_demandes_title' | trans }}</h2>
 	        	<p>{{ 'fil_ariane_text' | trans }}<a title="{{ 'Accueil_title' | trans }}" href="index.php">{{ 'Accueil_title' | trans }}</a> >> <a href="{{ path('pa_annonce_afficher_demande') }}">{{ 'annonces_portofolio_demandes_title' | trans }}</a></p>
 			{% else %}

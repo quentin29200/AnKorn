@@ -112,7 +112,7 @@
 	    {% for annonce in annonces %}
 		    <div class="col-md-4 col-sm-6">
 		        <div class="thumbnail">
-			        <a href="{{ path('pa_annonce_detail_annonce') }}">
+			        <a href="{{ path('pa_annonce_detail_annonce', {'id': annonce.anid}) }}">
 			            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="" width="750px" height="450px" ><!-- width="750px" height="450px"-->
 			        </a>
 				    <div class="text-center">

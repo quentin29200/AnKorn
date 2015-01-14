@@ -55,13 +55,13 @@ class DefaultController extends Controller
     /* --- Page de connexion --- */
     public function connexionAction()
     {
-        return $this->redirect('/anKorn/web/app_dev.php/login');
+        return $this->redirect('/ankorn/web/app_dev.php/login');
     }
 
     /* --- Page d'inscription --- */
     public function afficheInscriptionAction()
     {
-       return $this->redirect('/anKorn/web/app_dev.php/register/');
+       return $this->redirect('/ankorn/web/app_dev.php/register/');
     }
 
     /* --- Page des liens --- */
@@ -73,7 +73,7 @@ class DefaultController extends Controller
     /* --- Page de deconnexion --- */
     public function deconnexionAction()
     {
-        return $this->redirect('/anKorn/web/app_dev.php/logout');
+        return $this->redirect('/ankorn/web/app_dev.php/logout');
     }
 
     /* --- Page de l'interface administrateur --- */

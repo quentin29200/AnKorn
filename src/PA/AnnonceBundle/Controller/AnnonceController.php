@@ -108,7 +108,7 @@ class AnnonceController extends Controller
               $request->getSession()->getFlashBag()->add('info','Votre annonce a bien été supprimée.');
               return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
           } else {
-              $request->getSession()->getFlashBag()->add('warning','Vous n\'êtes pas autorisé à modifier cette annonce');
+              $request->getSession()->getFlashBag()->add('warning','Vous n\'êtes pas autorisé à supprimer cette annonce');
               return $this->redirect($this->generateUrl('pa_annonce_afficher_mesannonces'));
           } 
   	}

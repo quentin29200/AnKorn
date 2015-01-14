@@ -12,7 +12,7 @@ pa_annonce_modifier:
     path:     /espacemembre/modifier/{id}
     defaults: { _controller: PAAnnonceBundle:Annonce:modifierAnnonce }
 
-pa_annonce_modifier:
+pa_annonce_supprimer:
     path:     /espacemembre/supprimer/{id}
     defaults: { _controller: PAAnnonceBundle:Annonce:supprimerAnnonce }
 

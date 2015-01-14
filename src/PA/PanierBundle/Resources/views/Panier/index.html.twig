@@ -38,10 +38,10 @@
 				        <div class="thumbnail">
 				        	<h4>{{annonce.antitre}}</h4>
 					        <a href="portfolio-item.html">
-					            <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+					            <img class="img-responsive img-portfolio img-hover" src="{{ annonce.animage }}" alt="">
 					        </a>
 						    <div class="caption">
-						        {{ annonce.andescription }}
+						        {{ annonce.andescription | truncate ( 40 ) }}
 						        <b>{{ annonce.anprix }} €</b>
 						        <div class="clear"></diV>
 		                        <ul class="list-inline">

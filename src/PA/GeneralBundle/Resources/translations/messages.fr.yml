@@ -63,7 +63,8 @@ button_voir_detail: "Voir détail"
 button_addAds_to_pan: "Panier"
 button_edit_ads: "Modifier"
 bouton_add_ads: "Ajouter une annonce"
-button_delete_ads: "Supprimer l'annonce"
+button_delete_ads: "Supprimer"
+Modifier_annonce_title: "Modification de l'annonce"
 
 # ======
 # Offres

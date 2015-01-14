@@ -4,6 +4,7 @@ namespace PA\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use PA\PanierBundle\Entity\Panier as Panier;
 
 /**
  * @ORM\Entity
@@ -48,10 +49,18 @@ class User extends BaseUser
     private $us_tel;
 
 
+    /**
+     * @ORM\OneToOne(targetEntity="PA\PanierBundle\Entity\Panier", cascade={"persist"})
+     */
+    private $us_panier;
+
+
     public function __construct()
     {
         parent::__construct();
         $this->roles = array("ROLE_USER");
+        $this->us_panier = new Panier();
+        $pauser = $this->us_panier->setPaUser($this);
     }
 
     /**

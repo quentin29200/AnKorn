@@ -56,7 +56,7 @@ class Panier
      */
     public function setPaUser($paUser)
     {
-        $this->paUser = $paUser;
+        $this->pauser = $paUser;
 
         return $this;
     }

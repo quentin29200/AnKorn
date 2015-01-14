@@ -47,13 +47,6 @@ class Annonce
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="an_date_supression", type="datetime", nullable=true)
-     */
-    private $an_dateSupression;
-
-    /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="an_date_acquisition", type="datetime", nullable=true)
      */
     private $an_dateAcquisition;
@@ -64,6 +57,13 @@ class Annonce
      * @ORM\Column(name="an_publie", type="boolean")
      */
     private $an_publie;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="an_supprimer", type="boolean")
+     */
+    private $an_supprimer;
 
     /**
      * @var string
@@ -119,6 +119,7 @@ class Annonce
     public function __construct()
     {
         $this->an_datePublication = new \Datetime();
+        $this->setAnSupprimer(false);
     }
 
     /**
@@ -201,29 +202,6 @@ class Annonce
     }
 
     /**
-     * Set an_dateSupression
-     *
-     * @param \DateTime $anDateSupression
-     * @return Annonce
-     */
-    public function setAnDateSupression($anDateSupression)
-    {
-        $this->an_dateSupression = $anDateSupression;
-
-        return $this;
-    }
-
-    /**
-     * Get an_dateSupression
-     *
-     * @return \DateTime 
-     */
-    public function getAnDateSupression()
-    {
-        return $this->an_dateSupression;
-    }
-
-    /**
      * Set an_dateAcquisition
      *
      * @param \DateTime $anDateAcquisition
@@ -267,6 +245,29 @@ class Annonce
     public function getAnPublie()
     {
         return $this->an_publie;
+    }
+
+    /**
+     * Set an_supprimer
+     *
+     * @param boolean $anPublie
+     * @return Annonce
+     */
+    public function setAnSupprimer($anSupprimer)
+    {
+        $this->an_supprimer = $anSupprimer;
+
+        return $this;
+    }
+
+    /**
+     * Get an_supprimer
+     *
+     * @return boolean 
+     */
+    public function getAnSupprimer()
+    {
+        return $this->an_supprimer;
     }
 
     /**

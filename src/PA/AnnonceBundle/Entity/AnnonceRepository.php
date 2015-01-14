@@ -17,7 +17,7 @@ class AnnonceRepository extends EntityRepository
 	{
 		$qb = $this->createQueryBuilder('a');
  		$qb
-   			->where('a.an_dateSupression IS NULL')
+   			->where('a.an_supprimer = false')
         ->andWhere('a.an_publie = true')
         ->andWhere("a.an_type = 'offre'")
     		->orderBy('a.an_datePublication', 'DESC')
@@ -32,7 +32,7 @@ class AnnonceRepository extends EntityRepository
   {
     $qb = $this->createQueryBuilder('a');
     $qb
-        ->where('a.an_dateSupression IS NULL')
+        ->where('a.an_supprimer = false')
         ->andWhere('a.an_publie = true')
         ->andWhere("a.an_type = 'demande'")
         ->orderBy('a.an_datePublication', 'DESC')
@@ -48,7 +48,7 @@ class AnnonceRepository extends EntityRepository
   {
     $qb = $this->createQueryBuilder('a');
     $qb
-        ->where('a.an_dateSupression IS NULL')
+        ->where('a.an_supprimer = false')
         ->andWhere('a.an_user = :user')
         ->setParameter('user', $id)
         ->orderBy('a.an_datePublication', 'DESC')
@@ -64,7 +64,7 @@ class AnnonceRepository extends EntityRepository
   {
     $qb = $this->createQueryBuilder('a');
     $qb
-        ->where('a.an_dateSupression IS NULL')
+        ->where('a.an_supprimer = false')
         ->andWhere('a.an_id = :annonceid')
         ->setParameter('annonceid', $id)
       ;
@@ -82,7 +82,8 @@ class AnnonceRepository extends EntityRepository
      */
   public function countann(array $options = null) {
         $qb = $this->createQueryBuilder('a');
-        $qb->select('count(a)');
+        $qb->select('count(a)')
+        ->where('a.an_supprimer = false');
         if ($options != null) {
             foreach ($options as $option => $valeur) {
                 if (!empty($valeur)) {
@@ -105,6 +106,7 @@ class AnnonceRepository extends EntityRepository
 
   public function pagination($maxResults, $page = 1, $sort = null, $order = null,array $options = null) {
         $qb = $this->createQueryBuilder('a');
+         $qb->where('a.an_supprimer = false');
         if ($options != null) {
             foreach ($options as $option => $valeur) {
                 if (!empty($valeur)) {
@@ -128,49 +130,4 @@ class AnnonceRepository extends EntityRepository
                 ->setMaxResults($maxResults);
         return $query->getResult();
   }
-
-  /*public function searchannonces($page, $nom, $sect, $type, $cat)
-  {
-    $qbnom = '';
-    $qbsect = '';
-    $qbtype = '';
-    $qbcat = '';
-
-    $qbtotal = 'a.an_dateSupression IS NULL AND a.an_publie = true';
-
-    if (!is_null($nom)) {
-           $qbtotal .= " AND a.an_titre LIKE '%".$nom."%'";
-    }
-
-    if (!empty($sect)) {
-            $first = true;
-            foreach ($sect as $secteur) {
-                if ($first) {
-                    $qbtotal .= ' AND ';
-                    $first = false;
-                } else {
-                     $qbtotal .= ' OR ';
-                }
-                   $qbtotal .= " a.an_secteur = '" .$secteur."'";
-            }
-    }
-
-    if (!is_null($type)) {
-           $qbtotal .= " AND a.an_type = '" .$type."'"; 
-    }
-    if (!is_null($cat)) {
-           $qbtotal .= ' AND a.an_categorie = ' .$cat;
-    }
-
-    $qb = $this->createQueryBuilder('a');
-    $qb
-        ->select('a')
-        ->where($qbtotal)
-        ->orderBy('a.an_datePublication', 'DESC')
-        ->setFirstResult(($page-1) * 21)
-        ->setMaxResults(21)
-      ;
- 
-    return new Paginator($qb);
-  }*/
 }

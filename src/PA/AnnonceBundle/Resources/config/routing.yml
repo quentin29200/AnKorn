@@ -12,6 +12,10 @@ pa_annonce_modifier:
     path:     /espacemembre/modifier/{id}
     defaults: { _controller: PAAnnonceBundle:Annonce:modifierAnnonce }
 
+pa_annonce_modifier:
+    path:     /espacemembre/supprimer/{id}
+    defaults: { _controller: PAAnnonceBundle:Annonce:supprimerAnnonce }
+
 pa_annonce_secteur:
     path:     /choixdepartement
     defaults: { _controller: PAAnnonceBundle:Annonce:affSecteur }
